@@ -26,12 +26,17 @@ namespace BTL_WebNC
             getGenreCommand.CommandType = CommandType.Text;
             getGenreCommand.CommandText = "SELECT DISTINCT Genre FROM Books";
 
+            
             adapter.Fill(dt1);
             categoryList.DataSource = dt1;
             categoryList.DataTextField = "Genre";
             categoryList.DataValueField = "Genre";
             categoryList.DataBind();
-            categoryList.Items.Add("All");
+            if (categoryList.Items.FindByText("All") == null)
+            {
+                categoryList.Items.Add("All");
+            }
+            categoryList.SelectedValue = "All";
 
             // Get all books
             SqlCommand getProductCommand = cnn.CreateCommand();

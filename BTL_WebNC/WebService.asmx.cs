@@ -16,9 +16,7 @@ namespace BTL_WebNC
     /// <summary>
     /// Summary description for WebService
     /// </summary>
-    [WebService(Namespace = "http://tempuri.org/")]
-    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
-    [System.ComponentModel.ToolboxItem(false)]
+    /// 
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     // [System.Web.Script.Services.ScriptService]
     public class WebService : System.Web.Services.WebService
@@ -26,7 +24,8 @@ namespace BTL_WebNC
         SqlConnection cnn = new SqlConnection(StaticValues.MINH_connectionString);
 
         [WebMethod]
-        public void GetBooks()
+        [ScriptMethod(UseHttpGet = true)]
+        public void GetBooks(string genre)
         {
             List<Books> bookList = new List<Books>();
 
@@ -34,14 +33,14 @@ namespace BTL_WebNC
             SqlCommand cmd = cnn.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "SELECT * FROM Books";
-            /* if (genre == "All")
+            if (genre == "All")
             {
                 cmd.CommandText = "SELECT * FROM Books";
             }
             else
             {
                 cmd.CommandText = $"SELECT * FROM Books WHERE Genre = '{genre}'";
-            } */
+            }
 
             SqlDataReader reader = cmd.ExecuteReader();
 

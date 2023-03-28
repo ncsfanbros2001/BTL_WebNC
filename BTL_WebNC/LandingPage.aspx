@@ -9,17 +9,17 @@
     <script src="Bootstrap5/bootstrap.bundle.js" type="text/javascript"></script>
     <link rel="stylesheet" href="Bootstrap5/bootstrap-icons-1.10.3/bootstrap-icons.css" type="text/css" />
     <script type="text/javascript">
-        function getCategory() {
+        function getBookByCategory() {
             var select = document.getElementById('categoryList');
             var value = select.options[select.selectedIndex].value;
             var url = 'https://localhost:44374/WebService.asmx/GetBooks';
 
-            /* if (value != 'All') {
+            if (value != 'All') {
                 url += '?genre=' + value;
-            } */
+            }
             
             const xhttp = new XMLHttpRequest();
-            xhttp.open("POST", url, true);
+            xhttp.open("GET", url, true);
             xhttp.send();
 
             xhttp.onreadystatechange = function () {
@@ -112,7 +112,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 d-flex justify-content-end align-items-center">
-                            <asp:DropDownList ID="categoryList" runat="server" onchange="getCategory()">
+                            <asp:DropDownList ID="categoryList" runat="server" onchange="getBookByCategory()">
 
                             </asp:DropDownList>
                         </div>
