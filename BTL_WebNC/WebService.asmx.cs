@@ -25,7 +25,7 @@ namespace BTL_WebNC
 
         [WebMethod]
         [ScriptMethod(UseHttpGet = true)]
-        public void GetBooks(string genre)
+        public void GetBooks(string genre, string title)
         {
             List<Books> bookList = new List<Books>();
 
@@ -33,13 +33,21 @@ namespace BTL_WebNC
             SqlCommand cmd = cnn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            if (genre == "All")
+            if (genre == "All" && title == "")
             {
                 cmd.CommandText = "SELECT * FROM Books";
             }
-            else
+            else if (genre != "All" && title == "")
             {
                 cmd.CommandText = $"SELECT * FROM Books WHERE Genre = '{genre}'";
+            }
+            else if (genre == "All" && title != "")
+            {
+                cmd.CommandText = $"SELECT * FROM Books WHERE Title LIKE '%{title}%'";
+            }
+            else if (genre != "All" && title != "")
+            {
+                cmd.CommandText = $"SELECT * FROM Books WHERE Genre = '{genre}' AND Title LIKE '%{title}%'";
             }
 
             SqlDataReader reader = cmd.ExecuteReader();
