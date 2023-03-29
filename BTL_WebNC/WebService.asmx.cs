@@ -32,7 +32,7 @@ namespace BTL_WebNC
             cnn.Open();
             SqlCommand cmd = cnn.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT * FROM Books";
+
             if (genre == "All")
             {
                 cmd.CommandText = "SELECT * FROM Books";

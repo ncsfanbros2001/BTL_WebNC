@@ -38,17 +38,6 @@ namespace BTL_WebNC
             }
             categoryList.SelectedValue = "All";
 
-            // Get all books
-            SqlCommand getProductCommand = cnn.CreateCommand();
-            DataTable dt2 = new DataTable();
-            SqlDataAdapter adapter2 = new SqlDataAdapter(getProductCommand);
-
-            getProductCommand.CommandType = CommandType.Text;
-            getProductCommand.CommandText = "SELECT * FROM Books";
-            adapter2.Fill(dt2);
-            productList.DataSource = dt2;
-            productList.DataBind();
-
             cnn.Close();
         }
     }

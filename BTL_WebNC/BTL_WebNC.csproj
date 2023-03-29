@@ -2031,8 +2031,10 @@
     <Content Include="images\Book1.jpg" />
     <Content Include="images\Book3.jpg" />
     <Content Include="images\Books.jpg" />
+    <Content Include="images\CleanCode.jpg" />
     <Content Include="images\DarkNhanTam.jpg" />
     <Content Include="images\TheBigNine.jpg" />
+    <Content Include="images\TheWorldIsFlat.jpg" />
     <Content Include="LandingPage.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Web.config" />

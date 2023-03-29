@@ -9,14 +9,10 @@
     <script src="Bootstrap5/bootstrap.bundle.js" type="text/javascript"></script>
     <link rel="stylesheet" href="Bootstrap5/bootstrap-icons-1.10.3/bootstrap-icons.css" type="text/css" />
     <script type="text/javascript">
-        function getBookByCategory() {
+        function getBookByGenre() {
             var select = document.getElementById('categoryList');
             var value = select.options[select.selectedIndex].value;
-            var url = 'https://localhost:44374/WebService.asmx/GetBooks';
-
-            if (value != 'All') {
-                url += '?genre=' + value;
-            }
+            var url = 'https://localhost:44374/WebService.asmx/GetBooks?genre=' + value;
             
             const xhttp = new XMLHttpRequest();
             xhttp.open("GET", url, true);
@@ -26,14 +22,43 @@
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
                     // return success
                     const books = JSON.parse(xhttp.responseText);
-                    console.log(books);
+                    let bookCardCode = '';
+                    for (let book of books) {
+                        bookCardCode += `<div class="row p-2 bg-white border rounded mt-2">`;
+                        bookCardCode += `<div class="col-md-3 mt-1">
+                            <img class="img-fluid img-responsive rounded product-image"
+                                src="` + book.ImageLink + `" />
+                        </div>`;
+                        bookCardCode += `<div class="col-md-6 mt-1">
+                            <h2>` + book.Title +`</h2>
+                            <div class="mt-1 mb-1 spec-1">
+                                <span class="dot"></span><span>Author: ` + book.Author + `</span>
+                            </div>
+                            <div class="mt-1 mb-1 spec-1">
+                                <span class="dot"></span><span>Genre: ` + book.Genre + `</span>
+                            </div>
+                        </div>`;
+                        bookCardCode += `<div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                            <div class="d-flex flex-row align-items-center">
+                                <h2 class="mr-1">$` + book.Price +`</h2>
+                            </div>
+                            <div class="d-flex flex-column mt-4">
+                                <button class="btn btn-warning btn-sm" type="button">
+                                    <i class="bi bi-info-square"></i>&nbsp; Details</button>
+                                <button class="btn btn-dark btn-sm mt-2" type="button">
+                                    <i class="bi bi-cart"></i>&nbsp; Add to cart</button>
+                            </div>
+                        </div>`
+                        bookCardCode += `</div>`;
+                    }
+                    document.getElementById('productCard').innerHTML = bookCardCode;
                 }
             }
         }
     </script>
     <link rel="stylesheet" href="Bootstrap5/style.css" type="text/css" />
 </head>
-<body>
+<body onload="getBookByGenre()">
     <form id="landingPage" runat="server">
         <header class="p-3 text-bg-dark bg-dark fixed-top">
             <div class="container">
@@ -112,44 +137,14 @@
                             </div>
                         </div>
                         <div class="col-md-6 d-flex justify-content-end align-items-center">
-                            <asp:DropDownList ID="categoryList" runat="server" onchange="getBookByCategory()">
+                            <label for="categoryList">Search By Genre: </label>
+                            <asp:DropDownList ID="categoryList" runat="server" onchange="getBookByGenre()">
 
                             </asp:DropDownList>
                         </div>
                     </div>
 
-                    <asp:Repeater ID="productList" runat="server">
-                        <ItemTemplate>
-                            <div class="row p-2 bg-white border rounded mt-2">
-                                <div class="col-md-3 mt-1">
-                                    <img class="img-fluid img-responsive rounded product-image"
-                                        src="<%#Eval("ImageLink") %>" />
-                                </div>
-                                <div class="col-md-6 mt-1">
-                                    <h2><%#Eval("Title") %></h2>
-
-                                    <div class="mt-1 mb-1 spec-1">
-                                        <span class="dot"></span><span>Author: <%#Eval("Author") %></span>
-                                    </div>
-                                    <div class="mt-1 mb-1 spec-1">
-                                        <span class="dot"></span><span>Genre: <%#Eval("Genre") %></span>
-                                    </div>
-                                </div>
-                                <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                                    <div class="d-flex flex-row align-items-center">
-                                        <h2 class="mr-1">$<%#Eval("Price") %></h2>
-                                    </div>
-                                    <input type="hidden" id="bookID" value="<%# Eval("ID") %>" />
-                                    <div class="d-flex flex-column mt-4">
-                                        <button class="btn btn-warning btn-sm" type="button">
-                                            <i class="bi bi-info-square"></i>&nbsp; Details</button>
-                                        <button class="btn btn-dark btn-sm mt-2" type="button">
-                                            <i class="bi bi-cart"></i>&nbsp; Add to cart</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </ItemTemplate>
-                    </asp:Repeater>
+                    <div id="productCard"></div>
                 </div>
             </div>
         </div>
