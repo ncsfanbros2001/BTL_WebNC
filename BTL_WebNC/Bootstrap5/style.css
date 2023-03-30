@@ -100,3 +100,8 @@ h5 {
 .para {
     font-size: 16px
 }
+
+.searchBTN:focus, .searchBTN:active, #searchInput:focus, #searchInput:active {
+    box-shadow: none !important;
+    outline: 0px !important;
+}

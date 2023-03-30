@@ -80,8 +80,7 @@
                     </ul>
 
                     <div class="text-end">
-                        <button type="button" class="btn btn-light"
-                            onclick="window.location='Login.aspx'">
+                        <button type="button" class="btn btn-light" onclick="window.location='Login.aspx'">
                             Log In</button>
                         <button type="button" class="btn btn-warning">Sign Up</button>
                     </div>
@@ -135,18 +134,18 @@
                         <div class="col-md-6 justify-content-end align-items-center">
                             <div class="input-group">
                               <div class="input-field form-outline w-50">
-                                  <input type="text" class="form-control" id="searchInput" 
+                                  <input type="search" class="form-control" id="searchInput" 
                                       placeholder="Search Book By Title..."
                                   aria-label="Search Book" aria-describedby="basic-addon2" />
                               </div>
                               <div class="input-group-append">
-                                <button class="btn btn-warning" type="button" onclick="getFilteredProducts()">
-                                    <i class="bi bi-search"></i>Search</button>
+                                <button class="btn btn-warning searchBTN" type="button" 
+                                    onclick="getFilteredProducts()"><i class="bi bi-search"></i>Search</button>
                               </div>
                             </div>
                         </div>
                         <div class="col-md-6 d-flex justify-content-end align-items-center">
-                            <label for="categoryList">Search By Genre: </label>
+                            <label for="categoryList">Search By Genre: &nbsp;</label>
                             <asp:DropDownList ID="categoryList" runat="server" onchange="getFilteredProducts()">
 
                             </asp:DropDownList>
@@ -164,7 +163,8 @@
                     <section class="">
                         <p class="d-flex justify-content-center align-items-center">
                             <span class="me-3">Register for free</span>
-                            <button type="button" class="btn btn-warning btn-rounded">
+                            <button type="button" class="btn btn-warning btn-rounded" 
+                                onclick="window.location='Login.aspx'">
                                 Sign up!
                             </button>
                         </p>
