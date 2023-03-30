@@ -12,6 +12,8 @@ create table Persons (
 	Position nvarchar(10) not null
 );
 
+select * from Persons
+
 insert into Persons (Fullname, Email, Password, PhoneNumber, DOB, Gender, Position)
 values ('James Fowler', 'fwlr@gmail.com', 'password', '0348591274', '2001-05-11', 'Male', 'Admin')
 

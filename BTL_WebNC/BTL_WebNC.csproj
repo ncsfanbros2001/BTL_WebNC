@@ -2026,7 +2026,6 @@
     <Content Include="Bootstrap5\bootstrap.min.css" />
     <Content Include="Bootstrap5\login.css" />
     <Content Include="Bootstrap5\style.css" />
-    <Content Include="DoLogin.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\Book1.jpg" />
     <Content Include="images\Book3.jpg" />
@@ -2041,13 +2040,6 @@
     <Content Include="WebService.asmx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DoLogin.aspx.cs">
-      <DependentUpon>DoLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DoLogin.aspx.designer.cs">
-      <DependentUpon>DoLogin.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

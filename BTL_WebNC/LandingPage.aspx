@@ -6,7 +6,7 @@
 <head runat="server">
     <title>BookLife</title>
     <link rel="stylesheet" href="Bootstrap5/bootstrap.min.css" type="text/css" />
-    <script src="Bootstrap5/bootstrap.bundle.min.js"></script>
+    <script src="Bootstrap5/bootstrap.bundle.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="Bootstrap5/bootstrap-icons-1.10.3/bootstrap-icons.css" type="text/css" />
     <link rel="stylesheet" href="Bootstrap5/style.css" type="text/css" />
     <script type="text/javascript">
@@ -80,19 +80,23 @@
                     </ul>
 
                     <div class="text-end">
-                        <button type="button" class="btn btn-light" onclick="window.location='Login.aspx'">
-                            Log In</button>
-                        <button type="button" class="btn btn-warning">Sign Up</button>
-                        <!--<div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown button
+                        <div id="authenticationControls" runat="server">
+                            <button type="button" class="btn btn-light" onclick="window.location='Login.aspx'">
+                                Log In</button>
+                            <button type="button" class="btn btn-warning">Sign Up</button>
+                        </div>
+                        <div class="dropdown" id="userControls" runat="server">
+                            <button class="btn btn-light dropdown-toggle" type="button" id="userDropdown"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-square"></i> &nbsp; <% Response.Write(Session["name"]); %>
                             </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-menu" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#"><i class="bi bi-cart3"></i> Shopping Cart</a>
+                                <a class="dropdown-item" href="#"><i class="bi bi-info-circle"></i> Account Info</a>
+                                <a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i> 
+                                    Logout</a>
                             </div>
-                        </div>-->
+                        </div>
                     </div>
 
                 </div>

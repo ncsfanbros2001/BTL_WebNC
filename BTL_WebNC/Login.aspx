@@ -6,7 +6,7 @@
 <head runat="server">
     <title>Log In</title>
     <link rel="stylesheet" href="Bootstrap5/bootstrap.min.css" type="text/css" />
-    <script src="Bootstrap5/bootstrap.bundle.min.js"></script>
+    <script src="Bootstrap5/bootstrap.bundle.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="Bootstrap5/bootstrap-icons-1.10.3/bootstrap-icons.css" type="text/css" />
     <link rel="stylesheet" href="Bootstrap5/login.css" type="text/css" />
     <script>

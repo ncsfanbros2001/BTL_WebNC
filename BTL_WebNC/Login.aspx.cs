@@ -13,41 +13,35 @@ namespace BTL_WebNC
 {
     public partial class Login : System.Web.UI.Page
     {
-        SqlConnection cnn = new SqlConnection(StaticValues.MINH_connectionString);
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (cnn.State == ConnectionState.Open)
-            {
-                cnn.Close();
-            }
+
         }
 
         protected void login_Click(object sender, EventArgs e)
         {
-            cnn.Open();
+            List<Persons> userList = (List<Persons>)Application["users"];
 
-            SqlCommand cmd = cnn.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = $"SELECT * FROM Persons WHERE Email = '{email.Text}' " +
-                $"AND Password = '{password.Text}'";
-            DataTable dt = new DataTable();
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(dt);
-
-            int i = cmd.ExecuteNonQuery();
-
-            if (dt.Rows.Count > 0)
+            bool isCorrect = false;
+            foreach (Persons person in userList)
             {
-                Response.Redirect("LandingPage.aspx");
-                Session.RemoveAll();
+                if (person.Email == email.Text && person.Password == password.Text)
+                {
+                    isCorrect = true;
+                    Session["name"] = person.Fullname;
+                    break;
+                }
             }
-            else
+
+            if (!isCorrect)
             {
                 validationWarning.InnerText = "Your username or password is incorrect";
             }
-
-            cnn.Close();
+            else
+            {
+                Response.Redirect("LandingPage.aspx");
+            }
+            
         }
     }
 }

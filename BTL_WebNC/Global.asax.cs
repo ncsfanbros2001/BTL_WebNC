@@ -40,6 +40,7 @@ namespace BTL_WebNC
 
                 userList.Add(person);
             }
+
         }
 
         protected void Session_Start(object sender, EventArgs e)

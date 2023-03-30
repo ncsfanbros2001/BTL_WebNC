@@ -36,6 +36,17 @@ namespace BTL_WebNC
             categoryList.SelectedValue = "All";
 
             cnn.Close();
+
+            if (Session["name"] == null)
+            {
+                authenticationControls.Visible = true;
+                userControls.Visible = false;
+            }
+            else
+            {
+                authenticationControls.Visible = false;
+                userControls.Visible = true;
+            }
         }
     }
 }

@@ -24,6 +24,24 @@ namespace BTL_WebNC
         protected global::System.Web.UI.HtmlControls.HtmlForm landingPage;
 
         /// <summary>
+        /// authenticationControls control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl authenticationControls;
+
+        /// <summary>
+        /// userControls control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl userControls;
+
+        /// <summary>
         /// categoryList control.
         /// </summary>
         /// <remarks>
