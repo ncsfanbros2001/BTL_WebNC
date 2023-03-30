@@ -6,7 +6,7 @@
 <head runat="server">
     <title>BookLife</title>
     <link rel="stylesheet" href="Bootstrap5/bootstrap.min.css" type="text/css" />
-    <script src="Bootstrap5/bootstrap.bundle.js" type="text/javascript"></script>
+    <script src="Bootstrap5/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="Bootstrap5/bootstrap-icons-1.10.3/bootstrap-icons.css" type="text/css" />
     <link rel="stylesheet" href="Bootstrap5/style.css" type="text/css" />
     <script type="text/javascript">
@@ -16,15 +16,15 @@
             var title = document.getElementById('searchInput').value;
 
             var url = 'https://localhost:44374/WebService.asmx/GetBooks?genre=' + genre + '&title=' + title;
-            
+
             const xhttp = new XMLHttpRequest();
             xhttp.open("GET", url, true);
             xhttp.send();
 
             xhttp.onreadystatechange = function () {
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    // return success
                     const books = JSON.parse(xhttp.responseText);
+                    console.log(books);
                     let bookCardCode = '';
                     if (books.length == 0) {
                         bookCardCode += `<div class="row p-2 bg-white border rounded mt-2">`;
@@ -83,7 +83,18 @@
                         <button type="button" class="btn btn-light" onclick="window.location='Login.aspx'">
                             Log In</button>
                         <button type="button" class="btn btn-warning">Sign Up</button>
+                        <!--<div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown button
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>-->
                     </div>
+
                 </div>
             </div>
         </header>
@@ -133,21 +144,21 @@
                     <div class="row p-2 mt-2">
                         <div class="col-md-6 justify-content-end align-items-center">
                             <div class="input-group">
-                              <div class="input-field form-outline w-50">
-                                  <input type="search" class="form-control" id="searchInput" 
-                                      placeholder="Search Book By Title..."
-                                  aria-label="Search Book" aria-describedby="basic-addon2" />
-                              </div>
-                              <div class="input-group-append">
-                                <button class="btn btn-warning searchBTN" type="button" 
-                                    onclick="getFilteredProducts()"><i class="bi bi-search"></i>Search</button>
-                              </div>
+                                <div class="input-field form-outline w-50">
+                                    <input type="search" class="form-control" id="searchInput"
+                                        placeholder="Search Book By Title..."
+                                        aria-label="Search Book" aria-describedby="basic-addon2" />
+                                </div>
+                                <div class="input-group-append">
+                                    <button class="btn btn-warning searchBTN" type="button"
+                                        onclick="getFilteredProducts()">
+                                        <i class="bi bi-search"></i>Search</button>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 d-flex justify-content-end align-items-center">
                             <label for="categoryList">Search By Genre: &nbsp;</label>
                             <asp:DropDownList ID="categoryList" runat="server" onchange="getFilteredProducts()">
-
                             </asp:DropDownList>
                         </div>
                     </div>
@@ -156,14 +167,14 @@
                 </div>
             </div>
         </div>
-        
+
         <section class="footer">
             <footer class="text-center text-white" style="background-color: #1b1b1b;">
                 <div class="container p-4 pb-0">
                     <section class="">
                         <p class="d-flex justify-content-center align-items-center">
                             <span class="me-3">Register for free</span>
-                            <button type="button" class="btn btn-warning btn-rounded" 
+                            <button type="button" class="btn btn-warning btn-rounded"
                                 onclick="window.location='Login.aspx'">
                                 Sign up!
                             </button>

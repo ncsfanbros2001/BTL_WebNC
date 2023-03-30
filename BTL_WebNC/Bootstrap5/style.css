@@ -101,7 +101,7 @@ h5 {
     font-size: 16px
 }
 
-.searchBTN:focus, .searchBTN:active, #searchInput:focus, #searchInput:active {
+*:focus, *:active {
     box-shadow: none !important;
     outline: 0px !important;
 }

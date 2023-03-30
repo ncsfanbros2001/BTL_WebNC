@@ -19,16 +19,13 @@ namespace BTL_WebNC
             cnn.Open();
 
             SqlCommand getGenreCommand = cnn.CreateCommand();
-            DataTable dt1 = new DataTable(); 
-            SqlDataAdapter adapter = new SqlDataAdapter(getGenreCommand);
-
-            // Get all book's genre
             getGenreCommand.CommandType = CommandType.Text;
             getGenreCommand.CommandText = "SELECT DISTINCT Genre FROM Books";
+            DataTable dt = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(getGenreCommand);
 
-            
-            adapter.Fill(dt1);
-            categoryList.DataSource = dt1;
+            adapter.Fill(dt);
+            categoryList.DataSource = dt;
             categoryList.DataTextField = "Genre";
             categoryList.DataValueField = "Genre";
             categoryList.DataBind();
