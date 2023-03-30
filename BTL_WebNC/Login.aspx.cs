@@ -29,8 +29,8 @@ namespace BTL_WebNC
 
             SqlCommand cmd = cnn.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = $"SELECT * FROM Persons WHERE Email = '{email}' " +
-                $"AND Password = '{password}'";
+            cmd.CommandText = $"SELECT * FROM Persons WHERE Email = '{email.Text}' " +
+                $"AND Password = '{password.Text}'";
             DataTable dt = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             adapter.Fill(dt);
