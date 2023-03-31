@@ -1,6 +1,7 @@
 ﻿create database BTL_WebNC
 use BTL_WebNC
 
+
 create table Persons (
 	ID int identity(1, 1) primary key,
 	Fullname nvarchar(50) not null,
