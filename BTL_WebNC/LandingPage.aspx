@@ -72,7 +72,8 @@
         <header class="p-3 text-bg-dark bg-dark fixed-top">
             <div class="container">
                 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                    <a class="navbar-brand" href="#"><span class="text-warning">BOOK</span><span class="text-white">LIFE</span></a>
+                    <a class="navbar-brand" href="#">
+                        <span class="text-warning">BOOK</span><span class="text-white">LIFE</span></a>
 
                     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                         <li><a href="#" class="nav-link px-2 text-white">Home</a></li>
@@ -83,7 +84,8 @@
                         <div id="authenticationControls" runat="server">
                             <button type="button" class="btn btn-light" onclick="window.location='Login.aspx'">
                                 Log In</button>
-                            <button type="button" class="btn btn-warning">Sign Up</button>
+                            <button type="button" class="btn btn-warning" onclick="window.location='Register.aspx'">
+                                Sign Up</button>
                         </div>
                         <div class="dropdown" id="userControls" runat="server">
                             <button class="btn btn-light dropdown-toggle" type="button" id="userDropdown"
@@ -93,21 +95,24 @@
                             <div class="dropdown-menu" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#"><i class="bi bi-cart3"></i> Shopping Cart</a>
                                 <a class="dropdown-item" href="#"><i class="bi bi-info-circle"></i> Account Info</a>
-                                <a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i> 
-                                    Logout</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" id="logoutBTN" runat="server"
+                                    onserverclick="logoutBTN_ServerClick"><i class="bi bi-door-open"></i> Logout</a>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </header>
 
         <div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -132,11 +137,13 @@
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
@@ -179,7 +186,7 @@
                         <p class="d-flex justify-content-center align-items-center">
                             <span class="me-3">Register for free</span>
                             <button type="button" class="btn btn-warning btn-rounded"
-                                onclick="window.location='Login.aspx'">
+                                onclick="window.location='Register.aspx'">
                                 Sign up!
                             </button>
                         </p>

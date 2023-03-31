@@ -15,6 +15,15 @@ namespace BTL_WebNC
     {
 
         /// <summary>
+        /// validationWarning control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl validationWarning;
+
+        /// <summary>
         /// loginForm control.
         /// </summary>
         /// <remarks>
@@ -49,14 +58,5 @@ namespace BTL_WebNC
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button login;
-
-        /// <summary>
-        /// validationWarning control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl validationWarning;
     }
 }

@@ -28,6 +28,8 @@
 <body>
     <div class="login">
         <h1 class="text-center">LOGIN</h1>
+        <h3 id="validationWarning" runat="server"></h3>
+
         <form id="loginForm" runat="server">
             <div class="form-group">
                 <label class="form-label" for="email">Email address</label>
@@ -42,11 +44,25 @@
                 <input class="form-check-input" type="checkbox" id="check" />
                 <label class="form-check-label" for="check">Remember me</label>
             </div>
+
             <asp:Button ID="login" class="btn btn-success w-100" Text="SIGN IN" runat="server"
                 OnClientClick="return loginValidation()" OnClick="login_Click"></asp:Button>
-            
-            <p id="validationWarning" runat="server" class="mt-3"></p>
         </form>
+        
+        
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col">
+                    <button type="button" class="btn btn-danger w-100" onclick="window.location='LandingPage.aspx'">
+                        HOME PAGE</button>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-warning w-100" onclick="window.location='Register.aspx'">
+                        REGISTER</button>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>

@@ -45,7 +45,7 @@ namespace BTL_WebNC
 
         protected void Session_Start(object sender, EventArgs e)
         {
-            Session["name"] = null;
+            
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

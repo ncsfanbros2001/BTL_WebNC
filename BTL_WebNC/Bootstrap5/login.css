@@ -43,3 +43,8 @@ body {
     font-size: 15px;
     text-align: center;
 }
+
+button:focus, button:active {
+    box-shadow: none !important;
+    outline: 0px !important;
+}

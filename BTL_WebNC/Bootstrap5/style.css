@@ -101,7 +101,7 @@ h5 {
     font-size: 16px
 }
 
-*:focus, *:active {
+button:focus, button:active {
     box-shadow: none !important;
     outline: 0px !important;
 }

@@ -42,6 +42,15 @@ namespace BTL_WebNC
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl userControls;
 
         /// <summary>
+        /// logoutBTN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor logoutBTN;
+
+        /// <summary>
         /// categoryList control.
         /// </summary>
         /// <remarks>

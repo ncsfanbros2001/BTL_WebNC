@@ -48,5 +48,11 @@ namespace BTL_WebNC
                 userControls.Visible = true;
             }
         }
+
+        protected void logoutBTN_ServerClick(object sender, EventArgs e)
+        {
+            Session.RemoveAll();
+            Response.Redirect("Login.aspx");
+        }
     }
 }
