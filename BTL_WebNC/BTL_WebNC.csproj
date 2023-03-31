@@ -2025,6 +2025,7 @@
     <Content Include="Bootstrap5\bootstrap.bundle.min.js" />
     <Content Include="Bootstrap5\bootstrap.min.css" />
     <Content Include="Bootstrap5\login.css" />
+    <Content Include="Bootstrap5\register.css" />
     <Content Include="Bootstrap5\style.css" />
     <Content Include="Global.asax" />
     <Content Include="images\Book1.jpg" />

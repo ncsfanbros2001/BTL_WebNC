@@ -35,20 +35,20 @@
                 <label class="form-label" for="email">Email address</label>
                 <asp:TextBox class="form-control" runat="server" type="text" id="email"></asp:TextBox>
             </div>
+
             <div class="form-group">
                 <label class="form-label" for="password">Password</label>
                 <asp:TextBox class="form-control" runat="server" type="password" id="password"></asp:TextBox>
             </div>
 
             <div class="form-group form-check">
-                <input class="form-check-input" type="checkbox" id="check" />
+                <input class="form-check-input" runat="server" type="checkbox" id="rememberMe" />
                 <label class="form-check-label" for="check">Remember me</label>
             </div>
 
             <asp:Button ID="login" class="btn btn-success w-100" Text="SIGN IN" runat="server"
                 OnClientClick="return loginValidation()" OnClick="login_Click"></asp:Button>
         </form>
-        
         
         <div class="container mt-3">
             <div class="row">

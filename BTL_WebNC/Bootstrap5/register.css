@@ -13,7 +13,7 @@ body {
 }
 
 .login {
-    width: 360px;
+    width: 560px;
     height: min-content;
     padding: 20px;
     border-radius: 12px;
@@ -29,11 +29,15 @@ body {
         font-size: 20px;
     }
 
+    .form-control label {
+        font-size: 18px;
+    }
+
         .login form .form-group {
             margin-bottom: 12px;
         }
 
-        .login form #login {
+        .login form input[type="submit"] {
             font-size: 20px;
             margin-top: 15px;
         }
@@ -48,3 +52,4 @@ button:focus, button:active {
     box-shadow: none !important;
     outline: 0px !important;
 }
+

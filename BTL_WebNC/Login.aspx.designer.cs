@@ -51,6 +51,15 @@ namespace BTL_WebNC
         protected global::System.Web.UI.WebControls.TextBox password;
 
         /// <summary>
+        /// rememberMe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox rememberMe;
+
+        /// <summary>
         /// login control.
         /// </summary>
         /// <remarks>

@@ -15,7 +15,21 @@ namespace BTL_WebNC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.Cookies["rememberEmail"] != null)
+                {
+                    email.Text = Request.Cookies["rememberEmail"].Value;
+                }
+                if (Request.Cookies["rememberPassword"] != null)
+                {
+                    password.Text = Request.Cookies["rememberPassword"].Value;
+                }
+                if (Request.Cookies["rememberEmail"] != null && Request.Cookies["rememberPassword"] != null)
+                {
+                    rememberMe.Checked = true;
+                }
+            }
         }
 
         protected void login_Click(object sender, EventArgs e)
@@ -29,6 +43,10 @@ namespace BTL_WebNC
                 {
                     isCorrect = true;
                     Session["name"] = person.Fullname;
+
+                    Response.Cookies["rememberEmail"].Value = person.Email;
+                    Response.Cookies["rememberPassword"].Value = person.Password;
+
                     break;
                 }
             }
@@ -37,11 +55,20 @@ namespace BTL_WebNC
             {
                 validationWarning.InnerText = "Your username or password is incorrect";
             }
-            else
+            else if (isCorrect && rememberMe.Checked)
             {
+                Response.Cookies["rememberEmail"].Expires = DateTime.Now.AddDays(15);
+                Response.Cookies["rememberPassword"].Expires = DateTime.Now.AddDays(15);
+
                 Response.Redirect("LandingPage.aspx");
             }
-            
+            else if (isCorrect && !rememberMe.Checked)
+            {
+                Response.Cookies["rememberEmail"].Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies["rememberPassword"].Expires = DateTime.Now.AddDays(-1);
+
+                Response.Redirect("LandingPage.aspx");
+            }
         }
     }
 }

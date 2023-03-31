@@ -105,3 +105,7 @@ button:focus, button:active {
     box-shadow: none !important;
     outline: 0px !important;
 }
+
+.dropdown-toggle, .dropdown-menu {
+    width: 100%;
+}
