@@ -51,7 +51,7 @@ namespace BTL_WebNC
 
         protected void logoutBTN_ServerClick(object sender, EventArgs e)
         {
-            Session.Clear();
+            Session.Abandon();
             Response.Redirect("Login.aspx");
         }
     }

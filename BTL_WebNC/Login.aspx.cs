@@ -43,6 +43,7 @@ namespace BTL_WebNC
                 {
                     isCorrect = true;
                     Session["name"] = person.Fullname;
+                    Session["role"] = person.Position;
 
                     Response.Cookies["rememberEmail"].Value = person.Email;
                     Response.Cookies["rememberPassword"].Value = person.Password;

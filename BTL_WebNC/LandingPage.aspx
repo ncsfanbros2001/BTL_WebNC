@@ -14,6 +14,7 @@
             var getCategoryList = document.getElementById('categoryList');
             var genre = getCategoryList.options[getCategoryList.selectedIndex].value;
             var title = document.getElementById('searchInput').value;
+            var currentRole = '<%= Session["role"].ToString() %>';
 
             var url = 'https://localhost:44374/WebService.asmx/GetBooks?genre=' + genre + '&title=' + title;
 
@@ -36,8 +37,7 @@
                             bookCardCode += `<div class="row p-2 bg-white border rounded mt-2">`;
                             bookCardCode += `<div class="col-md-3 mt-1">
                             <img class="img-fluid img-responsive rounded product-image"
-                                src="` + book.ImageLink + `" />
-                        </div>`;
+                                src="` + book.ImageLink + `" /></div>`;
                             bookCardCode += `<div class="col-md-6 mt-1">
                             <h2>` + book.Title + `</h2>
                             <div class="mt-1 mb-1 spec-1">
@@ -45,19 +45,19 @@
                             </div>
                             <div class="mt-1 mb-1 spec-1">
                                 <span class="dot"></span><span>Genre: ` + book.Genre + `</span>
-                            </div>
-                        </div>`;
+                            </div></div>`;
                             bookCardCode += `<div class="align-items-center align-content-center col-md-3 border-left mt-1">
                             <div class="d-flex flex-row align-items-center">
                                 <h2 class="mr-1">$` + book.Price + `</h2>
                             </div>
                             <div class="d-flex flex-column mt-4">
-                                <button class="btn btn-warning btn-sm" type="button">
-                                    <i class="bi bi-info-square"></i>&nbsp; Details</button>
-                                <button class="btn btn-dark btn-sm mt-2" type="button">
-                                    <i class="bi bi-cart"></i>&nbsp; Add to cart</button>
-                            </div>
-                        </div>`
+                                <button class="btn btn-warning btn-sm" type="button" onclick = "window.location='BookDetails.aspx?id=' + `+ book.Id +`">
+                                    <i class="bi bi-info-square"></i>&nbsp; Details</button>`
+                            if (currentRole != "Admin") {
+                                bookCardCode += `<button class="btn btn-dark btn-sm mt-2" type="button">
+                                    <i class="bi bi-cart"></i>&nbsp; Add to cart</button>`;
+                            }
+                            bookCardCode += `</div> </div>`
                             bookCardCode += `</div>`;
                         }
                     }

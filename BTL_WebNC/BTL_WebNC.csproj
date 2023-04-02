@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BookDetails.aspx" />
     <Content Include="Bootstrap5\bootstrap-icons-1.10.3\0-circle-fill.svg" />
     <Content Include="Bootstrap5\bootstrap-icons-1.10.3\0-circle.svg" />
     <Content Include="Bootstrap5\bootstrap-icons-1.10.3\0-square-fill.svg" />
@@ -2042,6 +2043,13 @@
     <Content Include="WebService.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookDetails.aspx.cs">
+      <DependentUpon>BookDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookDetails.aspx.designer.cs">
+      <DependentUpon>BookDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
