@@ -94,7 +94,7 @@
             
 
 
-            if (errorCount == 0) {
+            if (errorCount > 0) {
                 return true;
             }
             else {
