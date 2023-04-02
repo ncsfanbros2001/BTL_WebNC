@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="Bootstrap5/login.css" type="text/css" />
     <script>
         function loginValidation() {
-            var email = document.getElementById("email").value;
-            var password = document.getElementById("password").value;
+            var email = document.getElementById("email").value.trim();
+            var password = document.getElementById("password").value.trim();
 
             if (email == '' || password == '') {
                 document.getElementById("validationWarning").innerHTML = 'Both email and password are required !';

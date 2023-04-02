@@ -9,20 +9,21 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: cornflowerblue;
+    background-color: #f8d568;
 }
 
 .login {
-    width: 560px;
+    width: 750px;
     height: min-content;
     padding: 20px;
     border-radius: 12px;
     background-color: white;
+    border: 3px solid black;
 }
 
     .login h1 {
         font-size: 36px;
-        margin-bottom: 25px;
+        margin-bottom: 15px;
     }
 
     .login form {
@@ -37,9 +38,9 @@ body {
             margin-bottom: 12px;
         }
 
-        .login form input[type="submit"] {
+        .login form #register {
             font-size: 20px;
-            margin-top: 15px;
+            margin-top: 5px;
         }
 
 #validationWarning {
@@ -53,3 +54,12 @@ button:focus, button:active {
     outline: 0px !important;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#errorSummary {
+    color: red;
+}

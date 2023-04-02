@@ -15,13 +15,22 @@ namespace BTL_WebNC
     {
 
         /// <summary>
-        /// validationWarning control.
+        /// firstErrorCol control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl validationWarning;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl firstErrorCol;
+
+        /// <summary>
+        /// secondErrorCol control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl secondErrorCol;
 
         /// <summary>
         /// loginForm control.
@@ -60,6 +69,15 @@ namespace BTL_WebNC
         protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
+        /// gender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList gender;
+
+        /// <summary>
         /// password control.
         /// </summary>
         /// <remarks>
@@ -96,12 +114,12 @@ namespace BTL_WebNC
         protected global::System.Web.UI.WebControls.TextBox DOB;
 
         /// <summary>
-        /// login control.
+        /// register control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button login;
+        protected global::System.Web.UI.WebControls.Button register;
     }
 }

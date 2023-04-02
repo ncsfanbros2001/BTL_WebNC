@@ -34,8 +34,8 @@ namespace BTL_WebNC
                 person.Email = reader["Email"].ToString();
                 person.Password = reader["Password"].ToString();
                 person.PhoneNumber = reader["PhoneNumber"].ToString();
-                person.PhoneNumber = reader["DOB"].ToString();
-                person.PhoneNumber = reader["Gender"].ToString();
+                person.DOB = reader["DOB"].ToString();
+                person.Gender = reader["Gender"].ToString();
                 person.Position = reader["Position"].ToString();
 
                 userList.Add(person);

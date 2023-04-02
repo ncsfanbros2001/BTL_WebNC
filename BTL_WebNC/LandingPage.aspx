@@ -28,7 +28,7 @@
                     let bookCardCode = '';
                     if (books.length == 0) {
                         bookCardCode += `<div class="row p-2 bg-white border rounded mt-2">`;
-                        bookCardCode += '<h1 class="text-center align-bottom">Nothing<h1>'
+                        bookCardCode += `<h1 class="text-center align-bottom">Nothing<h1>`
                         bookCardCode += `</div>`;
                     }
                     else {

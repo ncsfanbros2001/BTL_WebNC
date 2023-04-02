@@ -9,7 +9,7 @@ create table Persons (
 	PhoneNumber nvarchar(50) not null,
 	DOB DATE NOT NULL,
 	Gender nvarchar(10) not null CHECK (Gender IN('Male', 'Female')),
-	Position nvarchar(10) not null
+	Position nvarchar(10) not null CHECK (Position IN('Admin', 'Customer'))
 );
 
 select * from Persons
