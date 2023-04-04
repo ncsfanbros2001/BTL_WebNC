@@ -2025,9 +2025,9 @@
     <Content Include="Bootstrap5\bootstrap-icons-1.10.3\zoom-out.svg" />
     <Content Include="Bootstrap5\bootstrap.bundle.min.js" />
     <Content Include="Bootstrap5\bootstrap.min.css" />
+    <Content Include="Bootstrap5\landingPageCSS.css" />
     <Content Include="Bootstrap5\login.css" />
     <Content Include="Bootstrap5\register.css" />
-    <Content Include="Bootstrap5\style.css" />
     <Content Include="Global.asax" />
     <Content Include="images\Book1.jpg" />
     <Content Include="images\Book3.jpg" />

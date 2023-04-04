@@ -1,7 +1,6 @@
 ﻿create database BTL_WebNC
 use BTL_WebNC
 
-
 create table Persons (
 	ID int identity(1, 1) primary key,
 	Fullname nvarchar(50) not null,
@@ -12,8 +11,6 @@ create table Persons (
 	Gender nvarchar(10) not null CHECK (Gender IN('Male', 'Female')),
 	Position nvarchar(10) not null CHECK (Position IN('Admin', 'Customer'))
 );
-
-select * from Persons
 
 insert into Persons (Fullname, Email, Password, PhoneNumber, DOB, Gender, Position)
 values ('James Fowler', 'fwlr@gmail.com', 'password', '0348591274', '2001-05-11', 'Male', 'Admin')

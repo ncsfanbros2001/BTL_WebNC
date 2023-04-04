@@ -1,0 +1,255 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Sans-serif;
+}
+
+body {
+    background-color: #F5F5F5;
+}
+
+a,
+button {
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: #292b2c;
+    margin-bottom: 30px;
+}
+
+.logo {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.button {
+    padding: 9px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.loginBTN {
+    background-color: white;
+    color: black;
+}
+
+.signupBTN {
+    background-color: #ffc107;
+    color: rgb(0, 0, 0);
+}
+
+/* Dropdown */
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dd-button {
+    display: inline-block;
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 10px 30px 10px 20px;
+    background-color: #ffffff;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+    .dd-button:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid black;
+    }
+
+    .dd-button:hover {
+        background-color: #eeeeee;
+    }
+
+
+.dd-input {
+    display: none;
+}
+
+.dd-menu {
+    position: absolute;
+    top: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0;
+    margin: 2px 0 0 0;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    list-style-type: none;
+}
+
+.dd-input + .dd-menu {
+    display: none;
+}
+
+.dd-input:checked + .dd-menu {
+    display: block;
+}
+
+.dd-menu li {
+    padding: 10px 20px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+    .dd-menu li:hover {
+        background-color: #f6f6f6;
+    }
+
+    .dd-menu li a {
+        display: block;
+        margin: -10px -20px;
+        padding: 10px 20px;
+        color: black;
+    }
+
+    .dd-menu li.divider {
+        padding: 0;
+        border-bottom: 1px solid #cccccc;
+    }
+
+footer {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    text-align: center;
+    background-color: #292b2c;
+}
+
+.copyright {
+    color: white;
+    padding: 15px;
+}
+
+    .copyright p,
+    a {
+        font-size: 18px;
+    }
+
+.all-products {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 70vh;
+}
+
+.product {
+    overflow: hidden;
+    background: #ffffff;
+    color: #21201e;
+    text-align: center;
+    width: 240px;
+    height: 400px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.2rem;
+    margin: 2rem;
+    border: 2px solid #A9A9A9;
+}
+
+    .product .product-title, .product .product-price {
+        font-size: 18px;
+    }
+
+    .product:hover {
+        box-shadow: 5px 15px 25px #eeeeee;
+    }
+
+    .product img {
+        height: 200px;
+        margin: 1rem;
+        transition: all 0.3s;
+    }
+
+    .product a:link, .product a:visited {
+        color: #ececec;
+        display: inline-block;
+        text-decoration: none;
+        background-color: #2c3e50;
+        padding: 1.2rem 3rem;
+        border-radius: 1rem;
+        margin-top: 1rem;
+        font-size: 14px;
+        transition: all 0.2s;
+    }
+
+    .product a:hover {
+        background-color: #ffc107;
+        color: black;
+    }
+
+.product-filter {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 75%;
+    margin-bottom: 20px;
+}
+
+#searchBtn {
+    padding: 9px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    background-color: #ffc107;
+    color: rgb(0, 0, 0);
+}
+
+    #searchBtn:hover {
+        background-color: yellow;
+    }
+
+#searchBox {
+    width: 250px;
+    height: 36px;
+    font-size: 18px;
+    padding-left: 5px;
+}
+
+#genreList {
+    width: 150px;
+    height: 30px;
+    font-size: 18px;
+}
+
+.genreLabel {
+    font-size: 18px;
+}
+
+.emptyAlert {
+    color: red;
+    text-align: center;
+}

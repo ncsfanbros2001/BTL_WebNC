@@ -19,28 +19,54 @@ namespace BTL_WebNC
             Application["users"] = userList;
 
             cnn.Open();
-            SqlCommand cmd = cnn.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT * FROM Persons";
+            SqlCommand getAllUsersCommand = cnn.CreateCommand();
+            getAllUsersCommand.CommandType = CommandType.Text;
+            getAllUsersCommand.CommandText = "SELECT * FROM Persons";
 
-            SqlDataReader reader = cmd.ExecuteReader();
+            SqlDataReader usersReader = getAllUsersCommand.ExecuteReader();
 
-            while (reader.Read())
+            while (usersReader.Read())
             {
                 Persons person = new Persons();
 
-                person.ID = Convert.ToInt32(reader["ID"]);
-                person.Fullname = reader["Fullname"].ToString();
-                person.Email = reader["Email"].ToString();
-                person.Password = reader["Password"].ToString();
-                person.PhoneNumber = reader["PhoneNumber"].ToString();
-                person.DOB = reader["DOB"].ToString();
-                person.Gender = reader["Gender"].ToString();
-                person.Position = reader["Position"].ToString();
+                person.ID = Convert.ToInt32(usersReader["ID"]);
+                person.Fullname = usersReader["Fullname"].ToString();
+                person.Email = usersReader["Email"].ToString();
+                person.Password = usersReader["Password"].ToString();
+                person.PhoneNumber = usersReader["PhoneNumber"].ToString();
+                person.DOB = usersReader["DOB"].ToString();
+                person.Gender = usersReader["Gender"].ToString();
+                person.Position = usersReader["Position"].ToString();
 
                 userList.Add(person);
             }
+            cnn.Close();
 
+            cnn.Open();
+            List<Books> bookList = new List<Books>();
+            Application["books"] = bookList;
+
+            SqlCommand getAllBooksCommand = cnn.CreateCommand();
+            getAllBooksCommand.CommandType = CommandType.Text;
+            getAllBooksCommand.CommandText = "SELECT * FROM Books";
+
+            SqlDataReader booksReader = getAllBooksCommand.ExecuteReader();
+
+            while (booksReader.Read())
+            {
+                Books book = new Books();
+
+                book.Id = Convert.ToInt32(booksReader["ID"]);
+                book.Title = booksReader["Title"].ToString();
+                book.Author = booksReader["Author"].ToString();
+                book.Price = Convert.ToDouble(booksReader["Price"]);
+                book.Genre = booksReader["Genre"].ToString();
+                book.Publisher = booksReader["Publisher"].ToString();
+                book.ImageLink = booksReader["ImageLink"].ToString();
+
+                bookList.Add(book);
+            }
+            cnn.Close();
         }
 
         protected void Session_Start(object sender, EventArgs e)

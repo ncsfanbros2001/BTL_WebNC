@@ -33,30 +33,48 @@ namespace BTL_WebNC
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl authenticationControls;
 
         /// <summary>
-        /// userControls control.
+        /// loginBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl userControls;
+        protected global::System.Web.UI.HtmlControls.HtmlButton loginBtn;
 
         /// <summary>
-        /// logoutBTN control.
+        /// signupBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor logoutBTN;
+        protected global::System.Web.UI.HtmlControls.HtmlButton signupBtn;
 
         /// <summary>
-        /// categoryList control.
+        /// accountControls control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList categoryList;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl accountControls;
+
+        /// <summary>
+        /// searchBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox searchBox;
+
+        /// <summary>
+        /// genreList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList genreList;
     }
 }

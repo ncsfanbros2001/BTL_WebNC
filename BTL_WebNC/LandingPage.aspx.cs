@@ -25,34 +25,55 @@ namespace BTL_WebNC
             SqlDataAdapter adapter = new SqlDataAdapter(getGenreCommand);
 
             adapter.Fill(dt);
-            categoryList.DataSource = dt;
-            categoryList.DataTextField = "Genre";
-            categoryList.DataValueField = "Genre";
-            categoryList.DataBind();
-            if (categoryList.Items.FindByText("All") == null)
+            genreList.DataSource = dt;
+            genreList.DataTextField = "Genre";
+            genreList.DataValueField = "Genre";
+            genreList.DataBind();
+            if (genreList.Items.FindByText("All") == null)
             {
-                categoryList.Items.Add("All");
+                genreList.Items.Add("All");
             }
-            categoryList.SelectedValue = "All";
+            genreList.SelectedValue = "All";
 
             cnn.Close();
 
             if (Session["name"] == null)
             {
                 authenticationControls.Visible = true;
-                userControls.Visible = false;
+                accountControls.Visible = false;
             }
             else
             {
                 authenticationControls.Visible = false;
-                userControls.Visible = true;
+                accountControls.Visible = true;
             }
+
+            //if (Session["role"].ToString() != "Admin")
+            //{
+            //    adminOnly.Visible = false;
+            //    toCart.Visible = true;
+            //}
+            //else
+            //{
+            //    adminOnly.Visible = true;
+            //    toCart.Visible = false;
+            //}
         }
 
         protected void logoutBTN_ServerClick(object sender, EventArgs e)
         {
             Session.Abandon();
             Response.Redirect("Login.aspx");
+        }
+
+        protected void loginBtn_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+        }
+
+        protected void signupBtn_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("Register.aspx");
         }
     }
 }
