@@ -48,16 +48,16 @@ namespace BTL_WebNC
                 accountControls.Visible = true;
             }
 
-            //if (Session["role"].ToString() != "Admin")
-            //{
-            //    adminOnly.Visible = false;
-            //    toCart.Visible = true;
-            //}
-            //else
-            //{
-            //    adminOnly.Visible = true;
-            //    toCart.Visible = false;
-            //}
+            if (Session["role"].ToString() == "Admin")
+            {
+                adminOnly.Visible = true;
+                toCart.Visible = false;
+            }
+            else
+            {
+                adminOnly.Visible = false;
+                toCart.Visible = true;
+            }
         }
 
         protected void logoutBTN_ServerClick(object sender, EventArgs e)

@@ -12,7 +12,6 @@
             var getGenreList = document.getElementById('genreList');
             var genre = getGenreList.options[getGenreList.selectedIndex].value;
             var title = document.getElementById('searchBox').value;
-            var currentRole = '<%= Session["role"].ToString() %>';
 
             var url = 'https://localhost:44374/WebService.asmx/GetBooks?genre=' + genre + '&title=' + title;
 
@@ -34,7 +33,7 @@
                                 <div class="product-info">
                                     <h4 class="product-title">` + book.Title + `</h4>
                                     <p class="product-price">$` + book.Price + `</p>
-                                    <a class="product-btn" href="#">Buy Now</a>
+                                    <a class="product-btn" href="BookDetails.aspx?id=` + book.Id +`">Buy Now</a>
                                 </div>
                             </div>`
                         }
@@ -48,7 +47,7 @@
 <body onload="getFilteredProducts()">
     <form id="landingPage" runat="server">
         <header>
-            <a href="#" class="logo"><span style="color: #ffc107;">BOOK</span><span>LIFE</span></a>
+            <a href="#" class="logo"><span style="color: #ffc107;">BOOK</span><span style="color: white;">LIFE</span></a>
             <div class="buttons" id="authenticationControls" runat="server">
                 <button class="loginBTN button" id="loginBtn" runat="server" onserverclick="loginBtn_ServerClick">
                     Log In</button>
@@ -62,10 +61,15 @@
                 <input type="checkbox" class="dd-input" id="test" />
 
                 <ul class="dd-menu">
-                    <li><a href="#">Shopping Cart</a></li>
+                    <div id="toCart" runat="server"><li><a href="#">Shopping Cart</a></li></div>
                     <li><a href="#">Account Info</a></li>
+                    <div id="adminOnly" runat="server">
+                        <li class="divider"></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Users</a></li>
+                    </div>
                     <li class="divider"></li>
-                    <li><a href="#" runat="server" onserverclick="logoutBTN_ServerClick">Logout</a></li>
+                    <li><a runat="server" id="logoutBtn" onserverclick="logoutBTN_ServerClick">Logout</a></li>
                 </ul>
 
             </label>

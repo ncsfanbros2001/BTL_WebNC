@@ -21,7 +21,12 @@ namespace BTL_WebNC
             {
                 if (book.Id == bookID)
                 {
-                    productImg.Src = book.ImageLink;
+                    title.InnerText = book.Title;
+                    price.InnerText = "$" + book.Price.ToString();
+                    author.InnerText = book.Author;
+                    genre.InnerText = book.Genre;
+                    publisher.InnerText = book.Publisher;
+                    image.Src = book.ImageLink;
                     break;
                 }
             }
@@ -29,24 +34,42 @@ namespace BTL_WebNC
             if (Session["name"] == null)
             {
                 authenticationControls.Visible = true;
-                userControls.Visible = false;
+                accountControls.Visible = false;
             }
             else
             {
                 authenticationControls.Visible = false;
-                userControls.Visible = true;
+                accountControls.Visible = true;
             }
 
-            if (Session["role"].ToString() != "Admin")
-            {
-                adminOnly.Visible = false;
-                toCart.Visible = true;
-            }
-            else
+            if (Session["role"].ToString() == "Admin")
             {
                 adminOnly.Visible = true;
                 toCart.Visible = false;
             }
+            else
+            {
+                adminOnly.Visible = false;
+                toCart.Visible = true;
+            }
+        }
+
+        protected void loginBtn_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+        }
+
+        protected void signupBtn_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("Register.aspx");
+        }
+
+        protected void logoutBtn_ServerClick(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
         }
     }
+
+    
 }

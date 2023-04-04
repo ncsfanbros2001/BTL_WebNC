@@ -32,3 +32,12 @@ values (N'Đắc Nhân Tâm', 'Dale Carnegie', 15.99, N'Self-Help', 'Simon & Sch
 insert into Books (Title, Author, Price, Genre, Publisher, ImageLink)
 values (N'Clean Code', 'Robert Martin', 22.99, 'Education', N'Pearson', 'images/CleanCode.jpg'),
 (N'Thế giới phẳng', 'Thomas Friendman', 17.99, 'Economic', N'NXB Trẻ', 'images/TheWorldIsFlat.jpg')
+
+insert into Books (Title, Author, Price, Genre, Publisher, ImageLink)
+values (N'Money: Vintage Minis', 'Yuval Noah Harari', 17.99, 'Economic', N'Vintage Classics', 'images/Money.jpg'),
+(N'The Big Short', 'Michael Lewis', 16.99, 'Economic', N'Penguin Books Ltd', 'images/TheBigShort.jpg'),
+(N'Nhà Giả Kim', 'Paulo Coelho', 12.99, 'Novel', N'NXB Hội Nhà Văn', 'images/TheAlchemist.jpg')
+
+insert into Books (Title, Author, Price, Genre, Publisher, ImageLink)
+values (N'First Readers Cinderella', 'Geraldine Taylor', 13.99, 'Education', N'Parragon', 'images/Cinderella.jpg'),
+(N'Dune', 'Frank Herbert', 19.99, 'Novel', N'Ace Books', 'images/Dune.jpg')
