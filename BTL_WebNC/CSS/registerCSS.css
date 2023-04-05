@@ -1,0 +1,155 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: yellow;
+}
+
+.register {
+    width: 650px;
+    height: min-content;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: white;
+    border: 3px solid black;
+}
+
+    .register h1 {
+        font-size: 36px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .register form {
+        font-size: 20px;
+    }
+
+        .register form #register {
+            font-size: 22px;
+            margin-top: 5px;
+            margin-top: 20px;
+            border-radius: 3px;
+            width: 100%;
+            border: none;
+            height: 50px;
+            background-color: #228B22;
+            color: white;
+        }
+
+            .register form #register:hover {
+                background-color: #32CD32;
+                cursor: pointer;
+            }
+
+button:focus,
+button:active {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+
+label {
+    font-size: 20px;
+}
+
+.otherOptions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#toHomePage {
+    border-radius: 3px;
+    color: white;
+    background-color: red;
+    width: 45%;
+    height: 40px;
+    border: none;
+    font-size: 18px;
+}
+
+#toLogin {
+    border-radius: 3px;
+    color: black;
+    background-color: #5bc0de;
+    width: 45%;
+    height: 40px;
+    border: none;
+    font-size: 18px;
+}
+
+#toHomePage:hover {
+    background-color: #DC143C;
+    cursor: pointer;
+}
+
+#toLogin:hover {
+    background-color: #0275d8;
+    cursor: pointer;
+}
+
+.firstAndLastName,
+.emailAndGender,
+.passwords,
+.phoneNumberAndDOB {
+    display: flex;
+    justify-content: center;
+}
+
+.Col {
+    margin: 10px 0px;
+    width: 50%;
+}
+
+    .Col input {
+        width: 95%;
+        height: 30px;
+        padding-left: 7px;
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+.email {
+    width: 80% !important;
+}
+
+.gender {
+    width: 20% !important;
+}
+
+#genderSelector {
+    width: 100px;
+    height: 31px;
+    margin-top: 9px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#errorSummary {
+    display: flex;
+    justify-content: center;
+}
+
+.firstErrorList,
+.secondErrorList {
+    width: 80%;
+}
+
+    .firstErrorList li,
+    .secondErrorList li {
+        color: red;
+        font-size: 16px;
+        margin-bottom: 5px;
+        margin-left: 15%;
+    }

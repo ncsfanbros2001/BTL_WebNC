@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>BookLife</title>
-    <link rel="stylesheet" type="text/css" href="Bootstrap5/landingPageCSS.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/landingPageCSS.css" />
     <script type="text/javascript">
         
         function getFilteredProducts() {

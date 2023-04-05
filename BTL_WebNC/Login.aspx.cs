@@ -71,5 +71,15 @@ namespace BTL_WebNC
                 Response.Redirect("LandingPage.aspx");
             }
         }
+
+        protected void toHomePage_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("LandingPage.aspx");
+        }
+
+        protected void toRegister_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("Register.aspx");
+        }
     }
 }

@@ -5,10 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Register</title>
-    <link rel="stylesheet" href="Bootstrap5/bootstrap.min.css" type="text/css" />
-    <script src="Bootstrap5/bootstrap.bundle.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="Bootstrap5/bootstrap-icons-1.10.3/bootstrap-icons.css" type="text/css" />
-    <link rel="stylesheet" href="Bootstrap5/register.css" type="text/css" />
+    <link rel="stylesheet" href="CSS/registerCSS.css" type="text/css" />
     <script type="text/javascript">
         function registerValidation() {
             var firstname = document.getElementById('firstname').value.trim();
@@ -106,103 +103,87 @@
     </script>
 </head>
 <body>
-    <div class="login">
-        <h1 class="text-center">REGISTER</h1>
+    <div class="register">
+        <h1>REGISTER</h1>
 
-        <div class="container" id="errorSummary">
-            <div class="row">
-                <div class="col">
-                    <ul id="firstErrorCol" runat="server">
-                        
-                    </ul>
-                </div>
-                <div class="col">
-                    <ul id="secondErrorCol" runat="server">
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
+		<div id="errorSummary">
+			<div class="firstErrorList">
+				<ul id="firstErrorCol" runat="server">
+				</ul>
+			</div>
+			<div class="secondErrorList">
+				<ul id="secondErrorCol">
+				</ul>
+			</div>
+		</div>
 
-        <form id="loginForm" runat="server">
-            <div class="form-group">
-                <div class="row">
-                    <div class="col">
-                        <label class="form-label" for="firstname">First name</label>
-                        <asp:TextBox class="form-control" runat="server" type="text" ID="firstname"
-                            placeholder="First Name"></asp:TextBox>
-                    </div>
-                    <div class="col">
-                        <label class="form-label" for="lastname">Last name</label>
-                        <asp:TextBox class="form-control" runat="server" type="text" ID="lastname"
-                            placeholder="Last Name"></asp:TextBox>
-                    </div>
-                </div>
-            </div>
+        <form id="registerForm" runat="server">
+            <div class="firstAndLastName">
+				<div class="firstName Col">
+					<label for="firstname">First name</label>
+					<br/>
+                    <asp:TextBox ID="firstname" runat="server" type="text" placeholder="First Name"></asp:TextBox>
+				</div>
+				<div class="lastName Col">
+					<label for="lastname">Last name</label>
+					<br/>
+					<asp:TextBox ID="lastname" runat="server" type="text" placeholder="Last Name"></asp:TextBox>
+				</div>
+			</div>
 
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-9">
-                        <label class="form-label" for="email">Email</label>
-                        <asp:TextBox class="form-control" runat="server" type="text" ID="email"
-                            placeholder="Email"></asp:TextBox>
-                    </div>
-                    <div class="col-3">
-                        <label class="form-label" for="gender">Gender</label>
-                        <br />
-                        <asp:DropDownList ID="gender" runat="server">
-                            <asp:ListItem Selected="True">Male</asp:ListItem>
-                            <asp:ListItem>Female</asp:ListItem>
-                        </asp:DropDownList>
-                    </div>
-                </div>
-            </div>
+			<div class="emailAndGender">
+				<div class="email Col">
+					<label for="email">Email</label>
+					<br/>
+					<asp:TextBox ID="email" runat="server" type="text" placeholder="Email"></asp:TextBox>
+				</div>
+				<div class="gender Col">
+					<label for="gender">Gender</label>
+					<br/>
+					<asp:DropDownList ID="genderSelector" runat="server">
+                        <asp:ListItem Selected="True">Male</asp:ListItem>
+                        <asp:ListItem>Female</asp:ListItem>
+                    </asp:DropDownList>
+				</div>
+			</div>
 
-            <div class="form-group">
-                <div class="row">
-                    <div class="col">
-                        <label class="form-label" for="password">Password</label>
-                        <asp:TextBox class="form-control" runat="server" type="password" ID="password"
-                            placeholder="Password"></asp:TextBox>
-                    </div>
-                    <div class="col">
-                        <label class="form-label" for="confirmPassword">Confirm Password</label>
-                        <asp:TextBox class="form-control" runat="server" type="password" ID="confirmPassword"
-                            placeholder="Confirm Password"></asp:TextBox>
-                    </div>
-                </div>
-            </div>
+			<div class="passwords">
+				<div class="password Col">
+					<label for="password">Password</label>
+					<br/>
+					<asp:TextBox ID="password" runat="server" type="password" placeholder="Password"></asp:TextBox>
+				</div>
+				<div class="confirmPassword Col">
+					<label for="confirmPassword">Confirm Password</label>
+					<br/>
+					<asp:TextBox ID="confirmPassword" runat="server" type="password" placeholder="Retype Password">
 
-            <div class="form-group">
-                <div class="row">
-                    <div class="col">
-                        <label class="form-label" for="phoneNumber">Phone Number</label>
-                        <asp:TextBox class="form-control" runat="server" type="number" ID="phoneNumber"
-                            placeholder="Phone Number"></asp:TextBox>
-                    </div>
-                    <div class="col">
-                        <label class="form-label" for="DOB">Date of Birth</label>
-                        <asp:TextBox class="form-control" runat="server" type="date" ID="DOB"
-                            placeholder="Date of Birth"></asp:TextBox>
-                    </div>
-                </div>
-            </div>
+					</asp:TextBox>
+				</div>
+			</div>
 
-            <asp:Button ID="register" class="btn btn-success w-100" Text="SIGN UP" runat="server"
-                OnClientClick="return registerValidation()" OnClick="register_Click"></asp:Button>
+			<div class="phoneNumberAndDOB">
+				<div class="phoneNumber Col">
+					<label for="phoneNumber">Phone Number</label>
+					<br/>
+					<asp:TextBox ID="phoneNumber" runat="server" type="number" placeholder="Phone Number">
+
+					</asp:TextBox>
+				</div>
+				<div class="dateOfBirth Col">
+					<label for="dob">Date of Birth</label>
+					<br/>
+					<asp:TextBox ID="DOB" runat="server" type="date"></asp:TextBox>
+				</div>
+			</div>
+
+            <asp:Button ID="register" Text="SIGN UP" runat="server" OnClick="register_Click"
+                OnClientClick="return registerValidation()"></asp:Button>
         </form>
 
-        <div class="container mt-3">
-            <div class="row">
-                <div class="col">
-                    <button type="button" class="btn btn-danger w-100" onclick="window.location='LandingPage.aspx'">
-                        HOME PAGE</button>
-                </div>
-                <div class="col">
-                    <button type="button" class="btn btn-info w-100" onclick="window.location='Login.aspx'">
-                        LOGIN</button>
-                </div>
-            </div>
+        <div class="otherOptions">
+            <button type="button" id="toHomePage" runat="server" onserverclick="toHomePage_ServerClick">HOME PAGE</button>
+            <button type="button" id="toLogin" runat="server" onserverclick="toLogin_ServerClick">LOG IN</button>
         </div>
     </div>
 </body>

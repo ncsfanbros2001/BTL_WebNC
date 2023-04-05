@@ -12,6 +12,8 @@ create table Persons (
 	Position nvarchar(10) not null CHECK (Position IN('Admin', 'Customer'))
 );
 
+select * from Persons
+
 insert into Persons (Fullname, Email, Password, PhoneNumber, DOB, Gender, Position)
 values ('James Fowler', 'fwlr@gmail.com', 'password', '0348591274', '2001-05-11', 'Male', 'Admin')
 
@@ -41,3 +43,6 @@ values (N'Money: Vintage Minis', 'Yuval Noah Harari', 17.99, 'Economic', N'Vinta
 insert into Books (Title, Author, Price, Genre, Publisher, ImageLink)
 values (N'First Readers Cinderella', 'Geraldine Taylor', 13.99, 'Education', N'Parragon', 'images/Cinderella.jpg'),
 (N'Dune', 'Frank Herbert', 19.99, 'Novel', N'Ace Books', 'images/Dune.jpg')
+
+insert into Books (Title, Author, Price, Genre, Publisher, ImageLink)
+values (N'The Hobbit', 'J.R.R. Tolkien', 18.99, 'Fiction', N'HarperCollins', 'images/TheHobbit.jpg')

@@ -26,7 +26,7 @@ namespace BTL_WebNC
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = $"INSERT INTO Persons (Fullname, Email, Password, PhoneNumber, DOB, Gender, Position)"
                 + $"VALUES (N'{firstname.Text} {lastname.Text}', '{email.Text}', '{password.Text}', " +
-                $"'{phoneNumber.Text}', '{DOB.Text}', '{gender.Text}', 'Customer')";
+                $"'{phoneNumber.Text}', '{DOB.Text}', '{genderSelector.SelectedItem.Text}', 'Customer')";
 
             List<Persons> userList = (List<Persons>)Application["users"];
 
@@ -72,7 +72,7 @@ namespace BTL_WebNC
                 person.Password = password.Text.ToString();
                 person.PhoneNumber = phoneNumber.Text.ToString();
                 person.DOB = DOB.Text.ToString();
-                person.Gender = gender.Text.ToString();
+                person.Gender = genderSelector.Text.ToString();
                 person.Position = "Customer";
 
                 userList.Add(person);
@@ -81,6 +81,16 @@ namespace BTL_WebNC
                 cnn.Close();
                 Response.Redirect("Login.aspx");
             }
+        }
+
+        protected void toLogin_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+        }
+
+        protected void toHomePage_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("LandingPage.aspx");
         }
     }
 }

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Details</title>
-    <link rel="stylesheet" type="text/css" href="Bootstrap5/detailPageCSS.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/detailPageCSS.css" />
 </head>
 <body>
     <form id="bookDetails" runat="server">

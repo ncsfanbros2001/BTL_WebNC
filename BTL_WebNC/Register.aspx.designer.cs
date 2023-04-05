@@ -24,22 +24,13 @@ namespace BTL_WebNC
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl firstErrorCol;
 
         /// <summary>
-        /// secondErrorCol control.
+        /// registerForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl secondErrorCol;
-
-        /// <summary>
-        /// loginForm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm loginForm;
+        protected global::System.Web.UI.HtmlControls.HtmlForm registerForm;
 
         /// <summary>
         /// firstname control.
@@ -69,13 +60,13 @@ namespace BTL_WebNC
         protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
-        /// gender control.
+        /// genderSelector control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList gender;
+        protected global::System.Web.UI.WebControls.DropDownList genderSelector;
 
         /// <summary>
         /// password control.
@@ -121,5 +112,23 @@ namespace BTL_WebNC
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button register;
+
+        /// <summary>
+        /// toHomePage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton toHomePage;
+
+        /// <summary>
+        /// toLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton toLogin;
     }
 }
