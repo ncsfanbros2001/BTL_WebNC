@@ -51,8 +51,10 @@
         </form>
 
         <div class="otherOptions">
-            <button type="button" id="toHomePage" runat="server" onserverclick="toHomePage_ServerClick">HOME PAGE</button>
-            <button type="button" id="toRegister" runat="server" onserverclick="toRegister_ServerClick">REGISTER</button>
+            <button type="button" id="toHomePage" runat="server" onclick="window.location.href='LandingPage.aspx'">
+                HOME PAGE</button>
+            <button type="button" id="toRegister" runat="server" onclick="window.location.href='Register.aspx'">
+                REGISTER</button>
         </div>
     </div>
 </body>

@@ -46,6 +46,14 @@ namespace BTL_WebNC
             {
                 authenticationControls.Visible = false;
                 accountControls.Visible = true;
+                if (Session["role"].ToString() == "Admin")
+                {
+                    userName.InnerText = Session["name"].ToString() + " (Admin) ";
+                }
+                else
+                {
+                    userName.InnerText = Session["name"].ToString();
+                }
             }
 
             if (Session["role"].ToString() == "Admin")

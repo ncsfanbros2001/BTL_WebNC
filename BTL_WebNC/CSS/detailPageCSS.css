@@ -20,6 +20,7 @@ button {
     font-weight: 500;
     font-size: 18px;
     text-decoration: none;
+    cursor: pointer;
 }
 
 header {
@@ -52,6 +53,14 @@ header {
 .signupBTN {
     background-color: #ffc107;
     color: rgb(0, 0, 0);
+}
+
+.loginBTN:hover {
+    background-color: lightgray;
+}
+
+.signupBTN:hover {
+    background-color: yellow
 }
 
 /* Dropdown */

@@ -46,11 +46,13 @@ namespace BTL_WebNC
             {
                 adminOnly.Visible = true;
                 toCart.Visible = false;
+                checkoutRegion.Visible = false;
             }
             else
             {
                 adminOnly.Visible = false;
                 toCart.Visible = true;
+                checkoutRegion.Visible = true;
             }
         }
 
@@ -69,7 +71,17 @@ namespace BTL_WebNC
             Session.Abandon();
             Response.Redirect("Login.aspx");
         }
-    }
 
-    
+        protected void add2Cart_ServerClick(object sender, EventArgs e)
+        {
+            if (Session["name"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                
+            }
+        }
+    }
 }

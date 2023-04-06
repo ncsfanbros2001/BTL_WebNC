@@ -182,8 +182,10 @@
         </form>
 
         <div class="otherOptions">
-            <button type="button" id="toHomePage" runat="server" onserverclick="toHomePage_ServerClick">HOME PAGE</button>
-            <button type="button" id="toLogin" runat="server" onserverclick="toLogin_ServerClick">LOG IN</button>
+            <button type="button" id="toHomePage" runat="server" onclick="window.location.href='LandingPage.aspx'">
+                HOME PAGE</button>
+            <button type="button" id="toLogin" runat="server" onclick="window.location.href='Login.aspx'">
+                LOG IN</button>
         </div>
     </div>
 </body>

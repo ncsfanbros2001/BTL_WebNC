@@ -79,18 +79,10 @@ namespace BTL_WebNC
 
                 cmd.ExecuteNonQuery();
                 cnn.Close();
+                Response.Write("<script>alert('Register Successful');</script>");
                 Response.Redirect("Login.aspx");
             }
         }
 
-        protected void toLogin_ServerClick(object sender, EventArgs e)
-        {
-            Response.Redirect("Login.aspx");
-        }
-
-        protected void toHomePage_ServerClick(object sender, EventArgs e)
-        {
-            Response.Redirect("LandingPage.aspx");
-        }
     }
 }

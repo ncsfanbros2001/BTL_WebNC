@@ -33,7 +33,7 @@
                                 <div class="product-info">
                                     <h4 class="product-title">` + book.Title + `</h4>
                                     <p class="product-price">$` + book.Price + `</p>
-                                    <a class="product-btn" href="BookDetails.aspx?id=` + book.Id +`">Buy Now</a>
+                                    <a class="product-btn" href="BookDetails.aspx?id=` + book.Id +`">Details</a>
                                 </div>
                             </div>`
                         }
@@ -55,8 +55,8 @@
                     Sign Up</button>
             </div>
             <label class="dropdown" id="accountControls" runat="server">
-                <div class="dd-button">
-                    <% Response.Write(Session["name"]); %> &nbsp;
+                <div class="dd-button" id="userName" runat="server">
+                    
                 </div>
                 <input type="checkbox" class="dd-input" id="test" />
 

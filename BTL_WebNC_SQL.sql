@@ -46,3 +46,10 @@ values (N'First Readers Cinderella', 'Geraldine Taylor', 13.99, 'Education', N'P
 
 insert into Books (Title, Author, Price, Genre, Publisher, ImageLink)
 values (N'The Hobbit', 'J.R.R. Tolkien', 18.99, 'Fiction', N'HarperCollins', 'images/TheHobbit.jpg')
+
+create table CartItems (
+	CartItemID int identity(1, 1) primary key,
+	PersonID int foreign key References Persons(Id),
+	BookID int foreign key References Books(Id),
+	Quantity int
+)

@@ -40,16 +40,16 @@ namespace BTL_WebNC
 
                 userList.Add(person);
             }
-            cnn.Close();
-
-            cnn.Open();
+            
             List<Books> bookList = new List<Books>();
             Application["books"] = bookList;
 
             SqlCommand getAllBooksCommand = cnn.CreateCommand();
             getAllBooksCommand.CommandType = CommandType.Text;
             getAllBooksCommand.CommandText = "SELECT * FROM Books";
+            cnn.Close();
 
+            cnn.Open();
             SqlDataReader booksReader = getAllBooksCommand.ExecuteReader();
 
             while (booksReader.Read())
