@@ -50,6 +50,15 @@ values (N'The Hobbit', 'J.R.R. Tolkien', 18.99, 'Fiction', N'HarperCollins', 'im
 create table CartItems (
 	CartItemID int identity(1, 1) primary key,
 	PersonID int foreign key References Persons(Id),
+	PersonFullname nvarchar(50),
+	PersonPhoneNumber nvarchar(50),
 	BookID int foreign key References Books(Id),
-	Quantity int
+	BookTitle nvarchar(30) not null,
+	BookPrice decimal(10, 2),
+	Quantity int,
+	TotalPrice decimal(10, 2)
 )
+
+select * from CartItems
+
+truncate table CartItems

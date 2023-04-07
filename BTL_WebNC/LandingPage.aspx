@@ -7,7 +7,6 @@
     <title>BookLife</title>
     <link rel="stylesheet" type="text/css" href="CSS/landingPageCSS.css" />
     <script type="text/javascript">
-        
         function getFilteredProducts() {
             var getGenreList = document.getElementById('genreList');
             var genre = getGenreList.options[getGenreList.selectedIndex].value;
@@ -62,7 +61,7 @@
 
                 <ul class="dd-menu">
                     <div id="toCart" runat="server"><li><a href="#">Shopping Cart</a></li></div>
-                    <li><a href="#">Account Info</a></li>
+                    <li><a id="toUserInfo" runat="server">Account Info</a></li>
                     <div id="adminOnly" runat="server">
                         <li class="divider"></li>
                         <li><a href="#">Products</a></li>

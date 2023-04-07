@@ -44,6 +44,7 @@ namespace BTL_WebNC
                     isCorrect = true;
                     Session["name"] = person.Fullname;
                     Session["role"] = person.Position;
+                    Session["id"] = person.ID;
 
                     Response.Cookies["rememberEmail"].Value = person.Email;
                     Response.Cookies["rememberPassword"].Value = person.Password;
@@ -51,6 +52,8 @@ namespace BTL_WebNC
                     break;
                 }
             }
+
+            // src: images/<ImageName>.jpg
 
             if (!isCorrect)
             {
@@ -60,14 +63,12 @@ namespace BTL_WebNC
             {
                 Response.Cookies["rememberEmail"].Expires = DateTime.Now.AddDays(15);
                 Response.Cookies["rememberPassword"].Expires = DateTime.Now.AddDays(15);
-
                 Response.Redirect("LandingPage.aspx");
             }
             else if (isCorrect && !rememberMe.Checked)
             {
                 Response.Cookies["rememberEmail"].Expires = DateTime.Now.AddDays(-1);
                 Response.Cookies["rememberPassword"].Expires = DateTime.Now.AddDays(-1);
-
                 Response.Redirect("LandingPage.aspx");
             }
         }

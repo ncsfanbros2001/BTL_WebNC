@@ -150,6 +150,15 @@ namespace BTL_WebNC
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl checkoutRegion;
 
         /// <summary>
+        /// amount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl amount;
+
+        /// <summary>
         /// add2Cart control.
         /// </summary>
         /// <remarks>

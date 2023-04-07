@@ -16,6 +16,7 @@ namespace BTL_WebNC
         SqlConnection cnn = new SqlConnection(StaticValues.MINH_connectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
+            List<Persons> userList = (List<Persons>)Application["users"];
             cnn.Open();
 
             SqlCommand getGenreCommand = cnn.CreateCommand();
@@ -46,6 +47,16 @@ namespace BTL_WebNC
             {
                 authenticationControls.Visible = false;
                 accountControls.Visible = true;
+
+                foreach (Persons person in userList)
+                {
+                    if (person.Fullname == Session["name"].ToString())
+                    {
+                        toUserInfo.HRef = "UserInfo.aspx?id=" + person.ID;
+                        break;
+                    }
+                }
+
                 if (Session["role"].ToString() == "Admin")
                 {
                     userName.InnerText = Session["name"].ToString() + " (Admin) ";

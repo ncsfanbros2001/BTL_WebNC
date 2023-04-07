@@ -12,6 +12,7 @@ namespace BTL_WebNC
 {
     public partial class BookDetails : System.Web.UI.Page
     {
+        SqlConnection cnn = new SqlConnection(StaticValues.MINH_connectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
             int bookID = Convert.ToInt32(Request.QueryString["id"]);
@@ -74,13 +75,79 @@ namespace BTL_WebNC
 
         protected void add2Cart_ServerClick(object sender, EventArgs e)
         {
+            List<Books> bookList = (List<Books>)Application["books"];
+            List<Persons> userList = (List<Persons>)Application["users"];
+            List<CartItems> cartItemList = (List<CartItems>)Application["cartItems"];
+            int bookID = Convert.ToInt32(Request.QueryString["id"]);
+            bool existed = false;
+
+            SqlCommand cmd = cnn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+
             if (Session["name"] == null)
             {
                 Response.Redirect("Login.aspx");
             }
             else
             {
-                
+                cnn.Open();
+
+                foreach (CartItems cartItem in cartItemList) // Check if item has existed in cart or not
+                {
+                    if (cartItem.BookID == bookID && 
+                        cartItem.PersonID == Convert.ToInt32(Session["id"])) // Item already existed
+                    {
+                        existed = true;
+                        cartItem.quantity += Convert.ToInt32(amount.Value);
+                        cmd.CommandText = $"UPDATE CartItems SET Quantity = Quantity " +
+                            $"+ {Convert.ToInt32(amount.Value)}, TotalPrice = TotalPrice + " +
+                            $"({Convert.ToInt32(amount.Value)} * {cartItem.BookPrice}) WHERE BookID = {bookID}";
+                        break;
+                    }
+                }
+
+                if (!existed) // Item not yet existed
+                {
+                    CartItems cartItem = new CartItems();
+                    cmd.CommandText = "INSERT INTO CartItems (PersonID, PersonFullname, PersonPhoneNumber, BookID," +
+                            "BookTitle, BookPrice, Quantity, TotalPrice)";
+
+                    foreach (Persons person in userList)
+                    {
+                        if (person.Fullname == Session["name"].ToString())
+                        {
+                            cmd.CommandText += $"VALUES ({person.ID}, N'{person.Fullname}', '{person.PhoneNumber}',";
+
+                            //cartItem.CartItemID = Convert.ToInt32(cartItemsReader["CartItemID"]);
+                            cartItem.PersonID = person.ID;
+                            cartItem.PersonFullname = person.Fullname;
+                            cartItem.PersonPhoneNumber = person.PhoneNumber;
+                            break;
+                        }
+                    }
+
+                    foreach (Books book in bookList)
+                    {
+                        if (book.Id == bookID)
+                        {
+                            cmd.CommandText += $"{bookID}, N'{book.Title}', {book.Price}, {amount.Value}," +
+                                $" {Convert.ToInt32(amount.Value) * book.Price})";
+
+                            cartItem.BookID = bookID;
+                            cartItem.BookTitle = book.Title;
+                            cartItem.BookPrice = book.Price;
+                            cartItem.quantity = Convert.ToInt32(amount.Value);
+                            cartItem.TotalPrice = Convert.ToInt32(amount.Value) * book.Price;
+                            break;
+                        }
+                    }
+
+                    cartItemList.Add(cartItem);
+                }
+
+                cmd.ExecuteNonQuery();
+
+                cnn.Close();
             }
         }
     }

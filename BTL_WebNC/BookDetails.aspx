@@ -64,7 +64,7 @@
                 </div>
                 <div class="checkout" runat="server" id="checkoutRegion">
                     <label for="amount">Quantity: </label>
-                    <input type="number" id="amount" min="1" value="1" />
+                    <input type="number" id="amount" min="1" value="1" runat="server" />
                     <button id="add2Cart" runat="server" onserverclick="add2Cart_ServerClick">Add To Cart</button>
                 </div>
             </div>

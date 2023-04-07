@@ -66,6 +66,34 @@ namespace BTL_WebNC
 
                 bookList.Add(book);
             }
+
+            List<CartItems> cartItemList = new List<CartItems>();
+            Application["cartItems"] = cartItemList;
+
+            SqlCommand getAllCartItemsCommand = cnn.CreateCommand();
+            getAllCartItemsCommand.CommandType = CommandType.Text;
+            getAllCartItemsCommand.CommandText = "SELECT * FROM CartItems";
+            cnn.Close();
+
+            cnn.Open();
+            SqlDataReader cartItemsReader = getAllCartItemsCommand.ExecuteReader();
+
+            while (cartItemsReader.Read())
+            {
+                CartItems cartItem = new CartItems();
+
+                cartItem.CartItemID = Convert.ToInt32(cartItemsReader["CartItemID"]);
+                cartItem.PersonID = Convert.ToInt32(cartItemsReader["PersonID"]);
+                cartItem.PersonFullname = cartItemsReader["PersonFullname"].ToString();
+                cartItem.PersonPhoneNumber = cartItemsReader["PersonPhoneNumber"].ToString();
+                cartItem.BookID = Convert.ToInt32(cartItemsReader["BookID"]);
+                cartItem.BookTitle = cartItemsReader["BookTitle"].ToString();
+                cartItem.BookPrice = Convert.ToDouble(cartItemsReader["BookPrice"]);
+                cartItem.quantity = Convert.ToInt32(cartItemsReader["Quantity"]);
+                cartItem.TotalPrice = Convert.ToDouble(cartItemsReader["TotalPrice"]);
+
+                cartItemList.Add(cartItem);
+            }
             cnn.Close();
         }
 
