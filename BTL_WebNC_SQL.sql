@@ -55,12 +55,10 @@ create table CartItems (
 	BookID int foreign key References Books(Id),
 	BookTitle nvarchar(30),
 	BookPrice decimal(10, 2),
+	BookImageLink nvarchar(50),
 	Quantity int,
 	TotalPrice decimal(10, 2)
-)
-
-ALTER TABLE CartItems
-ADD ImageLink nvarchar(50)
+) 
 
 select * from CartItems
 
