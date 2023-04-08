@@ -72,5 +72,43 @@ namespace BTL_WebNC
 
             cnn.Close();
         }
+
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true)]
+        public void GetCartItems(int personId)
+        {
+            List<CartItems> cartItemList = new List<CartItems>();
+
+            cnn.Open();
+            SqlCommand cmd = cnn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = $"SELECT * FROM CartItems WHERE PersonID = {personId}" ;
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                CartItems cartItem = new CartItems();
+
+                cartItem.CartItemID = Convert.ToInt32(reader["CartItemID"]);
+                cartItem.PersonID = Convert.ToInt32(reader["PersonID"]);
+                cartItem.PersonFullname = reader["PersonFullname"].ToString();
+                cartItem.PersonPhoneNumber = reader["PersonPhoneNumber"].ToString();
+                cartItem.BookID = Convert.ToInt32(reader["BookID"]);
+                cartItem.BookTitle = reader["BookTitle"].ToString();
+                cartItem.BookPrice = Convert.ToDouble(reader["BookPrice"]);
+                cartItem.BookImageLink = reader["BookImageLink"].ToString();
+                cartItem.quantity = Convert.ToInt32(reader["Quantity"]);
+                cartItem.TotalPrice = Convert.ToDouble(reader["TotalPrice"]);
+
+                cartItemList.Add(cartItem);
+            }
+            
+
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Context.Response.Write(js.Serialize(cartItemList));
+
+            cnn.Close();
+        }
     }
 }

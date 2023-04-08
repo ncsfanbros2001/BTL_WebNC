@@ -53,11 +53,14 @@ create table CartItems (
 	PersonFullname nvarchar(50),
 	PersonPhoneNumber nvarchar(50),
 	BookID int foreign key References Books(Id),
-	BookTitle nvarchar(30) not null,
+	BookTitle nvarchar(30),
 	BookPrice decimal(10, 2),
 	Quantity int,
 	TotalPrice decimal(10, 2)
 )
+
+ALTER TABLE CartItems
+ADD ImageLink nvarchar(50)
 
 select * from CartItems
 

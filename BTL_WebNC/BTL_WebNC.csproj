@@ -72,6 +72,7 @@
     <Content Include="CSS\landingPageCSS.css" />
     <Content Include="CSS\loginCSS.css" />
     <Content Include="CSS\registerCSS.css" />
+    <Content Include="CSS\shoppingCartCSS.css" />
     <Content Include="Global.asax" />
     <Content Include="images\Cinderella.jpg" />
     <Content Include="images\CleanCode.jpg" />

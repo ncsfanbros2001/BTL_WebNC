@@ -60,7 +60,7 @@
                 <input type="checkbox" class="dd-input" id="test" />
 
                 <ul class="dd-menu">
-                    <div id="toCart" runat="server"><li><a href="#">Shopping Cart</a></li></div>
+                    <div id="toCart" runat="server"><li><a href="ShoppingCart.aspx">Shopping Cart</a></li></div>
                     <li><a id="toUserInfo" runat="server">Account Info</a></li>
                     <div id="adminOnly" runat="server">
                         <li class="divider"></li>
@@ -77,7 +77,8 @@
         <section class="products">
             <div class="product-filter">
                 <div class="search-by-name">
-                    <asp:TextBox ID="searchBox" runat="server" placeholder="Search by title ..." type="search">
+                    <asp:TextBox ID="searchBox" runat="server" placeholder="Search by title ..." type="search" 
+                        oninput="getFilteredProducts()">
 
                     </asp:TextBox>
                     <button id="searchBtn" onclick="getFilteredProducts()">Search</button>

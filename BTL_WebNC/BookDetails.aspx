@@ -10,7 +10,7 @@
 <body>
     <form id="bookDetails" runat="server">
         <header>
-            <a href="#" class="logo"><span style="color: #ffc107;">BOOK</span><span style="color: white;">LIFE</span></a>
+            <a href="LandingPage.aspx" class="logo"><span style="color: #ffc107;">BOOK</span><span style="color: white;">LIFE</span></a>
             <div class="buttons" id="authenticationControls" runat="server">
                 <button class="loginBTN button" id="loginBtn" runat="server" onserverclick="loginBtn_ServerClick">
                     Log In</button>
@@ -18,14 +18,13 @@
                     Sign Up</button>
             </div>
             <label class="dropdown" id="accountControls" runat="server">
-                <div class="dd-button">
-                    <% Response.Write(Session["name"]); %> &nbsp;
-                </div>
+                <div class="dd-button" id="userName" runat="server"></div>
+
                 <input type="checkbox" class="dd-input" id="test" />
 
                 <ul class="dd-menu">
-                    <li><a href="#" id="toCart" runat="server">Shopping Cart</a></li>
-                    <li><a href="#">Account Info</a></li>
+                    <div id="toCart" runat="server"><li><a href="ShoppingCart.aspx">Shopping Cart</a></li></div>
+                    <li><a id="toUserInfo" runat="server">Account Info</a></li>
                     <div id="adminOnly" runat="server">
                         <li class="divider"></li>
                         <li><a href="#">Products</a></li>

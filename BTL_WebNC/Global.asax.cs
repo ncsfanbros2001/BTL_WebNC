@@ -89,6 +89,7 @@ namespace BTL_WebNC
                 cartItem.BookID = Convert.ToInt32(cartItemsReader["BookID"]);
                 cartItem.BookTitle = cartItemsReader["BookTitle"].ToString();
                 cartItem.BookPrice = Convert.ToDouble(cartItemsReader["BookPrice"]);
+                cartItem.BookImageLink = cartItemsReader["BookImageLink"].ToString();
                 cartItem.quantity = Convert.ToInt32(cartItemsReader["Quantity"]);
                 cartItem.TotalPrice = Convert.ToDouble(cartItemsReader["TotalPrice"]);
 

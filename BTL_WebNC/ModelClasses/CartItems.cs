@@ -14,6 +14,7 @@ namespace BTL_WebNC.ModelClasses
         public int BookID { get; set; }
         public string BookTitle { get; set; }
         public double BookPrice { get; set; }
+        public string BookImageLink { get; set; }
         public int quantity { get; set; }
         public double TotalPrice { get; set; }
     }

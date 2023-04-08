@@ -17,6 +17,7 @@ namespace BTL_WebNC
         {
             int bookID = Convert.ToInt32(Request.QueryString["id"]);
             List<Books> bookList = (List<Books>)Application["books"];
+            List<Persons> userList = (List<Persons>)Application["users"];
 
             foreach (Books book in bookList)
             {
@@ -41,6 +42,24 @@ namespace BTL_WebNC
             {
                 authenticationControls.Visible = false;
                 accountControls.Visible = true;
+
+                foreach (Persons person in userList)
+                {
+                    if (person.Fullname == Session["name"].ToString())
+                    {
+                        toUserInfo.HRef = "UserInfo.aspx?id=" + person.ID;
+                        break;
+                    }
+                }
+
+                if (Session["role"].ToString() == "Admin")
+                {
+                    userName.InnerText = Session["name"].ToString() + " (Admin) ";
+                }
+                else
+                {
+                    userName.InnerText = Session["name"].ToString();
+                }
             }
 
             if (Session["role"].ToString() == "Admin")
@@ -80,6 +99,12 @@ namespace BTL_WebNC
             List<CartItems> cartItemList = (List<CartItems>)Application["cartItems"];
             int bookID = Convert.ToInt32(Request.QueryString["id"]);
             bool existed = false;
+            int highestID = 1;
+
+            if (cartItemList.Count > 0)
+            {
+                highestID = cartItemList.Max(u => u.CartItemID);
+            }
 
             SqlCommand cmd = cnn.CreateCommand();
             cmd.CommandType = CommandType.Text;
@@ -110,7 +135,7 @@ namespace BTL_WebNC
                 {
                     CartItems cartItem = new CartItems();
                     cmd.CommandText = "INSERT INTO CartItems (PersonID, PersonFullname, PersonPhoneNumber, BookID," +
-                            "BookTitle, BookPrice, Quantity, TotalPrice)";
+                            "BookTitle, BookPrice, BookImageLink, Quantity, TotalPrice)";
 
                     foreach (Persons person in userList)
                     {
@@ -118,7 +143,7 @@ namespace BTL_WebNC
                         {
                             cmd.CommandText += $"VALUES ({person.ID}, N'{person.Fullname}', '{person.PhoneNumber}',";
 
-                            //cartItem.CartItemID = Convert.ToInt32(cartItemsReader["CartItemID"]);
+                            cartItem.CartItemID = highestID + 1;
                             cartItem.PersonID = person.ID;
                             cartItem.PersonFullname = person.Fullname;
                             cartItem.PersonPhoneNumber = person.PhoneNumber;
@@ -130,7 +155,7 @@ namespace BTL_WebNC
                     {
                         if (book.Id == bookID)
                         {
-                            cmd.CommandText += $"{bookID}, N'{book.Title}', {book.Price}, {amount.Value}," +
+                            cmd.CommandText += $"{bookID}, N'{book.Title}', {book.Price}, '{book.ImageLink}', {amount.Value}," +
                                 $" {Convert.ToInt32(amount.Value) * book.Price})";
 
                             cartItem.BookID = bookID;
@@ -138,6 +163,7 @@ namespace BTL_WebNC
                             cartItem.BookPrice = book.Price;
                             cartItem.quantity = Convert.ToInt32(amount.Value);
                             cartItem.TotalPrice = Convert.ToInt32(amount.Value) * book.Price;
+                            cartItem.BookImageLink = book.ImageLink;
                             break;
                         }
                     }
@@ -148,6 +174,8 @@ namespace BTL_WebNC
                 cmd.ExecuteNonQuery();
 
                 cnn.Close();
+
+                Response.Redirect("ShoppingCart.aspx");
             }
         }
     }

@@ -60,13 +60,31 @@ namespace BTL_WebNC
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl accountControls;
 
         /// <summary>
+        /// userName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl userName;
+
+        /// <summary>
         /// toCart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor toCart;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl toCart;
+
+        /// <summary>
+        /// toUserInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor toUserInfo;
 
         /// <summary>
         /// adminOnly control.
