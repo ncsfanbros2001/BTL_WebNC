@@ -70,5 +70,15 @@ namespace BTL_WebNC
             Session.Abandon();
             Response.Redirect("Login.aspx");
         }
+
+        protected void continueShopping_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("LandingPage.aspx");
+        }
+
+        protected void checkout_ServerClick(object sender, EventArgs e)
+        {
+            //Response.Redirect("LandingPage.aspx");
+        }
     }
 }

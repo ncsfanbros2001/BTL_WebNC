@@ -18,6 +18,7 @@
             xhttp.onreadystatechange = function () {
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
                     const cartItems = JSON.parse(xhttp.responseText);
+                    let totalPayment = 0;
                     let cartItemCardCode = '';
                     let itemSummaryTableCode = `<tr>
                             <td><b>Title</b></td>
@@ -29,6 +30,7 @@
                     }
                     else {
                         for (let cartItem of cartItems) {
+                            totalPayment += parseFloat(cartItem.TotalPrice);
                             cartItemCardCode += `<div class="item">
                                 <div class="itemImg">
                                     <img src="` + cartItem.BookImageLink + `" id="image" />
@@ -38,13 +40,14 @@
                                     <div>
                                         <span style="font-size: 20px;">Quantity: </span>
                                         <input type="number" id="amount"
-                                        value="` + cartItem.quantity + `" />
+                                        value="` + cartItem.quantity + `" disabled/>
                                         <span id="pricePerProduct">&nbsp;x $` + cartItem.BookPrice + `</span>
                                     </div>
                                 </div>
                                 <div class="priceTag">
                                     <h2>$` + cartItem.TotalPrice + `</h2>
-                                    <button id="remove">Remove</button>
+                                    <button id="remove" onclick="deleteCartItems(`+ cartItem.CartItemID +`)">
+                                        Remove</button>
                                 </div>
                             </div>`;
                             itemSummaryTableCode += `<tr>
@@ -53,11 +56,20 @@
                                 <td>$` + cartItem.TotalPrice + `</td>
                             </tr>`;
                         }
-                    } 
+                    }
+                    document.getElementById('totalPrice').innerText = "$" + totalPayment;
                     document.getElementById('items').innerHTML = cartItemCardCode;
                     document.getElementById('itemSummaryTable').innerHTML = itemSummaryTableCode;
                 }
             }
+        }
+
+        function deleteCartItems(itemId) {
+            var url = 'https://localhost:44374/WebService.asmx/DeleteCartItem?itemId=' + itemId;
+
+            const xhttp = new XMLHttpRequest();
+            xhttp.open("GET", url, true);
+            xhttp.send();
         }
     </script>
 </head>
@@ -101,10 +113,12 @@
                         
                     </table>
                     <hr />
-                    <h2><span class="totalPrice">Total Price: </span>$170</h2>
+                    <h2>Total Price: <span id="totalPrice"></span></h2>
                     <div class="optionButtons">
-                        <button id="continueShopping">Keep on Shopping</button>
-                        <button id="checkout">Checkout</button>
+                        <button id="continueShopping" runat="server" 
+                            onserverclick="continueShopping_ServerClick">Keep on Shopping</button>
+                        <button id="checkout" runat="server" 
+                            onserverclick="checkout_ServerClick">Checkout</button>
                     </div>
                 </div>
             </div>

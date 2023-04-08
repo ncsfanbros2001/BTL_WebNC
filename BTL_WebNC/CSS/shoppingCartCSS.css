@@ -222,10 +222,11 @@ h1 {
 
 h2 {
     text-align: right;
+    font-weight: bold;
 }
 
-.totalPrice {
-    font-weight: lighter;
+#totalPrice {
+    font-weight: bold;
 }
 
 .optionButtons {

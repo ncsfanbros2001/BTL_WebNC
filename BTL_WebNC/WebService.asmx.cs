@@ -82,7 +82,7 @@ namespace BTL_WebNC
             cnn.Open();
             SqlCommand cmd = cnn.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = $"SELECT * FROM CartItems WHERE PersonID = {personId}" ;
+            cmd.CommandText = $"SELECT * FROM CartItems WHERE PersonID = {personId}";
 
             SqlDataReader reader = cmd.ExecuteReader();
 
@@ -103,10 +103,28 @@ namespace BTL_WebNC
 
                 cartItemList.Add(cartItem);
             }
-            
+
 
             JavaScriptSerializer js = new JavaScriptSerializer();
             Context.Response.Write(js.Serialize(cartItemList));
+
+            cnn.Close();
+        }
+
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true)]
+        public void DeleteCartItem(int itemId)
+        {
+            List<CartItems> cartItemList = (List<CartItems>)Application["cartItems"];
+
+            cnn.Open();
+            SqlCommand cmd = cnn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = $"DELETE FROM CartItems WHERE CartItemID = {itemId}";
+
+            cmd.ExecuteNonQuery();
+
+            cartItemList.RemoveAll(u => u.CartItemID == itemId);
 
             cnn.Close();
         }
