@@ -119,7 +119,9 @@
                             onserverclick="continueShopping_ServerClick">Keep on Shopping</button>
                         <button id="checkout" runat="server" 
                             onserverclick="checkout_ServerClick">Checkout</button>
+                        
                     </div>
+                    <p id="emptyCartAlert" runat="server"></p>
                 </div>
             </div>
 

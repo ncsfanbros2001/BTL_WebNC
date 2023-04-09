@@ -345,3 +345,11 @@ input::-webkit-inner-spin-button {
     color: red;
     text-align: center;
 }
+
+#emptyCartAlert {
+    font-weight: bold;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 10px;
+    color: red;
+}
