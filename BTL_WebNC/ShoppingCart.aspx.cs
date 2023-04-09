@@ -10,8 +10,14 @@ namespace BTL_WebNC
 {
     public partial class ShoppingCart : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["name"] == null)
+            {
+                Response.Redirect("LandingPage.aspx");
+
+            }
             List<Persons> userList = (List<Persons>)Application["users"];
 
             if (Session["name"] == null)

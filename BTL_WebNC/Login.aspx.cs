@@ -15,6 +15,11 @@ namespace BTL_WebNC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["name"] != null)
+            {
+                Response.Redirect("LandingPage.aspx");
+            }
+
             if (!IsPostBack)
             {
                 if (Request.Cookies["rememberEmail"] != null)
@@ -52,8 +57,6 @@ namespace BTL_WebNC
                     break;
                 }
             }
-
-            // src: images/<ImageName>.jpg
 
             if (!isCorrect)
             {

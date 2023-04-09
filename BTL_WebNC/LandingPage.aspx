@@ -81,7 +81,6 @@
                         oninput="getFilteredProducts()">
 
                     </asp:TextBox>
-                    <button id="searchBtn" onclick="getFilteredProducts()">Search</button>
                 </div>
                 <div class="search-by-genre">
                     <label for="cars" class="genreLabel">Search by genre:</label>

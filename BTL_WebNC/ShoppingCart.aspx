@@ -57,7 +57,7 @@
                             </tr>`;
                         }
                     }
-                    document.getElementById('totalPrice').innerText = "$" + totalPayment;
+                    document.getElementById('totalPrice').innerText = "$" + totalPayment.toFixed(2);
                     document.getElementById('items').innerHTML = cartItemCardCode;
                     document.getElementById('itemSummaryTable').innerHTML = itemSummaryTableCode;
                 }

@@ -269,6 +269,7 @@ h2 {
     display: flex;
     justify-content: space-around;
     margin: 10px;
+    background-color: #F8F8FF;
 }
 
 .itemImg {
