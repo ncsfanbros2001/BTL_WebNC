@@ -15,6 +15,8 @@ namespace BTL_WebNC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+           
+
             if (!IsPostBack)
             {
                 if (Request.Cookies["rememberEmail"] != null)
@@ -69,6 +71,7 @@ namespace BTL_WebNC
             {
                 Response.Cookies["rememberEmail"].Expires = DateTime.Now.AddDays(-1);
                 Response.Cookies["rememberPassword"].Expires = DateTime.Now.AddDays(-1);
+
                 Response.Redirect("LandingPage.aspx");
             }
         }

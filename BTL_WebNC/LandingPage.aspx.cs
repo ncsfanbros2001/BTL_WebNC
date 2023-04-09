@@ -13,7 +13,7 @@ namespace BTL_WebNC
 {
     public partial class LandingPage : System.Web.UI.Page
     {
-        SqlConnection cnn = new SqlConnection(StaticValues.MINH_connectionString);
+        SqlConnection cnn = new SqlConnection(StaticValues.HAN_connectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
             List<Persons> userList = (List<Persons>)Application["users"];
