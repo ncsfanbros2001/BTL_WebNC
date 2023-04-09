@@ -12,7 +12,7 @@ namespace BTL_WebNC
 {
     public class Global : System.Web.HttpApplication
     {
-        SqlConnection cnn = new SqlConnection(StaticValues.MINH_connectionString);
+        SqlConnection cnn = new SqlConnection(StaticValues.HAN_connectionString);
         protected void Application_Start(object sender, EventArgs e)
         {
             List<Persons> userList = new List<Persons>();

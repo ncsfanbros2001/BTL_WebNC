@@ -73,6 +73,7 @@
     <Content Include="CSS\loginCSS.css" />
     <Content Include="CSS\registerCSS.css" />
     <Content Include="CSS\shoppingCartCSS.css" />
+    <Content Include="admin.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\Cinderella.jpg" />
     <Content Include="images\CleanCode.jpg" />
@@ -93,12 +94,12 @@
     <Content Include="WebService.asmx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookDetails.aspx.cs">
-      <DependentUpon>BookDetails.aspx</DependentUpon>
+    <Compile Include="admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BookDetails.aspx.designer.cs">
-      <DependentUpon>BookDetails.aspx</DependentUpon>
+    <Compile Include="admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

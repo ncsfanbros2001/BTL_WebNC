@@ -12,10 +12,11 @@ create table Persons (
 	Position nvarchar(10) not null CHECK (Position IN('Admin', 'Customer'))
 );
 
+
 select * from Persons
 
 insert into Persons (Fullname, Email, Password, PhoneNumber, DOB, Gender, Position)
-values ('James Fowler', 'fwlr@gmail.com', 'password', '0348591274', '2001-05-11', 'Male', 'Admin')
+values ('Han', 'admin', 'admin', '0365059595', '01-01-2001', 'FeMale', 'Admin')
 
 create table Books (
 	ID int identity(1, 1) primary key,
