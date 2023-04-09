@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace BTL_WebNC
 {
-    public partial class BookDetails : System.Web.UI.Page
+    public partial class Details : System.Web.UI.Page
     {
         SqlConnection cnn = new SqlConnection(StaticValues.MINH_connectionString);
         protected void Page_Load(object sender, EventArgs e)
@@ -119,7 +119,7 @@ namespace BTL_WebNC
 
                 foreach (CartItems cartItem in cartItemList) // Check if item has existed in cart or not
                 {
-                    if (cartItem.BookID == bookID && 
+                    if (cartItem.BookID == bookID &&
                         cartItem.PersonID == Convert.ToInt32(Session["id"])) // Item already existed
                     {
                         existed = true;
@@ -155,8 +155,8 @@ namespace BTL_WebNC
                     {
                         if (book.Id == bookID)
                         {
-                            cmd.CommandText += $"{bookID}, N'{book.Title}', {book.Price}, '{book.ImageLink}', {amount.Value}," +
-                                $" {Convert.ToInt32(amount.Value) * book.Price})";
+                            cmd.CommandText += $"{bookID}, N'{book.Title}', {book.Price}, '{book.ImageLink}', " +
+                                $"{amount.Value}, {Convert.ToInt32(amount.Value) * book.Price})";
 
                             cartItem.BookID = bookID;
                             cartItem.BookTitle = book.Title;

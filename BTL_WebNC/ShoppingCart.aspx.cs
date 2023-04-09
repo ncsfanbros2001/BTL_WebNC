@@ -16,7 +16,6 @@ namespace BTL_WebNC
             if (Session["name"] == null)
             {
                 Response.Redirect("LandingPage.aspx");
-
             }
             List<Persons> userList = (List<Persons>)Application["users"];
 

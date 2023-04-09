@@ -11,7 +11,7 @@ namespace BTL_WebNC
 {
 
 
-    public partial class BookDetails
+    public partial class Details
     {
 
         /// <summary>

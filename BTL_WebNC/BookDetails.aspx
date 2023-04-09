@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BookDetails.aspx.cs" Inherits="BTL_WebNC.BookDetails" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BookDetails.aspx.cs" Inherits="BTL_WebNC.Details" %>
 
 <!DOCTYPE html>
 
