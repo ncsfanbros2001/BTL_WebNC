@@ -45,8 +45,8 @@ namespace BTL_WebNC
                     customerName.Value = person.Fullname;
                     customerEmail.Value = person.Email;
                     customerPhoneNumber.Value = person.PhoneNumber;
-                    orderDate.Value = DateTime.Now.ToString("dd-MM-yyyy");
-                    estimatedReceiveDate.Value = DateTime.Now.AddDays(3).ToString("dd-MM-yyyy");
+                    orderDate.Value = DateTime.Now.ToString("yyyy-MM-dd");
+                    estimatedReceiveDate.Value = DateTime.Now.AddDays(3).ToString("yyyy-MM-dd");
                     break;
                 }
             }
@@ -62,7 +62,16 @@ namespace BTL_WebNC
         {
             List<CartItems> cartItemList = (List<CartItems>)Application["cartItems"];
             int currentID = 1;
-            
+            double totalPrice = 0;
+
+            foreach (CartItems cartItem in cartItemList)
+            {
+                if (cartItem.PersonID == Convert.ToInt32(Session["id"]))
+                {
+                    totalPrice += cartItem.TotalPrice;
+                }
+            }
+
             SqlCommand getCurrentPurchaseID = cnn.CreateCommand();
             getCurrentPurchaseID.CommandType = CommandType.Text;
             getCurrentPurchaseID.CommandText = "SELECT ISNULL(MAX(PurchasedItemID), 0) FROM PurchaseList";
@@ -76,10 +85,15 @@ namespace BTL_WebNC
             SqlCommand cmd = cnn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            cmd.CommandText = $"INSERT INTO PurchaseHistory (PersonID, OrderDate, EstimateReceiveDate, Address," +
-                    $"Note, TotalPrice) VALUES ({Session["id"]}, '{orderDate.Value}', " +
-                    $"'{estimatedReceiveDate.Value}', '{address.Value}', '{note.Value}'," +
-                    $"{totalPrice.InnerText.Trim('$')})";
+            cmd.CommandText = "INSERT INTO PurchaseHistory (PersonID, OrderDate, EstimateReceiveDate, Address," +
+                    "Note, TotalPrice) VALUES (@PersonID, @OrderDate, @EstimateReceiveDate, @Address, @Note," +
+                    "@TotalPrice)";
+            cmd.Parameters.AddWithValue("@PersonID", Session["id"]);
+            cmd.Parameters.AddWithValue("@OrderDate", orderDate.Value);
+            cmd.Parameters.AddWithValue("@EstimateReceiveDate", estimatedReceiveDate.Value);
+            cmd.Parameters.AddWithValue("@Address", address.Value);
+            cmd.Parameters.AddWithValue("@Note", note.Value);
+            cmd.Parameters.AddWithValue("@TotalPrice", totalPrice);
 
             cmd.ExecuteNonQuery();
 
@@ -93,8 +107,11 @@ namespace BTL_WebNC
                 }
             }
 
+            cmd.CommandText = $"DELETE FROM CartItems WHERE PersonID = {Session["id"]}";
+            cmd.ExecuteNonQuery();
+
             cnn.Close();
-            Response.Redirect("LandingPage.aspx");
+            //Response.Redirect("LandingPage.aspx");
         }
 
         protected void back2Cart_ServerClick(object sender, EventArgs e)

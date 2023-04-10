@@ -73,7 +73,7 @@
                         
                     </table>
                     <hr />
-                    <h2>Total Price: <span id="totalPrice" runat="server"></span></h2>
+                    <h2>Total Price: <span id="totalPrice"></span></h2>
                     <div class="optionButtons">
                         <button id="back2Cart" runat="server" onserverclick="back2Cart_ServerClick">
                             Keep on Shopping</button>
