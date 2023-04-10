@@ -41,16 +41,16 @@ namespace BTL_WebNC
 
                 userList.Add(person);
             }
-            
+            cnn.Close();
+
             List<Books> bookList = new List<Books>();
             Application["books"] = bookList;
 
+            cnn.Open();
             SqlCommand getAllBooksCommand = cnn.CreateCommand();
             getAllBooksCommand.CommandType = CommandType.Text;
-            getAllBooksCommand.CommandText = "SELECT * FROM Books";
-            cnn.Close();
-
-            cnn.Open();
+            getAllBooksCommand.CommandText = "SELECT * FROM Books";           
+            
             SqlDataReader booksReader = getAllBooksCommand.ExecuteReader();
 
             while (booksReader.Read())
@@ -67,16 +67,16 @@ namespace BTL_WebNC
 
                 bookList.Add(book);
             }
+            cnn.Close();
 
             List<CartItems> cartItemList = new List<CartItems>();
             Application["cartItems"] = cartItemList;
 
+            cnn.Open();
             SqlCommand getAllCartItemsCommand = cnn.CreateCommand();
             getAllCartItemsCommand.CommandType = CommandType.Text;
             getAllCartItemsCommand.CommandText = "SELECT * FROM CartItems";
-            cnn.Close();
 
-            cnn.Open();
             SqlDataReader cartItemsReader = getAllCartItemsCommand.ExecuteReader();
 
             while (cartItemsReader.Read())

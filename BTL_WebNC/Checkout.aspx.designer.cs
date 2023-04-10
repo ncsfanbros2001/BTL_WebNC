@@ -78,13 +78,22 @@ namespace BTL_WebNC
         protected global::System.Web.UI.HtmlControls.HtmlAnchor logoutBtn;
 
         /// <summary>
-        /// continueShopping control.
+        /// totalPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton continueShopping;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl totalPrice;
+
+        /// <summary>
+        /// back2Cart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton back2Cart;
 
         /// <summary>
         /// checkout control.
@@ -123,12 +132,39 @@ namespace BTL_WebNC
         protected global::System.Web.UI.HtmlControls.HtmlInputText customerPhoneNumber;
 
         /// <summary>
+        /// orderDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText orderDate;
+
+        /// <summary>
         /// estimatedReceiveDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl estimatedReceiveDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText estimatedReceiveDate;
+
+        /// <summary>
+        /// address control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText address;
+
+        /// <summary>
+        /// note control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea note;
     }
 }

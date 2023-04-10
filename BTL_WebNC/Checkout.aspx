@@ -73,9 +73,9 @@
                         
                     </table>
                     <hr />
-                    <h2>Total Price: <span id="totalPrice"></span></h2>
+                    <h2>Total Price: <span id="totalPrice" runat="server"></span></h2>
                     <div class="optionButtons">
-                        <button id="continueShopping" runat="server" onserverclick="continueShopping_ServerClick">
+                        <button id="back2Cart" runat="server" onserverclick="back2Cart_ServerClick">
                             Keep on Shopping</button>
                         <button id="checkout" runat="server" onserverclick="checkout_ServerClick">Checkout</button>
                     </div>
@@ -90,30 +90,41 @@
                         <br />
                         <input type="text" id="customerName" runat="server" disabled/>
                     </div>
+
                     <div class="inputField">
                         <label for="customerEmail">Email</label>
                         <br />
                         <input type="text" id="customerEmail" runat="server" disabled/>
                     </div>
+
                     <div class="inputField">
                         <label for="customerPhoneNumber">Phone Number</label>
                         <br />
                         <input type="text" id="customerPhoneNumber" runat="server" disabled/>
                     </div>
+
+                    <div class="inputField">
+                        <label for="orderDate">Order Date</label>
+                        <br />
+                        <input type="text" id="orderDate" runat="server" disabled/>
+                    </div>
+
                     <div class="inputField">
                         <label for="estimatedReceiveDate">Estimated Receive Date</label>
                         <br />
-                        <input type="date" id="estimatedReceiveDate" runat="server" disabled/>
+                        <input type="text" id="estimatedReceiveDate" runat="server" disabled/>
                     </div>
+
                     <div class="inputField">
                         <label for="address">Address</label>
                         <br />
-                        <input type="text" id="address" />
+                        <input type="text" id="address" runat="server"/>
                     </div>
+
                     <div class="inputField">
                         <label for="note">Note (Optional)</label>
                         <br />
-                        <textarea id="note"></textarea>
+                        <textarea id="note" runat="server"></textarea>
                     </div>
                 </div>
             </div>

@@ -212,7 +212,7 @@ hr {
     font-weight: bold;
 }
 
-#continueShopping {
+#back2Cart {
     width: 48%;
     height: 40px;
     background-color: #ffc107;
@@ -221,7 +221,7 @@ hr {
     border-radius: 5px;
 }
 
-    #continueShopping:hover {
+    #back2Cart:hover {
         background-color: orange;
     }
 

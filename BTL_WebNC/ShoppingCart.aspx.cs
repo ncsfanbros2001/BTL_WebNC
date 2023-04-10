@@ -22,14 +22,7 @@ namespace BTL_WebNC
                 Response.Redirect("LandingPage.aspx");
             }
 
-            foreach (Persons person in userList)
-            {
-                if (person.Fullname == Session["name"].ToString())
-                {
-                    toUserInfo.HRef = "UserInfo.aspx?id=" + person.ID;
-                    break;
-                }
-            }
+            toUserInfo.HRef = "UserInfo.aspx?id=" + Session["id"];
 
             if (Session["role"].ToString() == "Admin")
             {

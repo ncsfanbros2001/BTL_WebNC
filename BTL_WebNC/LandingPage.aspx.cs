@@ -49,14 +49,7 @@ namespace BTL_WebNC
                 authenticationControls.Visible = false;
                 accountControls.Visible = true;
 
-                foreach (Persons person in userList)
-                {
-                    if (person.Fullname == Session["name"].ToString())
-                    {
-                        toUserInfo.HRef = "UserInfo.aspx?id=" + person.ID;
-                        break;
-                    }
-                }
+                toUserInfo.HRef = "UserInfo.aspx?id=" + Session["id"];
 
                 if (Session["role"].ToString() == "Admin")
                 {

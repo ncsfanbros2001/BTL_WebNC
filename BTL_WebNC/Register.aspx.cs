@@ -82,7 +82,7 @@ namespace BTL_WebNC
 
                 cmd.ExecuteNonQuery();
                 cnn.Close();
-                Response.Write("<script>alert('Register Successful');</script>");
+                //Response.Write("<script>alert('Register Successful');</script>");
                 Response.Redirect("Login.aspx");
             }
         }

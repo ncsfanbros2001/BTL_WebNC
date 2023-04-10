@@ -64,3 +64,22 @@ create table CartItems (
 select * from CartItems
 
 truncate table CartItems
+
+create table PurchaseHistory (
+	ReceiptID int identity(1, 1) primary key,
+	PersonID int foreign key References Persons(Id),
+	OrderDate DATE,
+	EstimateReceiveDate DATE,
+	Address nvarchar(150),
+	Note text,
+	TotalPrice decimal(10, 2)
+)
+
+create table PurchaseList (
+	PurchasedItemID int identity(1, 1) primary key,
+	ReceiptID int foreign key References PurchaseHistory(ReceiptID),
+	BookID int foreign key References Books(Id),
+	Quantity int
+)
+
+Select ISNULL(MAX(PurchasedItemID), 1) from PurchaseList
