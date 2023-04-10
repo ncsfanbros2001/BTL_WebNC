@@ -55,24 +55,17 @@ namespace BTL_WebNC
                 if (Session["role"].ToString() == "Admin")
                 {
                     userName.InnerText = Session["name"].ToString() + " (Admin) ";
+                    adminOnly.Visible = true;
+                    toCart.Visible = false;
+                    checkoutRegion.Visible = false;
                 }
                 else
                 {
                     userName.InnerText = Session["name"].ToString();
+                    adminOnly.Visible = false;
+                    toCart.Visible = true;
+                    checkoutRegion.Visible = true;
                 }
-            }
-
-            if (Session["role"].ToString() == "Admin")
-            {
-                adminOnly.Visible = true;
-                toCart.Visible = false;
-                checkoutRegion.Visible = false;
-            }
-            else
-            {
-                adminOnly.Visible = false;
-                toCart.Visible = true;
-                checkoutRegion.Visible = true;
             }
         }
 

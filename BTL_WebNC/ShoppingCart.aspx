@@ -78,12 +78,6 @@
         <header>
             <a href="LandingPage.aspx" class="logo"><span style="color: #ffc107;">BOOK</span><span
                 style="color: white;">LIFE</span></a>
-            <div class="buttons" id="authenticationControls" runat="server">
-                <button class="loginBTN button" id="loginBtn" runat="server" onserverclick="loginBtn_ServerClick">
-                    Log In</button>
-                <button class="signupBTN button" id="signupBtn" runat="server" onserverclick="signupBtn_ServerClick">
-                    Sign Up</button>
-            </div>
             <label class="dropdown" id="accountControls" runat="server">
                 <div class="dd-button" id="userName" runat="server"></div>
 

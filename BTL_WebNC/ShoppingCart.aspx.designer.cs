@@ -24,33 +24,6 @@ namespace BTL_WebNC
         protected global::System.Web.UI.HtmlControls.HtmlForm shoppingCart;
 
         /// <summary>
-        /// authenticationControls control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl authenticationControls;
-
-        /// <summary>
-        /// loginBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton loginBtn;
-
-        /// <summary>
-        /// signupBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton signupBtn;
-
-        /// <summary>
         /// accountControls control.
         /// </summary>
         /// <remarks>

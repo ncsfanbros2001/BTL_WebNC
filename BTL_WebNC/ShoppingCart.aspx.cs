@@ -15,61 +15,34 @@ namespace BTL_WebNC
         SqlConnection cnn = new SqlConnection(StaticValues.MINH_connectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["name"] == null)
-            {
-                Response.Redirect("LandingPage.aspx");
-            }
             List<Persons> userList = (List<Persons>)Application["users"];
 
             if (Session["name"] == null)
             {
-                authenticationControls.Visible = true;
-                accountControls.Visible = false;
+                Response.Redirect("LandingPage.aspx");
             }
-            else
+
+            foreach (Persons person in userList)
             {
-                authenticationControls.Visible = false;
-                accountControls.Visible = true;
-
-                foreach (Persons person in userList)
+                if (person.Fullname == Session["name"].ToString())
                 {
-                    if (person.Fullname == Session["name"].ToString())
-                    {
-                        toUserInfo.HRef = "UserInfo.aspx?id=" + person.ID;
-                        break;
-                    }
-                }
-
-                if (Session["role"].ToString() == "Admin")
-                {
-                    userName.InnerText = Session["name"].ToString() + " (Admin) ";
-                }
-                else
-                {
-                    userName.InnerText = Session["name"].ToString();
+                    toUserInfo.HRef = "UserInfo.aspx?id=" + person.ID;
+                    break;
                 }
             }
 
             if (Session["role"].ToString() == "Admin")
             {
+                userName.InnerText = Session["name"].ToString() + " (Admin) ";
                 adminOnly.Visible = true;
                 toCart.Visible = false;
             }
             else
             {
+                userName.InnerText = Session["name"].ToString();
                 adminOnly.Visible = false;
                 toCart.Visible = true;
             }
-        }
-
-        protected void loginBtn_ServerClick(object sender, EventArgs e)
-        {
-            Response.Redirect("Login.aspx");
-        }
-
-        protected void signupBtn_ServerClick(object sender, EventArgs e)
-        {
-            Response.Redirect("Register.aspx");
         }
 
         protected void logoutBtn_ServerClick(object sender, EventArgs e)

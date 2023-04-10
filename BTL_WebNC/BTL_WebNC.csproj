@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Checkout.aspx" />
+    <Content Include="CSS\checkoutCSS.css" />
     <Content Include="CSS\detailPageCSS.css" />
     <Content Include="CSS\landingPageCSS.css" />
     <Content Include="CSS\loginCSS.css" />

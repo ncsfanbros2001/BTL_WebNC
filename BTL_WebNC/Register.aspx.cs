@@ -15,7 +15,10 @@ namespace BTL_WebNC
         SqlConnection cnn = new SqlConnection(StaticValues.MINH_connectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (Session["name"] != null)
+            {
+                Response.Redirect("LandingPage.aspx");
+            }
         }
 
         protected void register_Click(object sender, EventArgs e)
