@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Checkout.aspx" />
     <Content Include="CSS\checkoutCSS.css" />
+    <Content Include="CSS\userInfoCSS.css" />
     <Content Include="CSS\detailPageCSS.css" />
     <Content Include="CSS\landingPageCSS.css" />
     <Content Include="CSS\loginCSS.css" />
@@ -77,6 +78,7 @@
     <Content Include="admin.aspx" />
     <Content Include="BookDetails.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="images\avatar.jpg" />
     <Content Include="images\Cinderella.jpg" />
     <Content Include="images\CleanCode.jpg" />
     <Content Include="images\DarkNhanTam.jpg" />
