@@ -85,33 +85,41 @@ namespace BTL_WebNC
             SqlCommand cmd = cnn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-            cmd.CommandText = "INSERT INTO PurchaseHistory (PersonID, OrderDate, EstimateReceiveDate, Address," +
+            if (address.Value.Length == 0) {
+                addressRequired.InnerText = "Address is required";
+            }
+            else
+            {
+                cmd.CommandText = "INSERT INTO PurchaseHistory (PersonID, OrderDate, EstimateReceiveDate, Address," +
                     "Note, TotalPrice) VALUES (@PersonID, @OrderDate, @EstimateReceiveDate, @Address, @Note," +
                     "@TotalPrice)";
-            cmd.Parameters.AddWithValue("@PersonID", Session["id"]);
-            cmd.Parameters.AddWithValue("@OrderDate", orderDate.Value);
-            cmd.Parameters.AddWithValue("@EstimateReceiveDate", estimatedReceiveDate.Value);
-            cmd.Parameters.AddWithValue("@Address", address.Value);
-            cmd.Parameters.AddWithValue("@Note", note.Value);
-            cmd.Parameters.AddWithValue("@TotalPrice", totalPrice);
+                cmd.Parameters.AddWithValue("@PersonID", Session["id"]);
+                cmd.Parameters.AddWithValue("@OrderDate", orderDate.Value);
+                cmd.Parameters.AddWithValue("@EstimateReceiveDate", estimatedReceiveDate.Value);
+                cmd.Parameters.AddWithValue("@Address", address.Value);
+                cmd.Parameters.AddWithValue("@Note", note.Value);
+                cmd.Parameters.AddWithValue("@TotalPrice", totalPrice);
 
-            cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-            foreach (CartItems cartItem in cartItemList)
-            {
-                if (cartItem.PersonID == Convert.ToInt32(Session["id"]))
+                foreach (CartItems cartItem in cartItemList)
                 {
-                    cmd.CommandText = $"INSERT INTO PurchaseList (ReceiptID, BookID, Quantity) VALUES" +
-                        $"({currentID}, '{cartItem.BookID}', {cartItem.quantity})";
-                    cmd.ExecuteNonQuery();
+                    if (cartItem.PersonID == Convert.ToInt32(Session["id"]))
+                    {
+                        cmd.CommandText = $"INSERT INTO PurchaseList (ReceiptID, BookID, Quantity) VALUES" +
+                            $"({currentID}, '{cartItem.BookID}', {cartItem.quantity})";
+                        cmd.ExecuteNonQuery();
+                    }
                 }
+
+                cmd.CommandText = $"DELETE FROM CartItems WHERE PersonID = {Session["id"]}";
+                cmd.ExecuteNonQuery();
+
+                cnn.Close();
+                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "text",
+                    "alert(\"Checkout completed! Thank you for choosing BookLife!\");" +
+                    "window.location ='LandingPage.aspx';", true);
             }
-
-            cmd.CommandText = $"DELETE FROM CartItems WHERE PersonID = {Session["id"]}";
-            cmd.ExecuteNonQuery();
-
-            cnn.Close();
-            //Response.Redirect("LandingPage.aspx");
         }
 
         protected void back2Cart_ServerClick(object sender, EventArgs e)

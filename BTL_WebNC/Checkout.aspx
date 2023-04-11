@@ -77,7 +77,8 @@
                     <div class="optionButtons">
                         <button id="back2Cart" runat="server" onserverclick="back2Cart_ServerClick">
                             Keep on Shopping</button>
-                        <button id="checkout" runat="server" onserverclick="checkout_ServerClick">Checkout</button>
+                        <button id="checkout" runat="server" onserverclick="checkout_ServerClick">
+                            Checkout</button>
                     </div>
                 </div>
             </div>
@@ -119,6 +120,7 @@
                         <label for="address">Address</label>
                         <br />
                         <input type="text" id="address" runat="server"/>
+                        <span id="addressRequired" runat="server"></span>
                     </div>
 
                     <div class="inputField">

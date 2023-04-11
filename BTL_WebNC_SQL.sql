@@ -67,7 +67,7 @@ truncate table CartItems
 
 create table PurchaseHistory (
 	ReceiptID int identity(1, 1) primary key,
-	PersonID int foreign key References Persons(Id),
+	PersonID int ,
 	OrderDate DATE,
 	EstimateReceiveDate DATE,
 	Address nvarchar(150),
@@ -75,11 +75,12 @@ create table PurchaseHistory (
 	TotalPrice decimal(10, 2)
 )
 
+select * from PurchaseHistory
+select * from PurchaseList
+
 create table PurchaseList (
 	PurchasedItemID int identity(1, 1) primary key,
-	ReceiptID int foreign key References PurchaseHistory(ReceiptID),
-	BookID int foreign key References Books(Id),
+	ReceiptID int,
+	BookID int,
 	Quantity int
 )
-
-Select ISNULL(MAX(PurchasedItemID), 1) from PurchaseList

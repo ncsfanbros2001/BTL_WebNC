@@ -55,14 +55,12 @@ namespace BTL_WebNC
             SqlCommand cmd = cnn.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = $"SELECT COUNT(PersonID) FROM CartItems WHERE PersonID = {Session["id"]}";
-
-            int count = Convert.ToInt32(cmd.ExecuteScalar());
             
-            if (count == 0)
+            if (Convert.ToInt32(cmd.ExecuteScalar()) == 0)
             {
                 emptyCartAlert.InnerText = "Your cart is empty";
             }
-            else if (count > 0)
+            if (Convert.ToInt32(cmd.ExecuteScalar()) > 0)
             {
                 cnn.Close();
                 Response.Redirect("Checkout.aspx");
