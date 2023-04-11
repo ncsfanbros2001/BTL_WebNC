@@ -33,17 +33,22 @@
         </header>
 
         <h1 style="font-size: 45px; margin-left: 50%; margin-bottom: 30px">Profile</h1>
-        <div id="Info" style="padding-left: 650px; margin-bottom: 100px">
+
+        <div id="Info" style="margin-left: 650px;margin-right:500px; margin-bottom: 100px; border: 15px solid white; background: white">
             <img src="images/avatar.jpg" alt="avatar" style="height: 313px; width: 340px; margin-bottom: 25px" />
             <br />
-            
-            <p>Fullname: <span id="fullName" runat="server"></span></p><br />
-            <p>Email: <span id="email" runat="server"></span></p><br />
-            <p>Phone Number: <span id="phoneNumber" runat="server"></span></p><br />
-            <p>DOB: <span id="dob" runat="server"></span></p><br />
-            <p>Position: <span id="position" runat="server"></span></p><br />
+            <p>Fullname: <span id="fullName" runat="server"></span></p>
+            <br />
+            <p>Email: <span id="email" runat="server"></span></p>
+            <br />
+            <p>Phone Number: <span id="phoneNumber" runat="server"></span></p>
+            <br />
+            <p>DOB: <span id="dob" runat="server"></span></p>
+            <br />
+            <p>Position: <span id="position" runat="server"></span></p>
+            <br />
         </div>
-
+        </div>
     </form>
 
     <footer>
