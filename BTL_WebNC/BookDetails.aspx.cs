@@ -158,7 +158,6 @@ namespace BTL_WebNC
                 }
 
                 cmd.ExecuteNonQuery();
-
                 cnn.Close();
 
                 Response.Redirect("ShoppingCart.aspx");

@@ -10,7 +10,7 @@
 <body>
     <form id="userInfo" runat="server">
         <header>
-            <a href="#" class="logo"><span style="color: #ffc107;">BOOK</span><span style="color: white;">LIFE</span></a>
+            <a href="LandingPage.aspx" class="logo"><span style="color: #ffc107;">BOOK</span><span style="color: white;">LIFE</span></a>
             <label class="dropdown" id="accountControls" runat="server">
                 <div class="dd-button" id="userName" runat="server">
                 </div>

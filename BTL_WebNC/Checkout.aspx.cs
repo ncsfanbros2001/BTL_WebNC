@@ -18,10 +18,16 @@ namespace BTL_WebNC
             List<Persons> userList = (List<Persons>)Application["users"];
             List<CartItems> cartItemList = (List<CartItems>)Application["cartItems"];
 
-            if (Session["name"] == null)
+            cnn.Open();
+            SqlCommand cmd = cnn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = $"SELECT COUNT(PersonID) FROM CartItems WHERE PersonID = {Session["id"]}";
+
+            if (Session["name"] == null || Convert.ToInt32(cmd.ExecuteScalar()) == 0)
             {
                 Response.Redirect("LandingPage.aspx");
             }
+            cnn.Close();
 
             toUserInfo.HRef = "UserInfo.aspx?id=" + Session["id"];
 

@@ -66,6 +66,7 @@ namespace BTL_WebNC
             {
                 Response.Cookies["rememberEmail"].Expires = DateTime.Now.AddDays(15);
                 Response.Cookies["rememberPassword"].Expires = DateTime.Now.AddDays(15);
+
                 Response.Redirect("LandingPage.aspx");
             }
             else if (isCorrect && !rememberMe.Checked)
