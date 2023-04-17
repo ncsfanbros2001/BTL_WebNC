@@ -67,13 +67,16 @@ truncate table CartItems
 
 create table PurchaseHistory (
 	ReceiptID int identity(1, 1) primary key,
-	PersonID int ,
+	PersonID int,
 	OrderDate DATE,
 	EstimateReceiveDate DATE,
 	Address nvarchar(150),
 	Note text,
 	TotalPrice decimal(10, 2)
 )
+
+ALTER TABLE PurchaseHistory
+ADD FOREIGN KEY (PersonID) REFERENCES Persons(Id);
 
 select * from PurchaseHistory
 select * from PurchaseList
@@ -84,3 +87,7 @@ create table PurchaseList (
 	BookID int,
 	Quantity int
 )
+
+ALTER TABLE PurchaseList
+ADD FOREIGN KEY (ReceiptID) REFERENCES PurchaseHistory(ReceiptID),
+FOREIGN KEY (BookID) REFERENCES Books(Id)

@@ -58,7 +58,7 @@ namespace BTL_WebNC
             
             if (Convert.ToInt32(cmd.ExecuteScalar()) == 0)
             {
-                emptyCartAlert.InnerText = "Your cart is empty";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "emptyAlert", "emptyCartAlert()", true);
             }
             if (Convert.ToInt32(cmd.ExecuteScalar()) > 0)
             {

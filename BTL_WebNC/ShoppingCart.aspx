@@ -71,6 +71,10 @@
             xhttp.open("GET", url, true);
             xhttp.send();
         }
+
+        function emptyCartAlert() {
+            document.getElementById('emptyCartAlert').innerText = 'Your cart is empty';
+        }
     </script>
 </head>
 <body onload="getCartItems()">
@@ -115,7 +119,8 @@
                             onserverclick="checkout_ServerClick">Checkout</button>
                         
                     </div>
-                    <p id="emptyCartAlert" runat="server"></p>
+                    <p id="emptyCartAlert"></p>
+                    
                 </div>
             </div>
 
@@ -124,6 +129,7 @@
                 <hr />
                 <div id="items"></div>
             </div>
+            
         </section>
 
         <footer>
