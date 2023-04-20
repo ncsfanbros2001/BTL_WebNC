@@ -17,7 +17,7 @@ namespace BTL_WebNC
         {
             List<Persons> userList = (List<Persons>)Application["users"];
 
-            if (Session["name"] == null)
+            if (Session["name"] == null || Session["role"].ToString() == "Admin")
             {
                 Response.Redirect("LandingPage.aspx");
             }

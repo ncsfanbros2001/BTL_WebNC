@@ -76,7 +76,7 @@
                     <h2>Total Price: <span id="totalPrice"></span></h2>
                     <div class="optionButtons">
                         <button id="back2Cart" runat="server" onserverclick="back2Cart_ServerClick">
-                            Keep on Shopping</button>
+                            Back To Cart</button>
                         <button id="checkout" runat="server" onserverclick="checkout_ServerClick">
                             Checkout</button>
                     </div>

@@ -23,7 +23,8 @@ namespace BTL_WebNC
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = $"SELECT COUNT(PersonID) FROM CartItems WHERE PersonID = {Session["id"]}";
 
-            if (Session["name"] == null || Convert.ToInt32(cmd.ExecuteScalar()) == 0)
+            if (Session["name"] == null || Convert.ToInt32(cmd.ExecuteScalar()) == 0
+                || Session["role"].ToString() == "Admin")
             {
                 Response.Redirect("LandingPage.aspx");
             }
