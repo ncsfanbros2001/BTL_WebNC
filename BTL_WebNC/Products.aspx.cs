@@ -15,14 +15,9 @@ namespace BTL_WebNC
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            toUserInfo.HRef = "UserInfo.aspx?id=" + Session["id"];
-
-            if (Session["role"].ToString() == "Admin")
-            {
                 userName.InnerText = Session["name"].ToString() + " (Admin) ";
                 adminOnly.Visible = true;
-            }
-            
+                toUserInfo.HRef = "UserInfo.aspx?id=" + Session["id"];
         }
         protected void logoutBTN_ServerClick(object sender, EventArgs e)
         {
