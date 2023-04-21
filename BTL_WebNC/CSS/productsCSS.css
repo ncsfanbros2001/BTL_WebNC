@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #F5F5F5;
+    background-color: forestgreen;
 }
 
 a {
@@ -146,3 +146,24 @@ footer {
     a {
         font-size: 18px;
     }
+
+#btn_delbook {
+    color: white;
+    background-color: red;
+    width: 80%;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+}
+
+    #btn_delbook:hover {
+        background-color: crimson;
+    }
+
+.bookTable {
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: white;
+    width: 500px;
+    
+}

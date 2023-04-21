@@ -17,7 +17,6 @@
             xhttp.onreadystatechange = function () {
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
                     const books = JSON.parse(xhttp.responseText);
-                    let bookCardCode = '';
                     let bookTableCode = `<tr>
                             <td><b>Title</b></td>
                             <td><b>Price</b></td>
@@ -29,7 +28,7 @@
                                 <td>` + book.Title + `</td>
                                 <td>$` + book.Price + `</td>
                                 <td>` + book.Author + `</td>
-                                <td><button id="btn_delbook" onClick="deleteBook(`+ book.Id +`)">Remove</button></td>
+                                <td><button id="btn_delbook" onClick="deleteBook(`+ book.Id + `)">Remove</button></td>
                             </tr>`;
                     }
                     document.getElementById('bookTable').innerHTML = bookTableCode;
@@ -68,18 +67,18 @@
             </label>
         </header>
 
-        <div>
-            <h1>All Products</h1>
-            <table id="bookTable" style="border-collapse: collapse;" border="1">
+        <div style="margin-top:120px; margin-bottom: 180px;">
+        <h1 style="text-align:center; margin-bottom: 15px;">All Products</h1>
 
-            </table>
-
+        <table id="bookTable" border="1";>
+        </table>
         </div>
+
 
         <footer>
-        <div class="copyright">
-            <p>© 2023 Copyright: <a class="text-white" href="#">BookLife.com</a></p>
-        </div>
+            <div class="copyright">
+                <p>© 2023 Copyright: <a class="text-white" href="#">BookLife.com</a></p>
+            </div>
         </footer>
     </form>
 </body>
