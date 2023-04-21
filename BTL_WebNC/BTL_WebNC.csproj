@@ -68,15 +68,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Checkout.aspx" />
+    <Content Include="CPH.aspx" />
     <Content Include="CSS\checkoutCSS.css" />
+    <Content Include="CSS\customerPurchaseHistoryCSS.css" />
+    <Content Include="CSS\productsCSS.css" />
+    <Content Include="CSS\purchaseHistoryCSS.css" />
     <Content Include="CSS\userInfoCSS.css" />
     <Content Include="CSS\detailPageCSS.css" />
     <Content Include="CSS\landingPageCSS.css" />
     <Content Include="CSS\loginCSS.css" />
     <Content Include="CSS\registerCSS.css" />
     <Content Include="CSS\shoppingCartCSS.css" />
-    <Content Include="admin.aspx" />
     <Content Include="BookDetails.aspx" />
+    <Content Include="CSS\usersCSS.css" />
     <Content Include="Global.asax" />
     <Content Include="images\avatar.jpg" />
     <Content Include="images\Cinderella.jpg" />
@@ -91,20 +95,16 @@
     <Content Include="images\TheWorldIsFlat.jpg" />
     <Content Include="LandingPage.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="PH.aspx" />
+    <Content Include="Products.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="ShoppingCart.aspx" />
     <Content Include="UserInfo.aspx" />
+    <Content Include="Users.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebService.asmx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="admin.aspx.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin.aspx.designer.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
-    </Compile>
     <Compile Include="BookDetails.aspx.cs">
       <DependentUpon>BookDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -118,6 +118,13 @@
     </Compile>
     <Compile Include="Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CPH.aspx.cs">
+      <DependentUpon>CPH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CPH.aspx.designer.cs">
+      <DependentUpon>CPH.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -140,6 +147,20 @@
     <Compile Include="ModelClasses\CartItems.cs" />
     <Compile Include="ModelClasses\StaticValues.cs" />
     <Compile Include="ModelClasses\Persons.cs" />
+    <Compile Include="PH.aspx.cs">
+      <DependentUpon>PH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PH.aspx.designer.cs">
+      <DependentUpon>PH.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Products.aspx.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Products.aspx.designer.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -161,6 +182,13 @@
     </Compile>
     <Compile Include="UserInfo.aspx.designer.cs">
       <DependentUpon>UserInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebService.asmx.cs">
       <DependentUpon>WebService.asmx</DependentUpon>

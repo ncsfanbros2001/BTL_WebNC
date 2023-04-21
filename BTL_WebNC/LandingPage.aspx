@@ -32,7 +32,7 @@
                                 <div class="product-info">
                                     <h4 class="product-title">` + book.Title + `</h4>
                                     <p class="product-price">$` + book.Price + `</p>
-                                    <a class="product-btn" href="BookDetails.aspx?id=` + book.Id +`">Details</a>
+                                    <a class="product-btn" href="BookDetails.aspx?id=` + book.Id + `">Details</a>
                                 </div>
                             </div>`
                         }
@@ -55,17 +55,20 @@
             </div>
             <label class="dropdown" id="accountControls" runat="server">
                 <div class="dd-button" id="userName" runat="server">
-                    
                 </div>
                 <input type="checkbox" class="dd-input" id="test" />
 
                 <ul class="dd-menu">
-                    <div id="toCart" runat="server"><li><a href="ShoppingCart.aspx">Shopping Cart</a></li></div>
+                    <div id="toCart" runat="server">
+                        <li><a href="ShoppingCart.aspx">Shopping Cart</a></li>
+                       <!-- <li><a href="PH.aspx">Purchase History</a></li> -->
+                    </div>
                     <li><a id="toUserInfo" runat="server">Account Info</a></li>
                     <div id="adminOnly" runat="server">
                         <li class="divider"></li>
-                        <li><a href="#">Products</a></li>
-                        <li><a href="#">Users</a></li>
+                        <li><a href="Products.aspx">Products</a></li>
+                        <li><a href="Users.aspx">Users</a></li>
+                      <!--<li><a href="CPH.aspx">Customer Purchase History</a></li> -->
                     </div>
                     <li class="divider"></li>
                     <li><a runat="server" id="logoutBtn" onserverclick="logoutBTN_ServerClick">Logout</a></li>
@@ -77,7 +80,7 @@
         <section class="products">
             <div class="product-filter">
                 <div class="search-by-name">
-                    <asp:TextBox ID="searchBox" runat="server" placeholder="Search by title ..." type="search" 
+                    <asp:TextBox ID="searchBox" runat="server" placeholder="Search by title ..." type="search"
                         oninput="getFilteredProducts()">
 
                     </asp:TextBox>
@@ -89,7 +92,6 @@
                 </div>
             </div>
             <div class="all-products" id="productList">
-                
             </div>
         </section>
 
