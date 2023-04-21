@@ -128,5 +128,23 @@ namespace BTL_WebNC
 
             cnn.Close();
         }
+
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true)]
+        public void DeleteBook(int bookId)
+        {
+            List<Books> bookList = (List<Books>)Application["books"];
+
+            cnn.Open();
+            SqlCommand cmd = cnn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = $"DELETE FROM Books WHERE ID = {bookId}";
+
+            cmd.ExecuteNonQuery();
+
+            bookList.RemoveAll(u => u.Id == bookId);
+
+            cnn.Close();
+        }
     }
 }

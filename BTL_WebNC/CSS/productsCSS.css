@@ -1,14 +1,13 @@
 ﻿* {
     box-sizing: border-box;
-    margin: 0 0 0 0px;
+    margin: 0;
     padding: 0;
     font-family: Sans-serif;
 }
 
 body {
-    background-color: lightpink;
+    background-color: #F5F5F5;
 }
-
 a {
     font-weight: 500;
     font-size: 16px;
@@ -44,7 +43,6 @@ header {
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
-
 /* Dropdown */
 .dropdown {
     display: inline-block;
@@ -78,7 +76,6 @@ header {
     .dd-button:hover {
         background-color: #eeeeee;
     }
-
 
 .dd-input {
     display: none;
@@ -148,4 +145,3 @@ footer {
     a {
         font-size: 18px;
     }
-

@@ -13,7 +13,7 @@ create table Persons (
 );
 
 
-select * from Persons
+select * from PurchaseHistory
 
 insert into Persons (Fullname, Email, Password, PhoneNumber, DOB, Gender, Position)
 values ('Han', 'admin', 'admin', '0365059595', '01-01-2001', 'FeMale', 'Admin')
@@ -48,6 +48,7 @@ values (N'First Readers Cinderella', 'Geraldine Taylor', 13.99, 'Education', N'P
 insert into Books (Title, Author, Price, Genre, Publisher, ImageLink)
 values (N'The Hobbit', 'J.R.R. Tolkien', 18.99, 'Fiction', N'HarperCollins', 'images/TheHobbit.jpg')
 
+
 create table CartItems (
 	CartItemID int identity(1, 1) primary key,
 	PersonID int foreign key References Persons(Id),
@@ -74,13 +75,20 @@ create table PurchaseHistory (
 	Note text,
 	TotalPrice decimal(10, 2)
 )
+ALTER TABLE PurchaseHistory ADD CONSTRAINT fk_per_history FOREIGN KEY (PersonID) REFERENCES Persons (ID); 
+
+
 
 select * from PurchaseHistory
 select * from PurchaseList
 
 create table PurchaseList (
 	PurchasedItemID int identity(1, 1) primary key,
-	ReceiptID int,
+	Receiptid int,
 	BookID int,
 	Quantity int
 )
+ALTER TABLE PurchaseList ADD CONSTRAINT fk_pur_history FOREIGN KEY (Receiptid) REFERENCES  PurchaseHistory(ReceiptID); 
+
+
+

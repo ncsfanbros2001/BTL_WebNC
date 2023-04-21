@@ -22,8 +22,11 @@ namespace BTL_WebNC
             {
                 Response.Redirect("LandingPage.aspx");
             }
-
-            if(Session["role"].ToString() == "Admin")
+            else
+            {
+                toUserInfo.HRef = "UserInfo.aspx?id=" + Session["id"];
+            }
+            if (Session["role"].ToString() == "Admin")
             {
                 userName.InnerText = Session["name"].ToString() + " (Admin)";
                 adminOnly.Visible = true;
@@ -42,12 +45,14 @@ namespace BTL_WebNC
                 {
                     fullName.InnerText = person.Fullname;
                     email.InnerText = person.Email;
+                    //password.InnerText = person.Password;
                     phoneNumber.InnerText = person.PhoneNumber;
                     dob.InnerText = person.DOB;
                     position.InnerText = person.Position;
                 }
             }
         }
+
         protected void logoutBTN_ServerClick(object sender, EventArgs e)
         {
             Session.Abandon();
