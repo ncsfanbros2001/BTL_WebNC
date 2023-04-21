@@ -18,10 +18,17 @@ namespace BTL_WebNC
             List<Persons> userList = (List<Persons>)Application["users"];
             List<CartItems> cartItemList = (List<CartItems>)Application["cartItems"];
 
-            if (Session["name"] == null)
+            cnn.Open();
+            SqlCommand cmd = cnn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = $"SELECT COUNT(PersonID) FROM CartItems WHERE PersonID = {Session["id"]}";
+
+            if (Session["name"] == null || Convert.ToInt32(cmd.ExecuteScalar()) == 0
+                || Session["role"].ToString() == "Admin")
             {
                 Response.Redirect("LandingPage.aspx");
             }
+            cnn.Close();
 
             toUserInfo.HRef = "UserInfo.aspx?id=" + Session["id"];
 
@@ -82,42 +89,48 @@ namespace BTL_WebNC
                 currentID = (int)getCurrentPurchaseID.ExecuteScalar() + 1;
             }
 
-            SqlCommand cmd = cnn.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-
             if (address.Value.Length == 0) {
                 addressRequired.InnerText = "Address is required";
             }
             else
             {
-                cmd.CommandText = "INSERT INTO PurchaseHistory (PersonID, OrderDate, EstimateReceiveDate, Address," +
+                SqlCommand insertReceiptCommand = cnn.CreateCommand();
+                insertReceiptCommand.CommandType = CommandType.Text;
+
+                insertReceiptCommand.CommandText = "INSERT INTO PurchaseHistory (PersonID, OrderDate, EstimateReceiveDate, Address," +
                     "Note, TotalPrice) VALUES (@PersonID, @OrderDate, @EstimateReceiveDate, @Address, @Note," +
                     "@TotalPrice)";
-                cmd.Parameters.AddWithValue("@PersonID", Session["id"]);
-                cmd.Parameters.AddWithValue("@OrderDate", orderDate.Value);
-                cmd.Parameters.AddWithValue("@EstimateReceiveDate", estimatedReceiveDate.Value);
-                cmd.Parameters.AddWithValue("@Address", address.Value);
-                cmd.Parameters.AddWithValue("@Note", note.Value);
-                cmd.Parameters.AddWithValue("@TotalPrice", totalPrice);
+                insertReceiptCommand.Parameters.AddWithValue("@PersonID", Session["id"]);
+                insertReceiptCommand.Parameters.AddWithValue("@OrderDate", orderDate.Value);
+                insertReceiptCommand.Parameters.AddWithValue("@EstimateReceiveDate", estimatedReceiveDate.Value);
+                insertReceiptCommand.Parameters.AddWithValue("@Address", address.Value);
+                insertReceiptCommand.Parameters.AddWithValue("@Note", note.Value);
+                insertReceiptCommand.Parameters.AddWithValue("@TotalPrice", totalPrice);
 
-                cmd.ExecuteNonQuery();
+                insertReceiptCommand.ExecuteNonQuery();
 
                 foreach (CartItems cartItem in cartItemList)
                 {
                     if (cartItem.PersonID == Convert.ToInt32(Session["id"]))
                     {
-                        cmd.CommandText = $"INSERT INTO PurchaseList (ReceiptID, BookID, Quantity) VALUES" +
+                        SqlCommand insertBooksCommand = cnn.CreateCommand();
+                        insertBooksCommand.CommandType = CommandType.Text;
+
+                        insertBooksCommand.CommandText = $"INSERT INTO PurchaseList (ReceiptID, BookID, Quantity) VALUES" +
                             $"({currentID}, '{cartItem.BookID}', {cartItem.quantity})";
-                        cmd.ExecuteNonQuery();
+                        insertBooksCommand.ExecuteNonQuery();
                     }
                 }
 
-                cmd.CommandText = $"DELETE FROM CartItems WHERE PersonID = {Session["id"]}";
-                cmd.ExecuteNonQuery();
+                SqlCommand deleteCartItemsCommand = cnn.CreateCommand();
+                deleteCartItemsCommand.CommandType = CommandType.Text;
+
+                deleteCartItemsCommand.CommandText = $"DELETE FROM CartItems WHERE PersonID = {Session["id"]}";
+                deleteCartItemsCommand.ExecuteNonQuery();
 
                 cnn.Close();
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "text",
-                    "alert(\"Checkout completed! Thank you for choosing BookLife!\");" +
+                    "alert(\"Checkout completed! Thank you for shopping with BookLife!\");" +
                     "window.location ='LandingPage.aspx';", true);
             }
         }

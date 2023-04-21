@@ -28,6 +28,8 @@ create table Books (
 	ImageLink nvarchar(50) not null
 )
 
+
+
 insert into Books (Title, Author, Price, Genre, Publisher, ImageLink)
 values (N'Đắc Nhân Tâm', 'Dale Carnegie', 15.99, N'Self-Help', 'Simon & Schuster', 'images/DarkNhanTam.jpg'),
 (N'The Big Nine', 'Amy Webb', 18.99, 'Economic', N'1980 Books', 'images/TheBigNine.jpg')
@@ -62,13 +64,13 @@ create table CartItems (
 	TotalPrice decimal(10, 2)
 ) 
 
-select * from CartItems
+select * from PurchaseHistory
 
-truncate table CartItems
+select * from PurchaseList
 
 create table PurchaseHistory (
 	ReceiptID int identity(1, 1) primary key,
-	PersonID int ,
+	PersonID int,
 	OrderDate DATE,
 	EstimateReceiveDate DATE,
 	Address nvarchar(150),
@@ -78,6 +80,9 @@ create table PurchaseHistory (
 ALTER TABLE PurchaseHistory ADD CONSTRAINT fk_per_history FOREIGN KEY (PersonID) REFERENCES Persons (ID); 
 
 
+
+ALTER TABLE PurchaseHistory
+ADD FOREIGN KEY (PersonID) REFERENCES Persons(Id);
 
 select * from PurchaseHistory
 select * from PurchaseList
@@ -91,4 +96,6 @@ create table PurchaseList (
 ALTER TABLE PurchaseList ADD CONSTRAINT fk_pur_history FOREIGN KEY (Receiptid) REFERENCES  PurchaseHistory(ReceiptID); 
 
 
-
+ALTER TABLE PurchaseList
+ADD FOREIGN KEY (ReceiptID) REFERENCES PurchaseHistory(ReceiptID),
+FOREIGN KEY (BookID) REFERENCES Books(Id)

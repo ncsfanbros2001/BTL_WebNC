@@ -1,13 +1,7 @@
 ﻿using BTL_WebNC.ModelClasses;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+
 
 namespace BTL_WebNC
 {
@@ -66,6 +60,7 @@ namespace BTL_WebNC
             {
                 Response.Cookies["rememberEmail"].Expires = DateTime.Now.AddDays(15);
                 Response.Cookies["rememberPassword"].Expires = DateTime.Now.AddDays(15);
+
                 Response.Redirect("LandingPage.aspx");
             }
             else if (isCorrect && !rememberMe.Checked)
