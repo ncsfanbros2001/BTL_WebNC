@@ -32,7 +32,7 @@
                                 <td style="border-top: 1px solid #ccc;
                                     border-bottom: 1px solid #ccc;">` + book.Author + `</td>
                                 <td style="border-top: 1px solid #ccc;
-                                    border-bottom: 1px solid #ccc;"><button id="btn_delbook" onClick="myFunction()">Remove</button></td>
+                                    border-bottom: 1px solid #ccc;"><button id="btn_delbook" onClick="myFunction(` + book.Id +`)">Remove</button></td>
                             </tr>`;
                     }
                     document.getElementById('bookTable').innerHTML = bookTableCode;
@@ -40,10 +40,10 @@
             }
         }
 
-        function myFunction() {
+        function myFunction(bookId) {
             let text = "Bạn muốn xóa sản phẩm này?";
             if (confirm(text) == true) {
-                deleteBook(book.Id);
+                deleteBook(bookId);
             }
             else {
                 text = "haizz";
