@@ -3,16 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.SessionState;
 
 namespace BTL_WebNC
 {
     public class Global : System.Web.HttpApplication
     {
-        // SqlConnection cnn = new SqlConnection(StaticValues.HAN_connectionString);
         SqlConnection cnn = new SqlConnection(StaticValues.MINH_connectionString);
         protected void Application_Start(object sender, EventArgs e)
         {
