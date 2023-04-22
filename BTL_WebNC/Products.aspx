@@ -17,23 +17,38 @@
             xhttp.onreadystatechange = function () {
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
                     const books = JSON.parse(xhttp.responseText);
-                    let bookTableCode = `<tr>
+                    let bookTableCode = `<tr style="background-color: lightgreen; height: 25px;">
                             <td><b>Title</b></td>
-                            <td><b>Price</b></td>
+                            <td style="width:30%"><b>Price</b></td>
                             <td><b>Author</b></td>
                             <td><b>Remove</b></td>
                         </tr>`;
                     for (let book of books) {
                         bookTableCode += `<tr>
-                                <td>` + book.Title + `</td>
-                                <td>$` + book.Price + `</td>
-                                <td>` + book.Author + `</td>
-                                <td><button id="btn_delbook" onClick="deleteBook(`+ book.Id + `)">Remove</button></td>
+                                <td style="border-top: 1px solid #ccc;
+                                    border-bottom: 1px solid #ccc;">` + book.Title + `</td>
+                                <td style="border-top: 1px solid #ccc;
+                                    border-bottom: 1px solid #ccc;">$` + book.Price + `</td>
+                                <td style="border-top: 1px solid #ccc;
+                                    border-bottom: 1px solid #ccc;">` + book.Author + `</td>
+                                <td style="border-top: 1px solid #ccc;
+                                    border-bottom: 1px solid #ccc;"><button id="btn_delbook" onClick="myFunction()">Remove</button></td>
                             </tr>`;
                     }
                     document.getElementById('bookTable').innerHTML = bookTableCode;
                 }
             }
+        }
+
+        function myFunction() {
+            let text = "Bạn muốn xóa sản phẩm này?";
+            if (confirm(text) == true) {
+                deleteBook(book.Id);
+            }
+            else {
+                text = "haizz";
+            }
+            document.getElementById('text').innerHTML = text;
         }
 
         function deleteBook(bookId) {
@@ -67,11 +82,12 @@
             </label>
         </header>
 
-        <div style="margin-top:120px; margin-bottom: 180px;">
-        <h1 style="text-align:center; margin-bottom: 15px;">All Products</h1>
+        <div style="margin-top:80px; margin-bottom: 150px;">
 
-        <table id="bookTable" border="1";>
-        </table>
+            <h1 style="text-align:center; margin-bottom: 15px; color: white; font-size: 45px;">All Products</h1>
+            <p id="text"></p>
+             <table id="bookTable" >
+             </table>
         </div>
 
 
