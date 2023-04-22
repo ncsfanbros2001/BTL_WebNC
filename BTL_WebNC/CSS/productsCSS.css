@@ -147,7 +147,7 @@ footer {
         font-size: 18px;
     }
 
-#btn_delbook {
+#bookTable #btn_delbook {
     color: white;
     background-color: red;
     width: 80%;
@@ -156,11 +156,11 @@ footer {
     border: none;
 }
 
-    #btn_delbook:hover {
-        background-color: crimson;
+    #bookTable #btn_delbook:hover {
+        background-color: crimson !important;
     }
 
-.bookTable {
+#bookTable {
     border-collapse: collapse;
     margin: 0 auto;
     background-color: white;

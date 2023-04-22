@@ -13,7 +13,6 @@ namespace BTL_WebNC
         protected void Page_Load(object sender, EventArgs e)
         {
             List<Persons> userList = (List<Persons>)Application["users"];
-            List<CartItems> cartItemList = (List<CartItems>)Application["cartItems"];
 
             cnn.Open();
             SqlCommand cmd = cnn.CreateCommand();
