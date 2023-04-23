@@ -99,3 +99,33 @@ ALTER TABLE PurchaseList ADD CONSTRAINT fk_pur_history FOREIGN KEY (Receiptid) R
 ALTER TABLE PurchaseList
 ADD FOREIGN KEY (ReceiptID) REFERENCES PurchaseHistory(ReceiptID),
 FOREIGN KEY (BookID) REFERENCES Books(Id)
+
+CREATE PROC sp_addProduct
+	@Title nvarchar(30), 
+	@Author nvarchar(30), 
+	@Price decimal(10, 2), 
+	@Genre nvarchar(20), 
+	@Publisher nvarchar(50), 
+	@ImageLink nvarchar(50)	
+	
+AS
+BEGIN
+INSERT INTO Books(
+					Title,
+					Author,
+					Price,
+					Genre,
+					Publisher,
+					ImageLink
+					)
+VALUES(
+					@Title,
+					@Author,
+					@Price,
+					@Genre,
+					@Publisher,
+					@ImageLink
+
+)
+END
+select * from books

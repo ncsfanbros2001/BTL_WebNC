@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: seagreen;
+    background-color: darkseagreen;
 }
 
 a {
@@ -172,3 +172,10 @@ td {
     border-bottom: 1px solid #ccc;
 }
 
+#btn_Add {
+    background-color: green;
+    color: white;
+    height: 55px;
+    width: 150px;
+    margin-left: 800px;
+}
