@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Add Product</title>
+     <link rel="stylesheet" type="text/css" href="CSS/addProductCSS.css" />
     <script type="text/javascript">
         function addProductValidation() {
             var Title = document.getElementById('Title').value.trim();
@@ -41,10 +42,10 @@
                 fisrtErrorList += '<li>Price is required</li>';
                 errorCount++;
             }
-            else if (!Price.toLowerCase().match(priceRegex)) {
-                fisrtErrorList += '<li>your price is not valid</li>';
-                errorCount++;
-            }
+            //else if (!Price.toLowerCase().match(priceRegex)) {
+               // fisrtErrorList += '<li>your price is not valid</li>';
+               // errorCount++;
+            //}
             if (Genre == '') {
                 fisrtErrorList += '<li>genre is required</li>';
                 errorCount++;
@@ -75,28 +76,55 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="margin-left: 300px;">
-            <asp:TextBox ID="Title" runat="server"></asp:TextBox>
+        <div class="container">
+         <h1 style="text-align:center; margin-bottom: 55px">Add Product</h1>
+        <div id="form" > 
+            <div style="display: inline-flex">
+            <label for="Title" style="margin-right:45px;" >Title</label>
+             <asp:TextBox ID="Title" runat="server"></asp:TextBox>
+            </div>                        
             <br />
-            <asp:TextBox ID="Author" runat="server" Style="margin-bottom: 0px"></asp:TextBox>
+            <div style="display: inline-flex">
+            <label for="Author" style="margin-right:30px;" >Author</label>
+            <asp:TextBox ID="Author" runat="server"></asp:TextBox>
+            </div>
             <br />
+            <div style="display: inline-flex">
+            <label for="Price" style="margin-right:40px;">Price</label>
             <asp:TextBox ID="Price" runat="server"></asp:TextBox>
+            </div>
             <br />
+            <div style="display: inline-flex">
+            <label for="Genre" style="margin-right:35px;">Genre</label>
             <asp:TextBox ID="Genre" runat="server"></asp:TextBox>
+            </div>
             <br />
+            <div style="display: inline-flex">
+            <label for="Publisher" style="margin-right:10px;">Publisher</label>
             <asp:TextBox ID="Publisher" runat="server"></asp:TextBox>
+            </div>
             <br />
+            <div style="display: inline-flex">
+            <label for="Image" >Image Link</label>
             <asp:FileUpload ID="Image" runat="server" />
+            </div>
             <br />
             <asp:Button runat="server" Text="ADD" ID="btn_add" OnClick="btn_add_Click" 
                                              OnClientClick="return addProductValidation()" />
 
+            <asp:Button ID="btn_cancel" runat="server" Text="Cancel" OnClick="btn_cancel_Click" />
+
        </div>
-    </form>
-     
-        <div class="firstErrorList">
+
+        <div id="firstErrorList">
             <ul id="firstErrorCol" runat="server">
             </ul>
         </div>
+    </div>
+    </form>    
+
 </body>
 </html>
+
+             
+            

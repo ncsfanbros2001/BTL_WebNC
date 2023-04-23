@@ -11,14 +11,9 @@ namespace BTL_WebNC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["name"] == null)
-            {
-                Response.Redirect("LandingPage.aspx");
-            }
-            else
-            {
-                toUserInfo.HRef = "UserInfo.aspx?id=" + Session["id"];
-            }
+            userName.InnerText = Session["name"].ToString() + " (Admin) ";
+            adminOnly.Visible = true;
+            toUserInfo.HRef = "UserInfo.aspx?id=" + Session["id"];
         }
         protected void logoutBTN_ServerClick(object sender, EventArgs e)
         {

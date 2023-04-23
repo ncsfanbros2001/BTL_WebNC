@@ -70,6 +70,7 @@
     <Content Include="AddProduct.aspx" />
     <Content Include="Checkout.aspx" />
     <Content Include="CPH.aspx" />
+    <Content Include="CSS\addProductCSS.css" />
     <Content Include="CSS\checkoutCSS.css" />
     <Content Include="CSS\customerPurchaseHistoryCSS.css" />
     <Content Include="CSS\productsCSS.css" />

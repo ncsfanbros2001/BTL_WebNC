@@ -1,0 +1,64 @@
+﻿body {
+    background-color: darkseagreen;
+    font-family: Sans-serif;
+}
+.container {
+    margin-left: 250px;
+    margin-right: 250px;
+    margin-top: 50px;
+    padding-top: 10px;
+    background-color: white;
+    border: dotted white;
+}
+
+#form{
+margin-left: 105px;
+}
+
+#Title{
+    margin-bottom: 15px;
+    width: 250px;
+}
+
+#Author {
+    margin-bottom: 15px;
+    width: 250px;
+}
+
+#Price {
+    margin-bottom: 15px;
+    width: 250px;
+}
+
+#Title {
+    margin-bottom: 15px;
+    width: 250px;
+}
+
+#Genre {
+    margin-bottom: 15px;
+    width: 250px;
+}
+
+#Publisher {
+    margin-bottom: 15px;
+    width: 250px;
+}
+
+#Image{
+    margin-bottom: 15px;
+}
+
+#btn_add{
+    width:120px;
+    height: 35px;
+    margin-right: 10px;
+    margin-left: 100px;
+    background-color: greenyellow;
+}
+
+#btn_cancel {
+    width: 120px;
+    height: 35px;
+    background-color: lightgrey;
+}

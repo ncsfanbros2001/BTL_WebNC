@@ -36,6 +36,13 @@ namespace BTL_WebNC
             cmd.ExecuteNonQuery();
 
             con.Close();
+
+            Response.Redirect("Products.aspx");
+        }
+
+        protected void btn_cancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Products.aspx");
         }
     }
 }

@@ -173,9 +173,9 @@ td {
 }
 
 #btn_Add {
-    background-color: green;
-    color: white;
-    height: 55px;
-    width: 150px;
+    background-color: greenyellow;
+    color:black;
+    height: 50px;
+    width: 120px;
     margin-left: 800px;
 }

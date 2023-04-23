@@ -6,6 +6,7 @@
 }
 
 body {
+    background-color: antiquewhite;
 }
 
 a {
@@ -147,3 +148,10 @@ footer {
     a {
         font-size: 18px;
     }
+
+#Item{
+    background-color: floralwhite;
+    border: groove;
+    margin-bottom: 15px;
+    margin-left: 30px;
+}

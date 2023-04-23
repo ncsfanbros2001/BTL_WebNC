@@ -21,9 +21,9 @@
                     <li><a id="toUserInfo" runat="server">Account Info</a></li>
                     <div id="adminOnly" runat="server">
                         <li class="divider"></li>
-                        <li><a href="#">Products</a></li>
+                        <li><a href="Products.aspx">Products</a></li>
                         <li><a href="Users.aspx">Users</a></li>
-                        <li><a href="CPH.aspx">Customer Purchase History</a></li>
+                        <!--<li><a href="CPH.aspx">Customer Purchase History</a></li>-->
                     </div>
                     <li class="divider"></li>
                     <li><a runat="server" id="logoutBtn" onserverclick="logoutBTN_ServerClick">Logout</a></li>
@@ -31,10 +31,11 @@
             </label>
         </header>
         <div>
-            <h1>User List</h1>
+            <h1 style="margin-left: 30px; margin-bottom: 30px; color:white;">User List</h1>
             <p>
-                <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1">
+                <asp:DataList ID="DataList" runat="server" DataSourceID="SqlDataSource1">
                     <ItemTemplate>
+                        <div id="Item">
                         Fullname:
                         <asp:Label ID="FullnameLabel" runat="server" Text='<%# Eval("Fullname") %>' />
                         <br />
@@ -50,7 +51,7 @@
                         Position:
                         <asp:Label ID="PositionLabel" runat="server" Text='<%# Eval("Position") %>' />
                         <br />
-<br />
+                        </div>
                     </ItemTemplate>
                 </asp:DataList>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BTL_WebNCConnectionString2 %>" SelectCommand="SELECT [Fullname], [Email], [PhoneNumber], [Gender], [Position] FROM [Persons]"></asp:SqlDataSource>
