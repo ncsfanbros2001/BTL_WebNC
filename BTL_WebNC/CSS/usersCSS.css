@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: antiquewhite;
+    background-color: #f1f9fc;
 }
 
 a {
@@ -149,9 +149,20 @@ footer {
         font-size: 18px;
     }
 
-#Item{
-    background-color: floralwhite;
+#Item {
+    /*  background-color: floralwhite;
     border: groove;
     margin-bottom: 15px;
     margin-left: 30px;
+      */
+    margin: 20px auto;
+    border-radius: 30px;
+    background-color: #f6fcfe;
+    box-shadow: 0px 20px 70px 0px rgba(0, 0, 0, 0.21);
+    position: relative;
+    overflow: hidden;
+    left: 50%;
+}
+.item-child {
+    padding: 15px;
 }

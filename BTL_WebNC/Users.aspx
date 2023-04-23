@@ -31,26 +31,28 @@
             </label>
         </header>
         <div>
-            <h1 style="margin-left: 30px; margin-bottom: 30px; color:white;">User List</h1>
+            <h1 style="margin-left: 127px; margin-bottom: 30px; color:black;box-shadow:20px rgba(0, 0, 0, 0.21);">
+                User List</h1>
             <p>
                 <asp:DataList ID="DataList" runat="server" DataSourceID="SqlDataSource1">
                     <ItemTemplate>
                         <div id="Item">
-                        Fullname:
-                        <asp:Label ID="FullnameLabel" runat="server" Text='<%# Eval("Fullname") %>' />
-                        <br />
-                        Email:
-                        <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
-                        <br />
-                        PhoneNumber:
-                        <asp:Label ID="PhoneNumberLabel" runat="server" Text='<%# Eval("PhoneNumber") %>' />
-                        <br />
-                        Gender:
-                        <asp:Label ID="GenderLabel" runat="server" Text='<%# Eval("Gender") %>' />
-                        <br />
-                        Position:
-                        <asp:Label ID="PositionLabel" runat="server" Text='<%# Eval("Position") %>' />
-                        <br />
+                          <div class="item-child"> 
+                            <label>Fullname:</label>
+                            <asp:Label ID="FullnameLabel" runat="server" Text='<%# Eval("Fullname") %>' />
+                            <br />
+                            <label>Email:</label>
+                            <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
+                            <br />
+                            <label>PhoneNumber:</label>
+                            <asp:Label ID="PhoneNumberLabel" runat="server" Text='<%# Eval("PhoneNumber") %>' />
+                            <br />
+                            <label>Gender:</label>
+                            <asp:Label ID="GenderLabel" runat="server" Text='<%# Eval("Gender") %>' />
+                            <br />
+                            <label>Position:</label>
+                            <asp:Label ID="PositionLabel" runat="server" Text='<%# Eval("Position") %>' />
+                          </div>
                         </div>
                     </ItemTemplate>
                 </asp:DataList>

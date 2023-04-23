@@ -154,6 +154,7 @@ footer {
     height: 40px;
     border-radius: 5px;
     border: none;
+    font-size: 11px;
 }
 
     #bookTable #btn_delbook:hover {
@@ -161,11 +162,10 @@ footer {
     }
 
 #bookTable {
-    border-collapse: collapse;
-    
+    border-collapse: inherit;
     margin: 0 auto;
     background-color: white;
-    width: 500px;
+     width: 80%;
 }
 td {
     border-top: 1px solid #ccc;
@@ -174,8 +174,10 @@ td {
 
 #btn_Add {
     background-color: greenyellow;
-    color:black;
-    height: 50px;
-    width: 120px;
-    margin-left: 800px;
+    /*color: black;*/
+    height: 34px;
+    width: 126px;
+    /*margin-left: 798px;*/
+    border: unset;
+    border-radius: 10px;
 }

@@ -32,7 +32,7 @@
                                 <td style="border-top: 1px solid #ccc;
                                     border-bottom: 1px solid #ccc;">` + book.Author + `</td>
                                 <td style="border-top: 1px solid #ccc;
-                                    border-bottom: 1px solid #ccc;"><button id="btn_delbook" onClick="myFunction(` + book.Id +`)">Remove</button></td>
+                                    border-bottom: 1px solid #ccc;width: 6%;"><button id="btn_delbook" onClick="myFunction(` + book.Id +`)">Remove</button></td>
                             </tr>`;
                     }
                     document.getElementById('bookTable').innerHTML = bookTableCode;
@@ -63,7 +63,7 @@
 <body onload="getproducts()">
     <form id="form1" runat="server">
         <header>
-            <a href="LandingPage.aspx" class="logo"><span style="color: #ffc107;">BOOK</span><span style="color: white;">LIFE</span></a>
+           <a href="LandingPage.aspx" class="logo"><span style="color: #ffc107;">BOOK</span><span style="color: white;">LIFE</span></a>
             <label class="dropdown" id="accountControls" runat="server">
                 <div class="dd-button" id="userName" runat="server">
                 </div>
@@ -84,11 +84,12 @@
         </header>
 
         <div style="margin-top:80px; margin-bottom: 150px;">
-            <h1 style="text-align:center; margin-bottom: 15px; color: white; font-size: 45px;">All Products</h1>
-            <p id="text"></p>
-            <table id="bookTable" >
-             </table>
+            <h1 style="text-align:center; margin-bottom: 15px; color: white; font-size: 45px;">All Products
             <button id="btn_Add"><a href="AddProduct.aspx">+Add Product</a></button>
+            </h1>
+            <p id="text"></p>
+            <table id="bookTable" class="table">
+             </table>
         </div>
 
 
