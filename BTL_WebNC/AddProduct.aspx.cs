@@ -28,9 +28,9 @@ namespace BTL_WebNC
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Title", Title.Text);
             cmd.Parameters.AddWithValue("@Author", Author.Text);
-            cmd.Parameters.AddWithValue("@Price", Price.Text);
+            cmd.Parameters.AddWithValue("@Price", Convert.ToDouble(Price.Text).ToString("F2"));
             cmd.Parameters.AddWithValue("@Genre", Genre.Text);
-            cmd.Parameters.AddWithValue("@Publisher", Convert.ToDouble(Publisher.Text).ToString("F2"));
+            cmd.Parameters.AddWithValue("@Publisher", Publisher.Text);
             cmd.Parameters.AddWithValue("@ImageLink", "images/" + Image.FileName);
             con.Open();
             cmd.ExecuteNonQuery();
