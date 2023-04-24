@@ -69,7 +69,6 @@
   <ItemGroup>
     <Content Include="AddProduct.aspx" />
     <Content Include="Checkout.aspx" />
-    <Content Include="CPH.aspx" />
     <Content Include="CSS\addProductCSS.css" />
     <Content Include="CSS\checkoutCSS.css" />
     <Content Include="CSS\customerPurchaseHistoryCSS.css" />
@@ -97,7 +96,6 @@
     <Content Include="images\TheWorldIsFlat.jpg" />
     <Content Include="LandingPage.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="PH.aspx" />
     <Content Include="Products.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="ShoppingCart.aspx" />
@@ -128,13 +126,6 @@
     <Compile Include="Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CPH.aspx.cs">
-      <DependentUpon>CPH.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CPH.aspx.designer.cs">
-      <DependentUpon>CPH.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -156,13 +147,6 @@
     <Compile Include="ModelClasses\CartItems.cs" />
     <Compile Include="ModelClasses\StaticValues.cs" />
     <Compile Include="ModelClasses\Persons.cs" />
-    <Compile Include="PH.aspx.cs">
-      <DependentUpon>PH.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PH.aspx.designer.cs">
-      <DependentUpon>PH.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

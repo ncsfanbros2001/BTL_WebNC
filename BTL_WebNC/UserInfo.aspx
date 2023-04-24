@@ -24,7 +24,7 @@
                     <li><a id="toUserInfo" runat="server">Account Info</a></li>
                     <div id="adminOnly" runat="server">
                         <li class="divider"></li>
-                        <li><a href="#">Products</a></li>
+                        <li><a href="Products.aspx">Products</a></li>
                         <li><a href="Users.aspx">Users</a></li>
                         <li><a href="CPH.aspx">Customer Purchase History</a></li>
                     </div>
@@ -33,10 +33,10 @@
                 </ul>
             </label>
         </header>
+        <div id="all">
+        <h1 style="font-size: 45px; text-align:center; margin-top: 15px">Profile</h1>
 
-        <h1 style="font-size: 45px; margin-left: 50%; margin-bottom: 30px">Profile</h1>
-
-        <div id="Info" style="margin-left: 650px;margin-right:500px; margin-bottom: 100px; border: 15px solid white; background: white">
+        <div id="Info" >
             <img src="images/avatar.jpg" alt="avatar" style="height: 313px; width: 340px; margin-bottom: 25px" />
             <br />
             <p>Fullname: <span id="fullName" runat="server"></span></p>

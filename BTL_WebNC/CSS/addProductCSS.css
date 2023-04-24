@@ -3,16 +3,17 @@
     font-family: Sans-serif;
 }
 .container {
-    margin-left: 250px;
-    margin-right: 250px;
+    margin: auto;
+    width: 480px;
     margin-top: 50px;
     padding-top: 10px;
+    padding-bottom: 100px;
     background-color: white;
-    border: dotted white;
+    border: dotted green;
 }
 
 #form{
-margin-left: 105px;
+margin-left: 55px;
 }
 
 #Title{
@@ -49,18 +50,21 @@ margin-left: 105px;
     margin-bottom: 15px;
 }
 
-#btn_add{
-    width:120px;
+#btn_add {
+    width: 120px;
     height: 35px;
+    margin-top: 50px;
     margin-right: 10px;
-    margin-left: 100px;
+    margin-left: 80px;
     background-color: greenyellow;
+    border: unset;
 }
 
 #btn_cancel {
     width: 120px;
     height: 35px;
     background-color: lightgrey;
+    border: unset;
 }
 
 input::-webkit-outer-spin-button,
@@ -68,3 +72,4 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+

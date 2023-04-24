@@ -85,7 +85,7 @@
 
         <div style="margin-top:80px; margin-bottom: 150px;">
             <h1 style="text-align:center; margin-bottom: 15px; color: white; font-size: 45px;">All Products
-            <button id="btn_Add"><a href="AddProduct.aspx">+Add Product</a></button>
+            <button id="btn_Add"><a href="AddProduct.aspx" id="hrefadd">+Add Product</a></button>
             </h1>
             <p id="text"></p>
             <table id="bookTable" class="table">

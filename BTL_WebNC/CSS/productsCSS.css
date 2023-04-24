@@ -16,12 +16,13 @@ a {
     color: white;
 }
 
-button {
+/*button {
     font-weight: 500;
-    font-size: 18px;
+    font-size: 37px;
     text-decoration: none;
     cursor: pointer;
 }
+    */
 
 header {
     display: flex;
@@ -174,10 +175,11 @@ td {
 
 #btn_Add {
     background-color: greenyellow;
-    /*color: black;*/
     height: 34px;
     width: 126px;
     /*margin-left: 798px;*/
+    font-size: 18px;
     border: unset;
     border-radius: 10px;
 }
+

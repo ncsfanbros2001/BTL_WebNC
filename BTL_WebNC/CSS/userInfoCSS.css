@@ -149,3 +149,14 @@ footer {
         font-size: 18px;
     }
 
+#Info {
+     margin-bottom: 100px;
+     border: 15px solid white; 
+     background: white;
+}
+
+#all {
+    margin: auto;
+    width: 370px;
+    background-color: white;
+}
