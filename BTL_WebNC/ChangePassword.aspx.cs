@@ -13,13 +13,13 @@ namespace BTL_WebNC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ID.Text = Session["ID"].ToString();
+            ID.Text = Session["id"].ToString();
         }
 
         protected void Change_Click(object sender, EventArgs e)
         {
          
-            if (OldPassword.Text == Session["Password"].ToString())
+            if (OldPassword.Text == Session["password"].ToString())
             {
                 SqlConnection con = new SqlConnection(@"SERVER=(localdb)\MSSQLLocalDB; DATABASE=BTL_WebNC;");
                 SqlCommand cmd = new SqlCommand("sp_changePW", con);

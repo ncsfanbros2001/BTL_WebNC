@@ -44,6 +44,7 @@ namespace BTL_WebNC
                     Session["name"] = person.Fullname;
                     Session["role"] = person.Position;
                     Session["id"] = person.ID;
+                    Session["password"] = person.Password;
 
                     Response.Cookies["rememberEmail"].Value = person.Email;
                     Response.Cookies["rememberPassword"].Value = person.Password;
