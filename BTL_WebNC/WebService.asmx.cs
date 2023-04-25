@@ -146,5 +146,30 @@ namespace BTL_WebNC
 
             cnn.Close();
         }
+
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true)]
+        public void UpdateQuantity(int newQuantity, int itemId)
+        {
+            List<CartItems> cartItemList = (List<CartItems>)Application["cartItems"];
+
+            cnn.Open();
+            SqlCommand cmd = cnn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = $"UPDATE CartItems SET Quantity = {newQuantity} WHERE CartItemID = {itemId}";
+
+            cmd.ExecuteNonQuery();
+
+            //find the person object that needs to be updated
+            CartItems itemToUpdate = cartItemList.FirstOrDefault(p => p.CartItemID == itemId);
+
+            //modify the person's age
+            itemToUpdate.quantity = newQuantity;
+
+            //save the changes to the list
+            cartItemList[cartItemList.FindIndex(p => p.CartItemID == itemId)] = itemToUpdate;
+
+            cnn.Close();
+        }
     }
 }

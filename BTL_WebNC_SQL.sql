@@ -64,6 +64,8 @@ create table CartItems (
 	TotalPrice decimal(10, 2)
 ) 
 
+select * from CartItems
+
 select * from PurchaseHistory
 
 select * from PurchaseList

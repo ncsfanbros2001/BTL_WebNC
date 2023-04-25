@@ -88,14 +88,12 @@
                 <ul class="dd-menu">
                     <div id="toCart" runat="server">
                         <li><a href="ShoppingCart.aspx">Shopping Cart</a></li>
-                        <li><a href="PH.aspx">Purchase History</a></li>
                         </div>
                     <li><a id="toUserInfo" runat="server">Account Info</a></li>
                     <div id="adminOnly" runat="server">
                         <li class="divider"></li>
                         <li><a href="#">Products</a></li>
                         <li><a href="Users.aspx">Users</a></li>
-                        <li><a href="CPH.aspx">Customer Purchase History</a></li>
                     </div>
                     <li class="divider"></li>
                     <li><a runat="server" id="logoutBtn" onserverclick="logoutBtn_ServerClick">Logout</a></li>
