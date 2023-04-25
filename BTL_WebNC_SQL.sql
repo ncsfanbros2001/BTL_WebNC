@@ -133,6 +133,15 @@ END
 select * from books
 
 
+CREATE PROC sp_changePW
+	@ID int,
+	@Password nvarchar(20)
+AS
+BEGIN
+UPDATE Persons
+SET Password = @Password
+WHERE ID = @ID
+END
 
 
 

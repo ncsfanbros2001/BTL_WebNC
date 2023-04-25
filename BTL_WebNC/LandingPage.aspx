@@ -64,6 +64,7 @@
                        <!-- <li><a href="PH.aspx">Purchase History</a></li> -->
                     </div>
                     <li><a id="toUserInfo" runat="server">Account Info</a></li>
+                    <li><a href="ChangePassword.aspx">change</a></li>
                     <div id="adminOnly" runat="server">
                         <li class="divider"></li>
                         <li><a href="Products.aspx">Products</a></li>
