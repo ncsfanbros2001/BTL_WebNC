@@ -11,7 +11,7 @@ namespace BTL_WebNC
         {
             if (Session["name"] != null)
             {
-                Response.Redirect("LandingPage.aspx");
+                Response.Redirect(Request.UrlReferrer.ToString());
             }
 
             if (!IsPostBack)
@@ -28,14 +28,25 @@ namespace BTL_WebNC
                 {
                     rememberMe.Checked = true;
                 }
+
+                if (Convert.ToInt32(Session["failedLoginAttempt"]) == 3 && Session.Timeout > 0)
+                {
+                    login.Enabled = false;
+                    validationWarning.InnerText = "Please wait 1 minute";
+                }
+                else if (Session.Timeout == 0)
+                {
+                    Session["failedLoginAttempt"] = 0;
+                    validationWarning.InnerText = null;
+                }
             }
         }
 
         protected void login_Click(object sender, EventArgs e)
         {
             List<Persons> userList = (List<Persons>)Application["users"];
-
             bool isCorrect = false;
+
             foreach (Persons person in userList)
             {
                 if (person.Email == email.Text && person.Password == password.Text)
@@ -53,23 +64,35 @@ namespace BTL_WebNC
                 }
             }
 
-            if (!isCorrect)
+            if (!isCorrect && Convert.ToInt32(Session["failedLoginAttempt"]) < 3)
             {
+                Session["failedLoginAttempt"] = Convert.ToInt32(Session["failedLoginAttempt"]) + 1;
                 validationWarning.InnerText = "Your username or password is incorrect";
             }
             else if (isCorrect && rememberMe.Checked)
             {
+                Session.Timeout = 60;
                 Response.Cookies["rememberEmail"].Expires = DateTime.Now.AddDays(15);
                 Response.Cookies["rememberPassword"].Expires = DateTime.Now.AddDays(15);
+                Session["failedLoginAttempt"] = 0;
 
                 Response.Redirect("LandingPage.aspx");
             }
             else if (isCorrect && !rememberMe.Checked)
             {
+                Session.Timeout = 60;
                 Response.Cookies["rememberEmail"].Expires = DateTime.Now.AddDays(-1);
                 Response.Cookies["rememberPassword"].Expires = DateTime.Now.AddDays(-1);
+                Session["failedLoginAttempt"] = 0;
 
                 Response.Redirect("LandingPage.aspx");
+            }
+            else if (!isCorrect && Convert.ToInt32(Session["failedLoginAttempt"]) == 3)
+            {
+                Session.Timeout = 1;
+                login.Enabled = false;
+                
+                validationWarning.InnerText = "Please wait 1 minute";
             }
         }
     }

@@ -156,17 +156,16 @@ namespace BTL_WebNC
             cnn.Open();
             SqlCommand cmd = cnn.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = $"UPDATE CartItems SET Quantity = {newQuantity} WHERE CartItemID = {itemId}";
+            cmd.CommandText = $"UPDATE CartItems SET Quantity = {newQuantity}," +
+                $" TotalPrice = {newQuantity} * BookPrice WHERE CartItemID = {itemId}";
 
             cmd.ExecuteNonQuery();
 
-            //find the person object that needs to be updated
             CartItems itemToUpdate = cartItemList.FirstOrDefault(p => p.CartItemID == itemId);
 
-            //modify the person's age
             itemToUpdate.quantity = newQuantity;
+            itemToUpdate.TotalPrice = itemToUpdate.BookPrice * newQuantity;
 
-            //save the changes to the list
             cartItemList[cartItemList.FindIndex(p => p.CartItemID == itemId)] = itemToUpdate;
 
             cnn.Close();
