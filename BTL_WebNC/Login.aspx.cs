@@ -88,9 +88,7 @@ namespace BTL_WebNC
 
                 Response.Redirect("LandingPage.aspx");
             }
-<<<<<<< HEAD
-            
-=======
+
             else if (!isCorrect && Convert.ToInt32(Session["failedLoginAttempt"]) == 3)
             {
                 Session.Timeout = 1;
@@ -98,7 +96,6 @@ namespace BTL_WebNC
                 
                 validationWarning.InnerText = "Please wait 1 minute";
             }
->>>>>>> acadf13a441b87ae58d09ef7f1ddb1efa21ff96b
         }
     }
 }

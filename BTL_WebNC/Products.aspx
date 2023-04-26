@@ -9,7 +9,6 @@
     <script type="text/javascript">
         function getProducts() {
             var title = document.getElementById('searchBox').value;
-            //var url = 'https://localhost:44374/WebService.asmx/GetBooks?genre=All&title=';
 
             var url = 'https://localhost:44374/WebService.asmx/GetProducts?title=' + title;
 
@@ -63,7 +62,7 @@
 
     </script>
 </head>
-<body onload="getproducts()">
+<body onload="getProducts()">
     <form id="form1" runat="server">
         <header>
            <a href="LandingPage.aspx" class="logo"><span style="color: #ffc107;">BOOK</span><span style="color: white;">LIFE</span></a>
