@@ -26,9 +26,11 @@ namespace BTL_WebNC
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ID", ID.Text);
                 cmd.Parameters.AddWithValue("@Password", NewPassword.Text);
+                Session["password"] = NewPassword.Text;
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
+                Response.Redirect("LandingPage.aspx");
                 
             }
             else

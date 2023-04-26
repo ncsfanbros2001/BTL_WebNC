@@ -13,7 +13,7 @@ create table Persons (
 );
 
 
-select * from PurchaseHistory
+select * from Persons
 
 insert into Persons (Fullname, Email, Password, PhoneNumber, DOB, Gender, Position)
 values ('Han', 'admin', 'admin', '0365059595', '01-01-2001', 'FeMale', 'Admin')
