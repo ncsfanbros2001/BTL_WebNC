@@ -34,7 +34,6 @@ namespace BTL_WebNC
         protected void login_Click(object sender, EventArgs e)
         {
             List<Persons> userList = (List<Persons>)Application["users"];
-
             bool isCorrect = false;
             foreach (Persons person in userList)
             {
@@ -71,6 +70,7 @@ namespace BTL_WebNC
 
                 Response.Redirect("LandingPage.aspx");
             }
+            
         }
     }
 }

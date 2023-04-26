@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChangePassword.aspx.cs" Inherits="BTL_WebNC.ChangePassword" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="sen.aspx.cs" Inherits="BTL_WebNC.ChangePassword" %>
 
 <!DOCTYPE html>
 

@@ -10,16 +10,24 @@
         function loginValidation() {
             var email = document.getElementById("email").value.trim();
             var password = document.getElementById("password").value.trim();
+            var count = 3;
+            //const showBtnLogin = document.querySelector('#login')
+            //const div = document.querySelector('#btn')
 
             if (email == '' || password == '') {
                 document.getElementById("validationWarning").innerHTML = 'Both email and password are required !';
+                //showBtnLogin.addEventListener('click', () => {
+                    //div.style.visibility = 'hidden'
+                //})
                 return false;
             }
+            
             else {
                 document.getElementById("validationWarning").innerHTML = '';
                 return true;
             }
         }
+
     </script>
 </head>
 <body>
@@ -44,10 +52,11 @@
                 <input type="checkbox" id="rememberMe" runat="server" />
                 <label for="rememberMe">Remember me</label>
             </div>
-
+            <div id="btn">
             <asp:Button ID="login" OnClientClick="return loginValidation()" OnClick="login_Click" runat="server"
                 Text="SIGN IN">
             </asp:Button>
+            </div>
         </form>
 
         <div class="otherOptions">

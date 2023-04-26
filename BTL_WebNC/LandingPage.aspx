@@ -10,9 +10,11 @@
         function getFilteredProducts() {
             var getGenreList = document.getElementById('genreList');
             var genre = getGenreList.options[getGenreList.selectedIndex].value;
-            var title = document.getElementById('searchBox').value;
+            //var title = document.getElementById('searchBox').value;
 
-            var url = 'https://localhost:44374/WebService.asmx/GetBooks?genre=' + genre + '&title=' + title;
+            //var url = 'https://localhost:44374/WebService.asmx/GetBooks?genre=' + genre + '&title=' + title;
+
+            var url = 'https://localhost:44374/WebService.asmx/GetBooks?genre=' + genre +'&title=';
 
             const xhttp = new XMLHttpRequest();
             xhttp.open("GET", url, true);
@@ -61,15 +63,12 @@
                 <ul class="dd-menu">
                     <div id="toCart" runat="server">
                         <li><a href="ShoppingCart.aspx">Shopping Cart</a></li>
-                       <!-- <li><a href="PH.aspx">Purchase History</a></li> -->
                     </div>
                     <li><a id="toUserInfo" runat="server">Account Info</a></li>
-                    <li><a href="ChangePassword.aspx">change</a></li>
                     <div id="adminOnly" runat="server">
                         <li class="divider"></li>
                         <li><a href="Products.aspx">Products</a></li>
                         <li><a href="Users.aspx">Users</a></li>
-                      <!--<li><a href="CPH.aspx">Customer Purchase History</a></li> -->
                     </div>
                     <li class="divider"></li>
                     <li><a runat="server" id="logoutBtn" onserverclick="logoutBTN_ServerClick">Logout</a></li>
@@ -80,12 +79,12 @@
 
         <section class="products">
             <div class="product-filter">
-                <div class="search-by-name">
+                <!--<div class="search-by-name">
                     <asp:TextBox ID="searchBox" runat="server" placeholder="Search by title ..." type="search"
                         oninput="getFilteredProducts()">
 
                     </asp:TextBox>
-                </div>
+                </div>-->
                 <div class="search-by-genre">
                     <label for="cars" class="genreLabel">Search by genre:</label>
                     <asp:DropDownList ID="genreList" runat="server" onchange="getFilteredProducts()">

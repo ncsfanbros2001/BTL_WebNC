@@ -7,8 +7,11 @@
     <title>Products</title>
     <link rel="stylesheet" type="text/css" href="CSS/productsCSS.css" />
     <script type="text/javascript">
-        function getproducts() {
-            var url = 'https://localhost:44374/WebService.asmx/GetBooks?genre=All&title=';
+        function getProducts() {
+            var title = document.getElementById('searchBox').value;
+            //var url = 'https://localhost:44374/WebService.asmx/GetBooks?genre=All&title=';
+
+            var url = 'https://localhost:44374/WebService.asmx/GetProducts?title=' + title;
 
             const xhttp = new XMLHttpRequest();
             xhttp.open("GET", url, true);
@@ -75,7 +78,6 @@
                         <li class="divider"></li>
                         <li><a href="#">Products</a></li>
                         <li><a href="Users.aspx">Users</a></li>
-                        <!--<li><a href="CPH.aspx">Customer Purchase History</a></li>-->
                     </div>
                     <li class="divider"></li>
                     <li><a runat="server" id="logoutBtn" onserverclick="logoutBTN_ServerClick">Logout</a></li>
@@ -83,14 +85,16 @@
             </label>
         </header>
 
+        <asp:TextBox ID="searchBox" placeholder="search by title..." type="search" oninput="getProducts()" runat="server"></asp:TextBox>
+
         <div style="margin-top:80px; margin-bottom: 150px;">
             <h1 style="text-align:center; margin-bottom: 15px; color: white; font-size: 45px;">All Products
             <button id="btn_Add"><a href="AddProduct.aspx" id="hrefadd">+Add Product</a></button>
             </h1>
-            <p id="text"></p>
             <table id="bookTable" class="table">
              </table>
         </div>
+        <p id="text"></p>
 
 
         <footer>

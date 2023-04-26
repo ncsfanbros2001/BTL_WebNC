@@ -68,7 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddProduct.aspx" />
-    <Content Include="ChangePassword.aspx" />
+    <Content Include="sen.aspx" />
     <Content Include="Checkout.aspx" />
     <Content Include="CSS\addProductCSS.css" />
     <Content Include="CSS\checkoutCSS.css" />
@@ -120,12 +120,12 @@
     <Compile Include="BookDetails.aspx.designer.cs">
       <DependentUpon>BookDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ChangePassword.aspx.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    <Compile Include="sen.aspx.cs">
+      <DependentUpon>sen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ChangePassword.aspx.designer.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    <Compile Include="sen.aspx.designer.cs">
+      <DependentUpon>sen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Checkout.aspx.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>

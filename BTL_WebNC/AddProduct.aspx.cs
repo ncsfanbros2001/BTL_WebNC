@@ -34,7 +34,6 @@ namespace BTL_WebNC
             cmd.Parameters.AddWithValue("@ImageLink", "images/" + Image.FileName);
             con.Open();
             cmd.ExecuteNonQuery();
-
             con.Close();
 
             Response.Redirect("Products.aspx");
