@@ -17,7 +17,7 @@ namespace BTL_WebNC
         {
             if (Session["name"] != null)
             {
-                Response.Redirect(Request.UrlReferrer.ToString());
+                Response.Redirect("LandingPage.aspx");
             }
         }
 
