@@ -35,7 +35,7 @@
         <h1>LOGIN</h1>
         <h3 id="validationWarning" runat="server"></h3>
 
-        <form id="loginForm" runat="server">
+        <form id="loginForm" runat="server" method="post">
             <div class="emailField">
                 <label for="email">Email address</label>
                 <br />

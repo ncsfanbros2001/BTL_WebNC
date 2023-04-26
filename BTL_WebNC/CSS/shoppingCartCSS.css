@@ -291,7 +291,7 @@ h2 {
         font-size: 40px;
     }
 
-#amount {
+.amount {
     width: 10%;
     height: 30px;
     font-size: 18px;

@@ -39,7 +39,7 @@
                                     <h1 class="itemTitle">` + cartItem.BookTitle + `</h1>
                                     <div>
                                         <span style="font-size: 20px;">Quantity: </span>
-                                        <input type="number" id="amount"
+                                        <input type="number" class="amount" min="1" id="amount`+ cartItem.CartItemID +`"
                                         value="` + cartItem.quantity + `" disabled/>
                                         <span id="pricePerProduct">&nbsp;x $` + cartItem.BookPrice + `</span>
                                     </div>
