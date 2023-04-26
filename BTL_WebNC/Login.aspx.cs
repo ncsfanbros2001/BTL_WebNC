@@ -11,7 +11,7 @@ namespace BTL_WebNC
         {
             if (Session["name"] != null)
             {
-                Response.Redirect(Request.UrlReferrer.ToString());
+                Response.Redirect("LandingPage.aspx");
             }
 
             if (!IsPostBack)
@@ -38,6 +38,7 @@ namespace BTL_WebNC
                 {
                     Session["failedLoginAttempt"] = 0;
                     validationWarning.InnerText = null;
+                    login.Enabled = true;
                 }
             }
         }
