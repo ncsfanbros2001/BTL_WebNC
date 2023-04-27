@@ -100,51 +100,13 @@ namespace BTL_WebNC
         {
             Session["role"] = "none";
             Session["failedLoginAttempt"] = 0;
-            //onchange = "updateItemQuantity(document.getElementById('amount` + cartItem.CartItemID + `').value,
-            //                                ` +cartItem.CartItemID +`)"
-
-            //function updateItemQuantity(newQuantity, itemId)
-            //{
-            //    var url = 'https://localhost:44374/WebService.asmx/UpdateQuantity?newQuantity=' + newQuantity
-            //    + '&itemId=' + itemId;
-
-            //    const xhttp = new XMLHttpRequest();
-            //    xhttp.open("GET", url, true);
-            //    xhttp.send();
-
-            //    location.reload();
-            //}
+            
+            //Session["reloadCounter"] = 0;
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            //Login PageLoad
-            //if (Convert.ToInt32(Session["failedLoginAttempt"]) == 3 && Session.Timeout > 0)
-            //{
-            //    login.Enabled = false;
-            //    validationWarning.InnerText = "Please wait 1 minute";
-            //}
-            //else if (Session.Timeout == 0)
-            //{
-            //    Session["failedLoginAttempt"] = 0;
-            //    validationWarning.InnerText = null;
-            //    login.Enabled = true;
-            //}
-
-            //Login Onclick
-            //if (!isCorrect && Convert.ToInt32(Session["failedLoginAttempt"]) < 3)
-            //{
-            //    Session["failedLoginAttempt"] = Convert.ToInt32(Session["failedLoginAttempt"]) + 1;
-            //    validationWarning.InnerText = "Your username or password is incorrect";
-            //}
-
-            //else if (!isCorrect && Convert.ToInt32(Session["failedLoginAttempt"]) == 3)
-            //{
-            //    Session.Timeout = 1;
-            //    login.Enabled = false;
-
-            //    validationWarning.InnerText = "Please wait 1 minute";
-            //}
+            
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)

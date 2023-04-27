@@ -60,19 +60,17 @@
                         document.getElementById('quantity').innerText = "Results:" + quantityCounter;
                     }
                 }
-            }
-            
+            }  
         }
+
         function getFilteredProducts() {
             var getGenreList = document.getElementById('genreList');
             var genre = getGenreList.options[getGenreList.selectedIndex].value;
             var title = document.getElementById('searchBox').value;
             var quantityCounter = 0;
             
-
             var url = 'https://localhost:44374/WebService.asmx/GetBooks?genre=' + genre + '&title=' + title;
                 
-
             const xhttp = new XMLHttpRequest();
             xhttp.open("GET", url, true);
             xhttp.send();
@@ -173,6 +171,7 @@
             <div class="copyright">
                 <p>© 2023 Copyright: <a class="text-white" href="#">BookLife.com</a></p>
             </div>
+            <p style="color:bisque">Reloaded: <span runat="server" id="counter"></span></p>
         </footer>
     </form>
 </body>
