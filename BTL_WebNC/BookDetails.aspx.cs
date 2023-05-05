@@ -16,6 +16,7 @@ namespace BTL_WebNC
             List<Books> bookList = (List<Books>)Application["books"];
             List<Persons> userList = (List<Persons>)Application["users"];
 
+
             foreach (Books book in bookList)
             {
                 if (book.Id == bookID)
@@ -58,7 +59,6 @@ namespace BTL_WebNC
                 }
             }
         }
-
         protected void loginBtn_ServerClick(object sender, EventArgs e)
         {
             Response.Redirect("Login.aspx");

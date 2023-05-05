@@ -13,10 +13,11 @@
             var Price = document.getElementById('Price').value.trim();
             var Genre = document.getElementById('Genre').value.trim();
             var Publisher = document.getElementById('Publisher').value.trim();
+            var Year = document.getElementById('Year').value.trim();
             document.getElementById('firstErrorCol').innerHTML = '';
 
             var noNumberRegex = /^([^0-9]*)$/;
-
+           
             var errorCount = 0;
 
             var fisrtErrorList = '';
@@ -58,7 +59,10 @@
                 fisrtErrorList += '<li>publisher cannot contain numbers</li>';
                 errorCount++;
             }
-
+            if (Year > 2023) {
+                fisrtErrorList += '<li>Year of Pub cannot greatter than this year</li>';
+                errorCount++;
+            }
 
             if (errorCount == 0) {
                 return true;
@@ -98,6 +102,11 @@
                 <div style="display: inline-flex">
                     <label for="Publisher" style="margin-right: 10px;">Publisher</label>
                     <asp:TextBox ID="Publisher" runat="server"></asp:TextBox>
+                </div>
+                <br />
+                <div style="display: inline-flex">
+                    <label for="Year" style="margin-right: 10px;">Year of Publisher</label>
+                    <asp:TextBox ID="Year" runat="server" type="number"></asp:TextBox>
                 </div>
                 <br />
                 <div style="display: inline-flex">

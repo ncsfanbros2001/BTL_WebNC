@@ -28,6 +28,8 @@ create table Books (
 	ImageLink nvarchar(50) not null
 )
 
+ALTER TABLE Books
+ADD Year int null
 
 
 insert into Books (Title, Author, Price, Genre, Publisher, ImageLink)
@@ -102,12 +104,13 @@ ALTER TABLE PurchaseList
 ADD FOREIGN KEY (ReceiptID) REFERENCES PurchaseHistory(ReceiptID),
 FOREIGN KEY (BookID) REFERENCES Books(Id)
 
-CREATE PROC sp_addProduct
+CREATE PROC sp_addProductt
 	@Title nvarchar(30), 
 	@Author nvarchar(30), 
 	@Price decimal(10, 2), 
 	@Genre nvarchar(20), 
-	@Publisher nvarchar(50), 
+	@Publisher nvarchar(50),
+	@year int,
 	@ImageLink nvarchar(50)	
 	
 AS
@@ -118,6 +121,7 @@ INSERT INTO Books(
 					Price,
 					Genre,
 					Publisher,
+					year,
 					ImageLink
 					)
 VALUES(
@@ -126,10 +130,12 @@ VALUES(
 					@Price,
 					@Genre,
 					@Publisher,
+					@year,
 					@ImageLink
 
 )
 END
+
 select * from books
 
 

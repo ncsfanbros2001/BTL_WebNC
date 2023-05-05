@@ -25,23 +25,61 @@ namespace BTL_WebNC
 
         [WebMethod]
         [ScriptMethod(UseHttpGet = true)]
-        public void GetProducts(string title)
+        public void GetPersons()
         {
-            List<Books> bookList = new List<Books>();
+            List<Persons> personList = new List<Persons>();
 
             cnn.Open();
             SqlCommand cmd = cnn.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
+            cmd.CommandText = "SELECT * FROM Persons ";
+
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Persons person = new Persons();
+
+                person.ID = Convert.ToInt32(reader["ID"]);
+                person.Fullname = reader["Fullname"].ToString();
+                person.Email = reader["Email"].ToString();
+                person.Password = reader["Password"].ToString();
+                person.PhoneNumber = reader["PhoneNumber"].ToString();
+                person.DOB = reader["DOB"].ToString();
+                person.Gender = reader["Publisher"].ToString();
+                person.Position = reader["Position"].ToString();
+
+                personList.Add(person);
+            }
+
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Context.Response.Write(js.Serialize(personList));
+
+            cnn.Close();
+        }
+
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true)]
+        public void GetProducts(string title)
+        {
+            List<Books> bookList = new List<Books>();
+
+            cnn.Open();
+            SqlCommand cmd = cnn.CreateCommand(); 
+            cmd.CommandType = CommandType.Text;
+
             if (title == "")
             {
-                cmd.CommandText = "SELECT * FROM Books";
+                cmd.CommandText = "SELECT * FROM Books  ";
+                //ORDER BY Title desc
             }
             else if (title != "")
             {
                 cmd.CommandText = $"SELECT * FROM Books WHERE Title LIKE '%{title}%'";
             }
-           
+
 
             SqlDataReader reader = cmd.ExecuteReader();
 
@@ -139,6 +177,8 @@ namespace BTL_WebNC
 
             cnn.Close();
         }
+
+
 
         [WebMethod]
         [ScriptMethod(UseHttpGet = true)]

@@ -6,8 +6,19 @@
 <head runat="server">
     <title>Details</title>
     <link rel="stylesheet" type="text/css" href="CSS/detailPageCSS.css" />
+
+    <script type="text/javascript">
+        function count() {
+            var count = 0;
+            count++;
+            //document.getElementById('count').innerHTML = count;
+
+        }
+    </script>
 </head>
-<body>
+
+    
+<body >
     <form id="bookDetails" runat="server">
         <header>
             <a href="LandingPage.aspx" class="logo"><span style="color: #ffc107;">BOOK</span><span style="color: white;">LIFE</span></a>
@@ -60,6 +71,9 @@
                             <td id="publisher" runat="server"></td>
                         </tr>
                     </table>
+
+                    <p>Count:</p><h1 id="Count" runat="server"></h1>
+
                 </div>
                 <div class="checkout" runat="server" id="checkoutRegion">
                     <label for="amount">Quantity: </label>

@@ -159,6 +159,15 @@ namespace BTL_WebNC
         protected global::System.Web.UI.HtmlControls.HtmlTableCell publisher;
 
         /// <summary>
+        /// Count control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Count;
+
+        /// <summary>
         /// checkoutRegion control.
         /// </summary>
         /// <remarks>

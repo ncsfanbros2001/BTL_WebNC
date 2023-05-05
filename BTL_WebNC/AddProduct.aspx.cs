@@ -24,13 +24,14 @@ namespace BTL_WebNC
                 Image.SaveAs(Server.MapPath("images//" + Image.FileName));
             }
             SqlConnection con = new SqlConnection(@"SERVER=(localdb)\MSSQLLocalDB; DATABASE=BTL_WebNC;");
-            SqlCommand cmd = new SqlCommand("sp_addProduct", con);
+            SqlCommand cmd = new SqlCommand("sp_addProductt", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Title", Title.Text);
             cmd.Parameters.AddWithValue("@Author", Author.Text);
             cmd.Parameters.AddWithValue("@Price", Convert.ToDouble(Price.Text).ToString("F2"));
             cmd.Parameters.AddWithValue("@Genre", Genre.Text);
             cmd.Parameters.AddWithValue("@Publisher", Publisher.Text);
+            cmd.Parameters.AddWithValue("@year", Year.Text);
             cmd.Parameters.AddWithValue("@ImageLink", "images/" + Image.FileName);
             con.Open();
             cmd.ExecuteNonQuery();
@@ -45,3 +46,7 @@ namespace BTL_WebNC
         }
     }
 }
+
+/*string message = "Simple MessageBox";
+string title = "Title";
+MessageBox.Show(message, title);*/

@@ -8,8 +8,9 @@
     <link rel="stylesheet" type="text/css" href="CSS/productsCSS.css" />
     <script type="text/javascript">
         function getProducts() {
-            var title = document.getElementById('searchBox').value;
-
+            //var title = document.getElementById('searchBox').value;
+            var title = '';
+            var count = 0;
             var url = 'https://localhost:44374/WebService.asmx/GetProducts?title=' + title;
 
             const xhttp = new XMLHttpRequest();
@@ -36,8 +37,11 @@
                                 <td style="border-top: 1px solid #ccc;
                                     border-bottom: 1px solid #ccc;width: 6%;"><button id="btn_delbook" onClick="myFunction(` + book.Id +`)">Remove</button></td>
                             </tr>`;
+                        count++;
                     }
+
                     document.getElementById('bookTable').innerHTML = bookTableCode;
+                    document.getElementById('count1').innerHTML = count;
                 }
             }
         }
@@ -47,10 +51,6 @@
             if (confirm(text) == true) {
                 deleteBook(bookId);
             }
-            else {
-                text = "haizz";
-            }
-            document.getElementById('text').innerHTML = text;
         }
 
         function deleteBook(bookId) {
@@ -83,8 +83,8 @@
                 </ul>
             </label>
         </header>
-
-        <asp:TextBox ID="searchBox" placeholder="search by title..." type="search" oninput="getProducts()" runat="server"></asp:TextBox>
+        <!--<h1 id="count1"></h1>-->
+        <!--<asp:TextBox ID="searchBox" placeholder="search by title..." type="search" oninput="getProducts()" runat="server"></asp:TextBox>-->
 
         <div style="margin-top:80px; margin-bottom: 150px;">
             <h1 style="text-align:center; margin-bottom: 15px; color: white; font-size: 45px;">All Products
