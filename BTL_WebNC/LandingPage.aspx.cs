@@ -11,6 +11,10 @@ namespace BTL_WebNC
         SqlConnection cnn = new SqlConnection(StaticValues.MINH_connectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["reloadCounter"] = Convert.ToInt32(Session["reloadCounter"]) + 1;
+
+            counter.InnerText = Session["reloadCounter"].ToString();
+
             List<Persons> userList = (List<Persons>)Application["users"];
             cnn.Open();
 

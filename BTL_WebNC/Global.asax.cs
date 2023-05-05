@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.UI.WebControls;
 using static System.Net.WebRequestMethods;
 
 namespace BTL_WebNC
@@ -99,25 +100,13 @@ namespace BTL_WebNC
         {
             Session["role"] = "none";
             Session["failedLoginAttempt"] = 0;
-            //onchange = "updateItemQuantity(document.getElementById('amount` + cartItem.CartItemID + `').value,
-            //                                ` +cartItem.CartItemID +`)"
-
-            //function updateItemQuantity(newQuantity, itemId)
-            //{
-            //    var url = 'https://localhost:44374/WebService.asmx/UpdateQuantity?newQuantity=' + newQuantity
-            //    + '&itemId=' + itemId;
-
-            //    const xhttp = new XMLHttpRequest();
-            //    xhttp.open("GET", url, true);
-            //    xhttp.send();
-
-            //    location.reload();
-            //}
+            
+            //Session["reloadCounter"] = 0;
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)

@@ -114,6 +114,24 @@ namespace BTL_WebNC
         protected global::System.Web.UI.WebControls.TextBox searchBox;
 
         /// <summary>
+        /// minPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox minPrice;
+
+        /// <summary>
+        /// maxPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox maxPrice;
+
+        /// <summary>
         /// genreList control.
         /// </summary>
         /// <remarks>
@@ -121,5 +139,14 @@ namespace BTL_WebNC
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList genreList;
+
+        /// <summary>
+        /// counter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl counter;
     }
 }

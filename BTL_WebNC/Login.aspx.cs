@@ -28,18 +28,6 @@ namespace BTL_WebNC
                 {
                     rememberMe.Checked = true;
                 }
-
-                if (Convert.ToInt32(Session["failedLoginAttempt"]) == 3 && Session.Timeout > 0)
-                {
-                    login.Enabled = false;
-                    validationWarning.InnerText = "Please wait 1 minute";
-                }
-                else if (Session.Timeout == 0)
-                {
-                    Session["failedLoginAttempt"] = 0;
-                    validationWarning.InnerText = null;
-                    login.Enabled = true;
-                }
             }
         }
 
@@ -65,9 +53,8 @@ namespace BTL_WebNC
                 }
             }
 
-            if (!isCorrect && Convert.ToInt32(Session["failedLoginAttempt"]) < 3)
+            if (!isCorrect)
             {
-                Session["failedLoginAttempt"] = Convert.ToInt32(Session["failedLoginAttempt"]) + 1;
                 validationWarning.InnerText = "Your username or password is incorrect";
             }
             else if (isCorrect && rememberMe.Checked)
@@ -75,7 +62,6 @@ namespace BTL_WebNC
                 Session.Timeout = 60;
                 Response.Cookies["rememberEmail"].Expires = DateTime.Now.AddDays(15);
                 Response.Cookies["rememberPassword"].Expires = DateTime.Now.AddDays(15);
-                Session["failedLoginAttempt"] = 0;
 
                 Response.Redirect("LandingPage.aspx");
             }
@@ -84,17 +70,8 @@ namespace BTL_WebNC
                 Session.Timeout = 60;
                 Response.Cookies["rememberEmail"].Expires = DateTime.Now.AddDays(-1);
                 Response.Cookies["rememberPassword"].Expires = DateTime.Now.AddDays(-1);
-                Session["failedLoginAttempt"] = 0;
 
                 Response.Redirect("LandingPage.aspx");
-            }
-
-            else if (!isCorrect && Convert.ToInt32(Session["failedLoginAttempt"]) == 3)
-            {
-                Session.Timeout = 1;
-                login.Enabled = false;
-                
-                validationWarning.InnerText = "Please wait 1 minute";
             }
         }
     }
